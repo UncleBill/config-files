@@ -48,7 +48,7 @@ command! Ranlook call Ranlook()
 "}
 colo murphy
 if has("gui_running")
-	colo molokai
+	colo desert
 	"colo asu1dark
 	"colo xoria256
 endif

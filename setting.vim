@@ -5,11 +5,29 @@ let $MYVIMRC_="~/Dropbox/works/Vim/"
 let g:snippets_dir='~/.vim/bundle/vim-snippets/snippets'
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 let g:neosnippet#snippets_directory='~/Dropbox/works/Vim/snippets'
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_fuzzy_completion = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_fuzzy_completion_start_length = 1
+let g:neocomplcache_max_list = 20
+let g:neocomplcache_min_keyword_length = 2
+let g:neocomplcache_min_syntax_length = 2
+let $MYDICTDIR = '~/Dropbox/works/Vim/dict/'
+let g:neocomplcache_dictionary_filetype_lists={
+    \ 'default' : $MYDICTDIR . 'words.dict',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'javascript' : $MYDICTDIR . 'javascript.dict',
+    \ 'css' : $MYDICTDIR . 'css.dcit',
+    \ 'php' : $MYDICTDIR . 'php.dict',
+    \ 'vim' : $MYDICTDIR . 'vim.dict',
+    \ 'xml' : $MYDICTDIR . 'xml.dict',
+    \ 'html': $MYDICTDIR . 'html.dict'
+    \}
+"let g:neocomplcache_enable_auto_delimiter = 1
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
@@ -19,6 +37,8 @@ set backupdir=~/.vim/.backup/
 set directory=~/Dropbox/works/Vim/vim_swp
 set path=.,/usr/local/include,/usr/include
 "set dictionary=~/
+au BufEnter *.php set dictionary-=~/.vim/extra/php-funclist.txt dictionary+=~/.vim/extra/php-funclist.txt
+au BufLeave *.php set dictionary-=~/.vim/extra/php-funclist.txt
 set history=1000
 set shiftwidth=4
 set tabstop=4
@@ -26,6 +46,7 @@ set expandtab
 set smartindent
 set numberwidth=1
 set ignorecase
+set smartcase
 set relativenumber
 set noerrorbells
 set visualbell
@@ -35,20 +56,26 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
+set guioptions-=e
 set laststatus=2
 set matchtime=0
 set ruler
+set cursorline
+highlight clear SignColumn
 set hlsearch
+set incsearch
+set scrolljump=5
+set scrolloff=3
+"set list
+"set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 "set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
 "let g:indent_guides_auto_colors = 0
 let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeQuitOnOpen=1
+let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:gist_use_password_in_gitconfig = 1
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_fuzzy_completion = 1
-let g:neocomplcache_fuzzy_completion_start_length = 1
+let g:gitgutter_enabled = 0
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_filetype_blacklist={'*':0}
 let g:ycm_filetype_whitelist={'*':1}
