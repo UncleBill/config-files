@@ -1,6 +1,5 @@
 autocmd FileType html,css imap <c-cr> <c-y>,
 autocmd FileType html,css nmap <c-cr> <c-y>,
-autocmd FileType python let g:jedi#popup_on_dot=0
 autocmd FileType php let b:surround_{char2nr("-")} = "<?php \r ?>"
 autocmd FileType javascript let b:surround_99 = "(function(){\r}()); // closure"
 autocmd BufWrite * :%s/\s\+$//e

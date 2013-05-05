@@ -27,8 +27,8 @@ func! CmpGcc()
     !gcc % -o %< && %<
 endfunc
 command! CmpGcc call CmpGcc()
-nnoremap <F5> :CmpGcc<CR>
-inoremap <F5> <Esc>:CmpGcc<CR>
+"nnoremap <F5> :CmpGcc<CR>
+"inoremap <F5> <Esc>:CmpGcc<CR>
 "}}}
 "Random coloschemme function{{{
 function! Ranlook()
@@ -46,7 +46,7 @@ command! Ranlook call Ranlook()
 "reindent while save the file{
 "autocmd BufWrite * :normal mZgg=G'Z
 "}
-colo murphy
+colo native
 if has("gui_running")
 	colo desert
 	"colo asu1dark

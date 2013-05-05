@@ -18,6 +18,9 @@ nnoremap <S-F4> :set relativenumber!<CR>
 imap <F4> <esc><F4>
 imap <S-F4> <Esc><F4>
 
+nnoremap <F5> :QuickRun<cr>
+imap <F5> <esc><F5>
+
 inoremap <Leader><C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <Leader><C-P> :call PhpDocSingle()<CR>
 vnoremap <Leader><C-P> :call PhpDocRange()<CR>
@@ -39,6 +42,7 @@ vnoremap <C-Insert> "+y
 map <C-V> "+gP
 map <S-Insert> "+gP
 map <C-s> :w<CR>
+map <c-a> ggVG
 "****************************************
 ""mapping for edit vimrc{{{
 nnoremap <leader>ev :vsplit ~/.vim/<cr>
