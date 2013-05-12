@@ -619,7 +619,7 @@ sexec('dropbox start -i')
 sexec('conky')
 --sexec('indicator-cpufreq')
 --sexec('everpad')
-run_once('jupiter')
+--run_once('jupiter')
 -- bind PrintScrn to capture a screen
 awful.key(
    {},

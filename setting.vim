@@ -3,8 +3,9 @@ let $MYVIMRC_="~/Dropbox/works/Vim/"
 "let g:snippets_dir = $MYVIMRC_ . 'snippets'
 "let g:neosnippet#snippets_directory=$MYVIMRC_ . 'snippets'
 let g:snippets_dir='~/.vim/bundle/vim-snippets/snippets'
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-let g:neosnippet#snippets_directory='~/Dropbox/works/Vim/snippets'
+"let g:clang_library_path='/usr/include/'
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets,~/Dropbox/works/Vim/snippets'
+" neocomplcache settings
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_auto_select = 1
 let g:neocomplcache_enable_camel_case_completion = 1
@@ -27,8 +28,17 @@ let g:neocomplcache_dictionary_filetype_lists={
     \ 'xml' : $MYDICTDIR . 'xml.dict',
     \ 'html': $MYDICTDIR . 'html.dict'
     \}
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"set completeopt-=preview
 "let g:neocomplcache_enable_auto_delimiter = 1
 " For snippet_complete marker.
+"let g:AutoPairsFlyMode = 1
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
@@ -37,7 +47,7 @@ set backupdir=~/.vim/.backup/
 set directory=~/Dropbox/works/Vim/vim_swp
 set path=.,/usr/local/include,/usr/include
 "set dictionary=~/
-au BufEnter *.php set dictionary-=~/.vim/extra/php-funclist.txt dictionary+=~/.vim/extra/php-funclist.txt
+au BufEnter *.php set dictionary+=~/.vim/extra/php-funclist.txt
 au BufLeave *.php set dictionary-=~/.vim/extra/php-funclist.txt
 set history=1000
 set shiftwidth=4
@@ -46,7 +56,7 @@ set expandtab
 set smartindent
 set numberwidth=1
 set ignorecase
-set smartcase
+"set smartcase
 set relativenumber
 set noerrorbells
 set visualbell
@@ -85,7 +95,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:jedi#popup_on_dot = 0
 "autocmd BufEnter *.py let g:neocomplcache_enable_auto_select = 0    " for jedi's popup
 "autocmd BufLeave *.py let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_enable_auto_select = 1
 set autoread
 "let g:Powerline_symbols = 'fancy'
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
