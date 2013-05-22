@@ -43,6 +43,16 @@ endfunction
 "}}}
 "Random coloschemme function
 command! Ranlook call Ranlook()
+
+function! Dict()
+    echon system("sdcv ".expand("<cword>"))
+endfunction
+function! Rdict()
+    exe ":r !sdcv ".expand("<cword>")
+endfunction
+command! Dict call Dict()
+command! Rdict call Rdict()
+
 "reindent while save the file{
 "autocmd BufWrite * :normal mZgg=G'Z
 "}

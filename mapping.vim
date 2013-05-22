@@ -33,7 +33,7 @@ imap <M-,> <Esc><M-,>
 nmap <M-.> ^i.<Esc>$
 imap <M-.> <Esc><M-.>a
 nmap <leader>= zf%
-nmap <c-n> :noh<cr>
+nmap <m-h> :noh<cr>
 vmap <c-cr> <c-y>,
 imap <M-'> <Space>+ 1
 nmap <C-=> mzgg=G'z
@@ -42,7 +42,7 @@ vnoremap <C-Insert> "+y
 map <C-V> "+gP
 map <S-Insert> "+gP
 map <C-s> :w<CR>
-map <c-a> ggVG
+"map <c-a> ggVG
 "****************************************
 ""mapping for edit vimrc{{{
 nnoremap <leader>ev :vsplit ~/.vim/<cr>
@@ -67,3 +67,8 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 " Recommended key-mappings.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"smooth_scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>

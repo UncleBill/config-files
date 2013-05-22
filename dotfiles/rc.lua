@@ -28,6 +28,8 @@ editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 chrome = 'google-chrome'
 gvim = 'gvim'
+emacs = 'emacs'
+gitg = 'gitg'
 xscreensaver = 'xscreensaver-command -lock'
 
 wallpaper_app = "feh" -- if you want to check for app before trying
@@ -453,6 +455,7 @@ globalkeys = awful.util.table.join(
     -- custum
     awful.key({ modkey, "Control"   }, "g", function () awful.util.spawn(chrome) end),
     awful.key({ modkey,           }, "v", function () awful.util.spawn(gvim) end),
+    awful.key({ modkey,           }, "g", function () awful.util.spawn(gitg) end),
     awful.key({ modkey, "Control" }, "l", function () awful.util.spawn(xscreensaver) end)
 )
 
@@ -619,7 +622,7 @@ sexec('dropbox start -i')
 sexec('conky')
 --sexec('indicator-cpufreq')
 --sexec('everpad')
---run_once('jupiter')
+run_once('jupiter')
 -- bind PrintScrn to capture a screen
 awful.key(
    {},

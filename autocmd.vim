@@ -33,3 +33,5 @@ autocmd! BufNewFile,BufRead *.md set ft=markdown
 autocmd! BufNewFile,BufRead *.scss *.sass set ft=scss
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesOdd guibg=red ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesEven guibg=green ctermbg=4
+"autocmd! BufEnter *.coffee map <F5> :CoffeeCompile<cr>
+"autocmd! BufLeave *.coffee map <F5> :QuickRun<cr>
