@@ -623,6 +623,7 @@ sexec('conky')
 --sexec('indicator-cpufreq')
 --sexec('everpad')
 run_once('jupiter')
+run_once('stardict -h')
 -- bind PrintScrn to capture a screen
 awful.key(
    {},

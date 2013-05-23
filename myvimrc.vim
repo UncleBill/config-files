@@ -44,14 +44,28 @@ endfunction
 "Random coloschemme function
 command! Ranlook call Ranlook()
 
-function! Dict()
-    echon system("sdcv ".expand("<cword>"))
+function! Sdcv(...)
+    let s:keyword = ""
+    if a:0 == 0
+        let s:keyword = expand("<cword>")
+        if s:keyword == ""
+            echo "sdcv: no keyword input"
+            return
+        endif
+    else
+        let s:keyword = a:1
+    endif
+    let expl=system('sdcv -n ' . s:keyword)
+    echo expl
+    "windo if expand("%")=="sdcv-dict-tmp" | q! | map q :q!<cr> | endif
+    "25sp sdcv-dict-tmp
+    "setlocal buftype=nofile bufhidden=delete noswapfile
+    "1s/^/\=expl/
+    "1
+    "wincmd J
 endfunction
-function! Rdict()
-    exe ":r !sdcv ".expand("<cword>")
-endfunction
-command! Dict call Dict()
-command! Rdict call Rdict()
+
+command! -nargs=* Sdcv call Sdcv(<args>)
 
 "reindent while save the file{
 "autocmd BufWrite * :normal mZgg=G'Z
