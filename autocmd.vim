@@ -3,6 +3,7 @@ autocmd FileType html,css nmap <c-cr> <c-y>,
 autocmd FileType php let b:surround_{char2nr("-")} = "<?php \r ?>"
 autocmd FileType javascript let b:surround_99 = "(function(){\r}()); // closure"
 autocmd BufWrite * :%s/\s\+$//e
+"autocmd FileType * :NeoComplCacheCachingBuffer<cr>
 
 "dictionary setting{
 autocmd FileType xml set dictionary=~/Dropbox/works/Vim/dict/xml.dict
