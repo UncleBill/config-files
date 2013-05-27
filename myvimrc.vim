@@ -2,13 +2,18 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+if has('vim_starting')
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+ endif
+
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call neobundle#rc(expand('~/.vim/bundle'))
 
 "source Bundles list
 so ~/.vim/Bundles.vim
 
 filetype plugin indent on     " required!
+NeoBundleCheck
 "
 " Brief help
 " :BundleList          - list configured bundles
