@@ -2,9 +2,8 @@ let $MYVIMRC_="~/Dropbox/works/Vim/"
 "g:snippets_dir
 "let g:snippets_dir = $MYVIMRC_ . 'snippets'
 "let g:neosnippet#snippets_directory=$MYVIMRC_ . 'snippets'
-let g:snippets_dir='~/.vim/bundle/vim-snippets/snippets'
 "let g:clang_library_path='/usr/include/'
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets,~/Dropbox/works/Vim/snippets'
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet/autoload/neosnippets,~/Dropbox/works/Vim/snippets'
 " neocomplcache settings
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_auto_select = 1
@@ -86,11 +85,11 @@ let NERDTreeQuitOnOpen=1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:gist_use_password_in_gitconfig = 1
 let g:gitgutter_enabled = 0
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_filetype_blacklist={'*':0}
-let g:ycm_filetype_whitelist={'*':1}
-let g:ycm_collect_identifiers_from_comments_and_strins = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_min_num_of_chars_for_completion = 1
+"let g:ycm_filetype_blacklist={'*':0}
+"let g:ycm_filetype_whitelist={'*':1}
+"let g:ycm_collect_identifiers_from_comments_and_strins = 1
+"let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:jedi#popup_select_first = 0
 "let g:jedi#popup_on_dot = 0
 "autocmd BufEnter *.py let g:neocomplcache_enable_auto_select = 0    " for jedi's popup
@@ -99,3 +98,5 @@ set autoread
 "let g:Powerline_symbols = 'fancy'
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
                       \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+"let g:session_autoload='yes'
+"let g:session_autosave='yes'

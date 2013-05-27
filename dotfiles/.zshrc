@@ -47,8 +47,10 @@ function c(){
     cd $1
     ls
 }
-alias conndb.dyz="mysql --host=ap01-user01.c0ye1hvnkw6z.ap-southeast-1.rds.amazonaws.com --user=ukhvDyYlIKGxj --password=pNr69FKECSQ7n --port=3306"
-alias conndb.dyz2="mysql --host=ap01-user01.c0ye1hvnkw6z.ap-southeast-1.rds.amazonaws.com --user=ukhvDyYlIKGxj --password=pNr69FKECSQ7n --port=3306"
+function update-vim () {
+    cd ~/vim && hg pull && hg update && make
+}
+source ~/.zshrc-personal.zsh
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -70,7 +72,7 @@ alias conndb.dyz2="mysql --host=ap01-user01.c0ye1hvnkw6z.ap-southeast-1.rds.amaz
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git last-working-dir vundle battery)
+plugins=(git last-working-dir battery)
 
 source $ZSH/oh-my-zsh.sh
 
