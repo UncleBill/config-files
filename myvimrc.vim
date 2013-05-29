@@ -58,7 +58,7 @@ function! Sdcv(...)
             return
         endif
     else
-        let s:keyword = argv(1)
+        let s:keyword = a:1
     endif
     let expl=system('sdcv -n ' . s:keyword)
     "echo expl
@@ -72,7 +72,7 @@ function! Sdcv(...)
 endfunction
 
 command! -nargs=* Sdcv call Sdcv(<args>)
-nmap <M-f> :Sdcv<cr>
+nmap <M-d> :Sdcv<cr>
 
 "reindent while save the file{
 "autocmd BufWrite * :normal mZgg=G'Z

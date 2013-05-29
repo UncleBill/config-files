@@ -161,6 +161,34 @@ vicious.register(tzswidget, vicious.widgets.thermal,
 
 -- }}}
 
+-- {{{ cpu freq
+cpufreq_widget_0 = widget({ type = "textbox" })
+vicious.register(cpufreq_widget_0, vicious.widgets.cpufreq,
+    function(widget, args)
+        return "<span>"..args[1].."/</span>"
+    end,10,'cpu0'
+)
+
+cpufreq_widget_1 = widget({ type = "textbox" })
+vicious.register(cpufreq_widget_1, vicious.widgets.cpufreq,
+    function(widget, args)
+        return "<span>"..args[1].."/</span>"
+    end,10,'cpu1'
+)
+cpufreq_widget_2 = widget({ type = "textbox" })
+vicious.register(cpufreq_widget_2, vicious.widgets.cpufreq,
+    function(widget, args)
+        return "<span>"..args[1].."/</span>"
+    end,10,'cpu2'
+)
+cpufreq_widget_3 = widget({ type = "textbox" })
+vicious.register(cpufreq_widget_3, vicious.widgets.cpufreq,
+    function(widget, args)
+        return "<span>"..args[1].."/</span>"
+    end,10,'cpu3'
+)
+-- }}}
+
 
 -- {{{ Battery state
 
@@ -174,7 +202,11 @@ vicious.register(batwidget, vicious.widgets.bat,
 		if args[2] == 0 then return ""
 		else
 			baticon.image = image(beautiful.widget_bat)
-			return "<span color='white'>".. args[2] .. "%</span>"
+            if args[3] == "N/A" then
+                return "<span color='green'>".. args[1] .. args[2] .. "%</span>"
+            else
+                return "<span color='red'>".. args[1] .. args[2] .. "%" .. "@" .. args[3] .. "</span>"
+            end
 		end
 	end, 61, "BAT0"
 )
@@ -370,6 +402,10 @@ for s = 1, screen.count() do
         separator, memtext, membar_enable and membar.widget or nil, memicon,
         separator, tzfound and tzswidget or nil,
         cpugraph_enable and cpugraph.widget or nil, cpuwidget, cpuicon,
+        cpufreq_widget_0,
+        cpufreq_widget_1,
+        cpufreq_widget_2,
+        cpufreq_widget_3,
         ["layout"] = awful.widget.layout.horizontal.rightleft
     }
 end
@@ -616,14 +652,14 @@ mytimer:add_signal("timeout", function()
 end)
 
 -- initial start when rc.lua is first run
-mytimer:start()
+--mytimer:start()
 
 require_safe('autorun')
 sexec('dropbox start -i')
 sexec('conky')
 --sexec('indicator-cpufreq')
 --sexec('everpad')
-run_once('jupiter')
+--run_once('jupiter')
 run_once('stardict -h')
 -- bind PrintScrn to capture a screen
 awful.key(
@@ -641,4 +677,5 @@ function run_once(prg)
     awful.util.spawn_with_shell("pgrep -f -u $USER -x " .. prg .. " || (" .. prg .. ")")
 end
 --run_once('sh /home/unclebill/Dropbox/media/wallpapers/nasaBackground.sh')
+conky_statusbar = awful.wibox({ position = "top", screen = 1, ontop = false, width = 1, height = 16 })
 -- vim:fdm=marker

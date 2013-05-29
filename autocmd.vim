@@ -27,7 +27,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "**todo**
 "let dictfold = ~/Dropbox/works/Vim/dict/
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
-autocmd! BufNewFile,BufRead *.html set ft=html.css.javascript
+"autocmd! BufNewFile,BufRead *.html set ft=html.css.javascript
 autocmd! BufNewFile,BufRead *.ejs set ft=html
 autocmd! BufNewFile,BufRead *.go set ft=go
 autocmd! BufNewFile,BufRead *.md set ft=markdown
