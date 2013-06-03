@@ -1,4 +1,4 @@
-NeoBundleFetch 'gmarik/vundle'
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 ""vim-scripts repos
 NeoBundle 'vim-scripts/L9'
