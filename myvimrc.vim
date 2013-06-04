@@ -79,7 +79,7 @@ nmap <M-d> :Sdcv<cr>
 "}
 colo native
 if has("gui_running")
-	colo desert
+	colo atom
 	"colo asu1dark
 	"colo xoria256
 endif
