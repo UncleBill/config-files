@@ -62,9 +62,3 @@ abbr #G +>----------------------->+
 abbr #g +<-----------------------<+
 abbr #k +~~~~~~~~~~~~~~~~~~~+
 abbr #l +-----------------------------------------+
-" neocomplcache Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-" Recommended key-mappings.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
