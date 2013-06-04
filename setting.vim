@@ -91,7 +91,7 @@ let g:gitgutter_enabled = 0
 "let g:ycm_collect_identifiers_from_comments_and_strins = 1
 "let g:ycm_autoclose_preview_window_after_completion = 1
 let g:jedi#popup_select_first = 0
-let g:jedi#popup_on_dot = 1
+"let g:jedi#popup_on_dot = 0
 "autocmd BufEnter *.py let g:neocomplcache_enable_auto_select = 0    " for jedi's popup
 "autocmd BufLeave *.py let g:neocomplcache_enable_auto_select = 1
 set autoread
