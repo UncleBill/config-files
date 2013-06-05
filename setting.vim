@@ -67,6 +67,10 @@ set guioptions-=r
 set guioptions-=L
 set guioptions-=e
 set laststatus=2
+"don't need show mode dude Powerline
+set noshowmode
+set foldmethod=indent
+set foldlevelstart=99
 set matchtime=0
 set ruler
 set cursorline
@@ -80,6 +84,16 @@ set scrolloff=3
 "set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
 "let g:indent_guides_auto_colors = 0
+if !has("gui_running")
+    hi clear SpellBad
+    hi SpellBad cterm=underline ctermfg=red
+    hi clear SpellCap
+    hi SpellCap cterm=underline ctermfg=blue
+    hi clear SpellLocal
+    hi SpellLocal cterm=underline ctermfg=blue
+    hi clear SpellRare
+    hi SpellRare cterm=underline ctermfg=blue
+endif
 let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeQuitOnOpen=1
 let g:nerdtree_tabs_open_on_gui_startup = 0
@@ -96,7 +110,5 @@ let g:jedi#popup_select_first = 0
 "autocmd BufLeave *.py let g:neocomplcache_enable_auto_select = 1
 set autoread
 "let g:Powerline_symbols = 'fancy'
-let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
-                      \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
-"let g:session_autoload='yes'
-"let g:session_autosave='yes'
+"let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
+                      "\ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']

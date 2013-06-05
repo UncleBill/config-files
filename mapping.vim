@@ -1,7 +1,8 @@
 "mapping{
+nnoremap <F3> :<C-u>GundoToggle<CR>
 nmap <silent> <M-e> :NERDTreeToggle<ENTER>
 imap <silent> <M-e> <Esc><M-e>
-nmap <silent> <c-x> :CtrlPMRUFiles<ENTER>
+"nmap <silent> <c-x> :CtrlPMRUFiles<ENTER>
 nmap <F7> :tabnew
 imap <F7> <Esc><F7>
 nmap <S-F7> <F7><ENTER>

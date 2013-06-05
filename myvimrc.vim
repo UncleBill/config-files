@@ -1,4 +1,6 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""
+"================================================================================
+"neobundle
+"================================================================================
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -14,27 +16,11 @@ so ~/.vim/Bundles.vim
 
 filetype plugin indent on     " required!
 NeoBundleCheck
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
-"""""""""""""""""""""""""""""""""""""""""""""""""'
-"Compile with gcc{{{
-func! CmpGcc()
-	exec "w"
-    "exec "!g++ % -o %<.exe && echo  >nul && %<"
-	"exec "!g++ % -o %<.exe && %<"
-    !gcc % -o %< && %<
-endfunc
-command! CmpGcc call CmpGcc()
-"nnoremap <F5> :CmpGcc<CR>
-"inoremap <F5> <Esc>:CmpGcc<CR>
-"}}}
+
+
+"================================================================================
+"misc function
+"================================================================================
 "Random coloschemme function{{{
 function! Ranlook()
 	let colorfiles=[]
@@ -74,14 +60,9 @@ endfunction
 command! -nargs=* Sdcv call Sdcv(<args>)
 nmap <M-d> :Sdcv<cr>
 
-"reindent while save the file{
-"autocmd BufWrite * :normal mZgg=G'Z
-"}
 colo native
 if has("gui_running")
 	colo atom
-	"colo asu1dark
-	"colo xoria256
 endif
 
 "line_motions{{{
@@ -140,17 +121,52 @@ inoremap <silent> <M-Down> <C-o>:call MoveLineDown()<CR>
 xnoremap <silent> <M-Down> :<C-u>call MoveVisualDown()<CR>
 
 "}}}
+
+"================================================================================
+"unite
+"================================================================================
+nnoremap <C-p> :Unite file_rec/async -auto-resize<cr>
+nnoremap <space>/ :Unite grep:. -auto-resize -auto-preview<cr>
+nnoremap <C-x> :Unite file_mru -auto-resize<cr>
+nnoremap <space>y :Unite history/yanks<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
+
+
+"================================================================================
+"sourcing
+"================================================================================
 source ~/.vim/mapping.vim
 "settings
 source ~/.vim/setting.vim
 "autocmd
 source ~/.vim/autocmd.vim
-fun! GetSnipsInCurrentScope()
-    let snips = {}
-    for scope in [bufnr('%')] + split(&ft, '\.') + ['_']
-        call extend(snips, get(s:snippets, scope, {}), 'keep')
-        call extend(snips, get(s:multi_snips, scope, {}), 'keep')
-    endfor
-    return snips
-endf
+
+
+"================================================================================
+"instant markdown
+"================================================================================
+let g:instant_markdown_autostart = 0
+
+
+"===============================================================================
+" QuickRun
+"===============================================================================
+
+let g:quickrun_config = {}
+let g:quickrun_config['*'] = {
+      \ 'runner/vimproc/updatetime' : 100,
+      \ 'outputter' : 'buffer',
+      \ 'runner' : 'vimproc',
+      \ 'running_mark' : 'ﾊﾞﾝ（∩`･ω･）ﾊﾞﾝﾊﾞﾝﾊﾞﾝﾊﾞﾝﾞﾝ',
+      \ 'into' : 1,
+      \ 'runmode' : 'async:remote:vimproc'
+      \}
+" QuickRun triggers markdown preview
+let g:quickrun_config.markdown = {
+      \ 'runner': 'vimscript',
+      \ 'command': ':InstantMarkdownPreview',
+      \ 'exec': '%C',
+      \ 'outputter': 'null'
+      \}
+
 " vim:fdm=marker
