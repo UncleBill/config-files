@@ -57,6 +57,7 @@ set numberwidth=1
 set ignorecase
 "set smartcase
 set relativenumber
+"set number
 set noerrorbells
 set visualbell
 set wildmenu

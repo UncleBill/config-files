@@ -111,6 +111,9 @@ NeoBundle 'vim-scripts/cmdline-completion'
 "NeoBundle 'JazzCore/neocomplcache-ultisnips'
 "NeoBundle 'Rip-Rip/clang_complete'
 "NeoBundle 'SirVer/ultisnips'
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 "NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neocomplcache'
