@@ -12,7 +12,7 @@
 #
 
 # Create own window instead of using desktop (required in nautilus)
-own_window yes
+own_window no
 own_window_type override
 own_window_hints below
 
@@ -58,7 +58,7 @@ own_window_transparent yes
 
 # Text alignment, other possible values are commented
 #alignment top_left
-alignment bottom_middle
+alignment bottom_right
 
 # Gap between borders of screen and text
 gap_x 10
@@ -66,7 +66,6 @@ gap_y 10
 
 # stuff after 鈥楾EXT鈥� will be formatted on screen
 
-TEXT
 #$color
 #${color CC9900}SYSTEM ${hr 2}$color
 #$nodename $sysname $kernel on $machine
@@ -75,34 +74,40 @@ TEXT
 ##AMD Athlon(tm) 64 Socket 939 X2 Dual Core CPU 4200+
 #intel 2.67GHz x4
 
-Total CPU: ${cpu cpu0}%
-${color 597DB2}${cpubar}$color
-${cpugraph 000000 597DB2} \
-Temprature: $color ${exec sensors|grep 'temp1'|awk '{print $2}'}
-Core 1: ${freq 1} MHz
-${cpu cpu1}% ${color 597DB2}${cpubar cpu1}$color
-Core 2: ${freq 2} MHz
-${cpu cpu2}% ${color 597DB2}${cpubar cpu2}$color
-Core 3: ${freq 3} MHz
-${cpu cpu3}% ${color 597DB2}${cpubar cpu3}$color
-Core 4: ${freq 4} MHz
-${cpu cpu4}% ${color 597DB2}${cpubar cpu4}$color \
+#Total CPU: ${cpu cpu0}%
+#${color 597DB2}${cpubar}$color
+#${cpugraph 000000 597DB2}
+#Temprature: $color ${exec sensors|grep 'temp1'|awk '{print $2}'}
+#Core 1: ${freq 1} MHz
+#${cpu cpu1}% ${color 597DB2}${cpubar cpu1}$color
+#Core 2: ${freq 2} MHz
+#${cpu cpu2}% ${color 597DB2}${cpubar cpu2}$color
+#Core 3: ${freq 3} MHz
+#${cpu cpu3}% ${color 597DB2}${cpubar cpu3}$color
+#Core 4: ${freq 4} MHz
+#${cpu cpu4}% ${color 597DB2}${cpubar cpu4}$color
 
-NAME            PID	 CPU%  	MEM%
-${color 0000FF}${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+TEXT
+                    	                CPU%	   MEM%
+${color ffffff}\
+${cpubar cpu1 5,50} \
+${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${cpubar cpu2 5,50} \
 ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+${cpubar cpu3 5,50} \
 ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+${cpubar cpu4 5,50} \
 ${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
-$color
-
-${color CC9900}MEMORY ${hr 2}$color
-RAM Used: ${mem}	RAM Free: ${memfree}/ ${memmax}
- RAM: $memperc%  ${color FF6600} ${membar 6}$color
-
+$color\
+\
+#${color CC9900}MEMORY ${hr 2}$color
+#RAM Used: ${mem}	RAM Free: ${memfree}/ ${memmax}
+#RAM: $memperc%  ${color FF6600} ${membar 6}$color
+\
 #${color CC9900}DISK ${hr 2}$color
 #sdc5 ${fs_type} (Root): ${fs_free_perc /}% ${color FFFF33} ${fs_bar 6 /}$color
 #sdc1 NTFS (Data): ${fs_free_perc /media/data}% ${color FFFF33} ${fs_bar 6 /media/data}$color
-
+\
 #${color CC9900}NETWORK (${addr eth1}) ${hr 2}$color
 #Down: $color${downspeed eth1} k/s ${alignr}Up: ${upspeed eth1} k/s
 #${downspeedgraph eth1 25,105 000000 ff0000} ${alignr}${upspeedgraph eth1
@@ -110,6 +115,6 @@ RAM Used: ${mem}	RAM Free: ${memfree}/ ${memmax}
 #Total: ${totaldown eth1} ${alignr}Total: ${totalup eth1}
 #Inbound: ${tcp_portmon 1 32767 count} Outbound: ${tcp_portmon 32768
 #61000 count}${alignr}Total: ${tcp_portmon 1 65535 count}
-
+\
 #${color CC9900}LOGGING ${hr 2}$color
 #${color 339900}${execi 30 tail -n3 /var/log/messages | fold -w50}$color

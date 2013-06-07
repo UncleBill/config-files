@@ -169,4 +169,5 @@ let g:quickrun_config.markdown = {
       \ 'outputter': 'null'
       \}
 
+set re=1
 " vim:fdm=marker

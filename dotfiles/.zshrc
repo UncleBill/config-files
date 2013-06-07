@@ -21,6 +21,9 @@ function f55() { # run f5 background
     nohup f5 $1 > /dev/null 2>&1 &
     echo f5 is runing
 }
+function release-zip() {
+    git archive --format=zip --output ./$1.zip $1
+}
 alias py="python"
 alias js="node"
 alias ipy="ipython"
@@ -40,6 +43,7 @@ alias gmm='git commit -m'
 alias chrome='google-chrome'
 alias v='gvim '
 alias j='jobs '
+alias l='ls'
 alias V='vim '
 alias noTe='_today=$(date +%m-%d-%Y) && gvim $HOME/Dropbox/media/notes/$_today.markdown + -c "r !date +\<----------\%X\ @\%A"'
 alias pdf='evince'
