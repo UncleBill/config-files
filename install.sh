@@ -8,5 +8,6 @@ done
 
 # awesomewm config
 ln -f ./dotfiles/rc.lua ~/.config/awesome/rc.lua
+ln -f ./dotfiles/zhongguo.lua ~/.config/awesome/themes/zhongguo.lua
 ln -f ./dotfiles/.zshrc ~/.zshrc
 ln -f ./dotfiles/.conkyrc ~/.conkyrc
