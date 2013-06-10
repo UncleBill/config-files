@@ -52,6 +52,7 @@ function! Sdcv(...)
     25sp sdcv-dict-tmp
     setlocal buftype=nofile bufhidden=delete noswapfile
     nnoremap <buffer> q <c-w>c
+    nnoremap <buffer> <Esc> <c-w>c
     1s/^/\=expl/
     1
     wincmd J
@@ -154,20 +155,55 @@ let g:instant_markdown_autostart = 0
 
 let g:quickrun_config = {}
 let g:quickrun_config['*'] = {
-      \ 'runner/vimproc/updatetime' : 100,
-      \ 'outputter' : 'buffer',
-      \ 'runner' : 'vimproc',
-      \ 'running_mark' : 'ﾊﾞﾝ（∩`･ω･）ﾊﾞﾝﾊﾞﾝﾊﾞﾝﾊﾞﾝﾞﾝ',
-      \ 'into' : 1,
-      \ 'runmode' : 'async:remote:vimproc'
-      \}
+            \ 'runner/vimproc/updatetime' : 100,
+            \ 'outputter' : 'buffer',
+            \ 'runner' : 'vimproc',
+            \ 'running_mark' : 'ﾊﾞﾝ（∩`･ω･）ﾊﾞﾝﾊﾞﾝﾊﾞﾝﾊﾞﾝﾞﾝ',
+            \ 'into' : 1,
+            \ 'runmode' : 'async:remote:vimproc'
+            \}
 " QuickRun triggers markdown preview
 let g:quickrun_config.markdown = {
-      \ 'runner': 'vimscript',
-      \ 'command': ':InstantMarkdownPreview',
-      \ 'exec': '%C',
-      \ 'outputter': 'null'
-      \}
+            \ 'runner': 'vimscript',
+            \ 'command': ':InstantMarkdownPreview',
+            \ 'exec': '%C',
+            \ 'outputter': 'null'
+            \}
+let g:quickrun_config.html = {
+            \ 'command': 'google-chrome',
+            \ 'outputter': 'null'
+            \ }
+let g:quickrun_config.matlab = {
+            \ 'command': 'octave',
+            \ 'exec': '%C -q',
+            \ }
 
-set re=1
+"set re=1
+if has("profile")
+let g:syntime_report=''
+fun! SynTime(eng)
+      syn clear
+      exe 'set re='.a:eng
+      edit!
+      syntime on
+      redraw!
+      redraw!
+      redraw!
+      redraw!
+      redir =>> g:syntime_report
+      echom "Engine" a:eng
+      syntime report
+      syntime off
+      redir END
+endfun
+
+fun! DoSynTime()
+        let g:syntime_report=''
+        call SynTime(1)
+        call SynTime(2)
+        echom g:syntime_report
+endfun
+
+command! -nargs=0 SynTime : call DoSynTime()
+endif
 " vim:fdm=marker

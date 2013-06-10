@@ -6,6 +6,11 @@ do
     ln -f ${file} ~/.vim/${file}
 done
 
+if [ ! -d "$HOME/.vim/" ]; then
+    echo "~/.vim/ doesn't exist. making it"
+    mkdir ~/.vim
+fi
+
 # awesomewm config
 ln -f ./dotfiles/rc.lua ~/.config/awesome/rc.lua
 ln -f ./dotfiles/zhongguo.lua ~/.config/awesome/themes/zhongguo.lua

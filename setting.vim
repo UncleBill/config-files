@@ -70,8 +70,6 @@ set guioptions-=e
 set laststatus=2
 "don't need show mode dude Powerline
 set noshowmode
-set foldmethod=indent
-set foldlevelstart=99
 set matchtime=0
 set ruler
 set cursorline

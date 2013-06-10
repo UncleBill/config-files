@@ -105,6 +105,7 @@ NeoBundle 'suan/vim-instant-markdown'
 "NeoBundle 'nathanaelkane/vim-indent-guides'
 " completion plugin
 NeoBundle 'vim-scripts/cmdline-completion'
+NeoBundle 'tyru/capture.vim'
 "NeoBundle 'pythoncomplete'
 "NeoBundle 'MarcWeber/vim-addon-mw-utils'
 "NeoBundle 'tomtom/tlib_vim'
@@ -130,7 +131,6 @@ NeoBundle 'UncleBill/neco-stardict'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 "nnoremap <C-p> :Unite file_rec/async -auto-preview -auto-resize<cr>
-nnoremap <space>/ :Unite grep:.<cr>
 NeoBundle 'vim-scripts/sudo.vim'
 "unite plugins"
 "unite plgins+------------------------------------------------------+
