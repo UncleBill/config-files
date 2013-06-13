@@ -126,11 +126,14 @@ xnoremap <silent> <M-Down> :<C-u>call MoveVisualDown()<CR>
 "================================================================================
 "unite
 "================================================================================
-nnoremap <C-p> :Unite file_rec/async -auto-resize<cr>
-nnoremap <space>/ :Unite grep:. -auto-resize -auto-preview<cr>
-nnoremap <C-x> :Unite file_mru -auto-resize<cr>
-nnoremap <space>y :Unite history/yanks<cr>
-nnoremap <space>s :Unite -quick-match buffer<cr>
+nnoremap <silent><C-p> :Unite file_rec/async -auto-resize<cr>
+nnoremap <silent><space>/ :Unite grep:. -auto-resize -auto-preview<cr>
+nnoremap <silent><C-x> :Unite file_mru -auto-resize<cr>
+nnoremap <silent><space>y :Unite history/yanks<cr>
+nnoremap <silent><space>s :Unite -quick-match buffer<cr>
+let g:unite_winheight = 10
+let g:unite_enable_start_insert = 1
+let g:unite_split_rule = 'botright'
 
 
 "================================================================================
@@ -178,7 +181,7 @@ let g:quickrun_config.matlab = {
             \ 'exec': '%C -q',
             \ }
 
-"set re=1
+set re=1
 if has("profile")
 let g:syntime_report=''
 fun! SynTime(eng)

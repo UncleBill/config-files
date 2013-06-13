@@ -2,7 +2,8 @@ autocmd FileType html,css imap <c-cr> <c-y>,
 autocmd FileType html,css nmap <c-cr> <c-y>,
 autocmd FileType php let b:surround_{char2nr("-")} = "<?php \r ?>"
 autocmd FileType javascript let b:surround_99 = "(function(){\r}()); // closure"
-autocmd BufWrite * :%s/\s\+$//e
+autocmd FileType javascript let b:surround_45 = "for(){ \r }"
+" autocmd BufWrite * :%s/\s\+$//e
 "autocmd FileType * :NeoComplCacheCachingBuffer<cr>
 
 "dictionary setting{

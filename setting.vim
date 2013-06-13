@@ -6,7 +6,7 @@ let $MYVIMRC_="~/Dropbox/works/Vim/"
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet/autoload/neosnippet,~/Dropbox/works/Vim/snippets'
 " neocomplcache settings
 let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_auto_select = 1
+" let g:neocomplcache_enable_auto_select = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_fuzzy_completion = 1
 let g:neocomplcache_enable_smart_case = 1
@@ -98,6 +98,8 @@ let NERDTreeQuitOnOpen=1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:gist_use_password_in_gitconfig = 1
 let g:gitgutter_enabled = 0
+let g:gist_post_private = 1
+let g:gist_show_privates = 1
 "let g:ycm_min_num_of_chars_for_completion = 1
 "let g:ycm_filetype_blacklist={'*':0}
 "let g:ycm_filetype_whitelist={'*':1}

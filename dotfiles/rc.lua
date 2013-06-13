@@ -81,9 +81,10 @@ layouts = {
 -- {{{ Tags
 
 -- Taglist numerals
-taglist_numbers_langs = { 'arabic', 'chinese', 'east_arabic', 'persian_arabic', }
+taglist_numbers_langs = { 'arabic', 'tagged', 'chinese', 'east_arabic', 'persian_arabic', }
 taglist_numbers_sets = {
 	arabic={ 1, 2, 3, 4, 5, 6, 7, 8, 9 },
+	tagged={ '1@', '2#', '3!', '4+', 5, 6, 7, 8, 9 },
 	chinese={"一", "二", "三", "四", "五", "六", "七", "八", "九", "十"},
 	east_arabic={'١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'}, -- '٠' 0
 	persian_arabic={'٠', '١', '٢', '٣', '۴', '۵', '۶', '٧', '٨', '٩'},
@@ -659,7 +660,7 @@ sexec('dropbox start -i')
 sexec('conky')
 --sexec('indicator-cpufreq')
 --sexec('everpad')
---run_once('jupiter')
+run_once('jupiter')
 run_once('stardict -h')
 -- bind PrintScrn to capture a screen
 awful.key(

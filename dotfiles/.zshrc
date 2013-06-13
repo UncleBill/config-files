@@ -39,6 +39,7 @@ alias screen2dbox='import -window root -quality 98 ~/Dropbox/screenshot.png'
 alias pip+='sudo pip install'
 alias pip-='sudo pip uninstall'
 alias pushall='git push -u origin --all'
+alias addbill='git remote add bill '
 alias gmm='git commit -m'
 alias chrome='google-chrome'
 alias t='tig '
@@ -54,6 +55,9 @@ function c(){
 }
 function update-vim () {
     cd ~/vim && hg pull && hg update && make
+}
+function vundle-update(){
+    vim -c "execute \"NeoBundleUpdate\" | NeoBundleUpdateLog"
 }
 source ~/.zshrc-personal.zsh
 # Set to this to use case-sensitive completion

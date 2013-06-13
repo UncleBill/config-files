@@ -2,7 +2,6 @@
 nnoremap <F3> :<C-u>GundoToggle<CR>
 nmap <silent> <M-e> :NERDTreeToggle<ENTER>
 imap <silent> <M-e> <Esc><M-e>
-"nmap <silent> <c-x> :CtrlPMRUFiles<ENTER>
 nnoremap - <C-x>
 nnoremap + <C-a>
 nmap <F7> :tabnew
@@ -22,8 +21,8 @@ nnoremap <S-F4> :set relativenumber!<CR>
 imap <F4> <esc><F4>
 imap <S-F4> <Esc><F4>
 
-nnoremap <F5> :QuickRun<cr>
-imap <F5> <esc><F5>
+nnoremap <silent><F5> :QuickRun<cr>
+imap <silent><F5> <esc><F5>
 
 inoremap <Leader><C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <Leader><C-P> :call PhpDocSingle()<CR>
