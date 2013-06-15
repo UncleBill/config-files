@@ -4,20 +4,20 @@ let $MYVIMRC_="~/Dropbox/works/Vim/"
 "let g:neosnippet#snippets_directory=$MYVIMRC_ . 'snippets'
 "let g:clang_library_path='/usr/include/'
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet/autoload/neosnippet,~/Dropbox/works/Vim/snippets'
-" neocomplcache settings
-let g:neocomplcache_enable_at_startup = 1
-" let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_fuzzy_completion = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_fuzzy_completion_start_length = 1
-let g:neocomplcache_max_list = 50
-let g:neocomplcache_min_keyword_length = 2
-let g:neocomplcache_min_syntax_length = 2
+" neocomplete settings
+let g:neocomplete_enable_at_startup = 1
+" let g:neocomplete_enable_auto_select = 1
+let g:neocomplete_enable_camel_case_completion = 1
+let g:neocomplete_enable_fuzzy_completion = 1
+let g:neocomplete_enable_smart_case = 1
+let g:neocomplete_enable_underbar_completion = 1
+let g:neocomplete_force_overwrite_completefunc = 1
+let g:neocomplete_fuzzy_completion_start_length = 1
+let g:neocomplete_max_list = 50
+let g:neocomplete_min_keyword_length = 2
+let g:neocomplete_min_syntax_length = 2
 let $MYDICTDIR = '~/Dropbox/works/Vim/dict/'
-let g:neocomplcache_dictionary_filetype_lists={
+let g:neocomplete_dictionary_filetype_lists={
     \ 'default' : $MYDICTDIR . 'words.dict',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
     \ 'javascript' : $MYDICTDIR . 'javascript.dict',
@@ -28,14 +28,14 @@ let g:neocomplcache_dictionary_filetype_lists={
     \ 'html': $MYDICTDIR . 'html.dict'
     \}
 " Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
+if !exists('g:neocomplete_omni_patterns')
+  let g:neocomplete_omni_patterns = {}
 endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplete_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 "set completeopt-=preview
-"let g:neocomplcache_enable_auto_delimiter = 1
+"let g:neocomplete_enable_auto_delimiter = 1
 " For snippet_complete marker.
 "let g:AutoPairsFlyMode = 1
 if has('conceal')
@@ -108,8 +108,8 @@ let g:gist_show_privates = 1
 "let g:ycm_autoclose_preview_window_after_completion = 1
 let g:jedi#popup_select_first = 0
 "let g:jedi#popup_on_dot = 0
-"autocmd BufEnter *.py let g:neocomplcache_enable_auto_select = 0    " for jedi's popup
-"autocmd BufLeave *.py let g:neocomplcache_enable_auto_select = 1
+"autocmd BufEnter *.py let g:neocomplete_enable_auto_select = 0    " for jedi's popup
+"autocmd BufLeave *.py let g:neocomplete_enable_auto_select = 1
 set autoread
 "let g:Powerline_symbols = 'fancy'
 "let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
