@@ -5,35 +5,33 @@ let $MYVIMRC_="~/Dropbox/works/Vim/"
 "let g:clang_library_path='/usr/include/'
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet/autoload/neosnippet,~/Dropbox/works/Vim/snippets'
 " neocomplete settings
-let g:neocomplete_enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 1
 " let g:neocomplete_enable_auto_select = 1
-let g:neocomplete_enable_camel_case_completion = 1
-let g:neocomplete_enable_fuzzy_completion = 1
-let g:neocomplete_enable_smart_case = 1
-let g:neocomplete_enable_underbar_completion = 1
-let g:neocomplete_force_overwrite_completefunc = 1
-let g:neocomplete_fuzzy_completion_start_length = 1
-let g:neocomplete_max_list = 50
-let g:neocomplete_min_keyword_length = 2
-let g:neocomplete_min_syntax_length = 2
+let g:neocomplete#enable_camel_case_completion = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_underbar_completion = 1
+let g:neocomplete#max_list = 30
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+let g:neocomplete#min_syntax_length = 2
 let $MYDICTDIR = '~/Dropbox/works/Vim/dict/'
-let g:neocomplete_dictionary_filetype_lists={
+let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : $MYDICTDIR . 'words.dict',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'vimshell' : $HOME . '/.vimshell_hist',
     \ 'javascript' : $MYDICTDIR . 'javascript.dict',
     \ 'css' : $MYDICTDIR . 'css.dcit',
     \ 'php' : $MYDICTDIR . 'php.dict',
     \ 'vim' : $MYDICTDIR . 'vim.dict',
     \ 'xml' : $MYDICTDIR . 'xml.dict',
-    \ 'html': $MYDICTDIR . 'html.dict'
+    \ 'html': $MYDICTDIR . 'html.dict',
     \}
 " Enable heavy omni completion.
-if !exists('g:neocomplete_omni_patterns')
-  let g:neocomplete_omni_patterns = {}
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
 endif
-let g:neocomplete_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplete_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:acp_enableAtStartup = 0
 "set completeopt-=preview
 "let g:neocomplete_enable_auto_delimiter = 1
 " For snippet_complete marker.
