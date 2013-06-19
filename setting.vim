@@ -62,6 +62,7 @@ set noerrorbells
 set visualbell
 set wildmenu
 "Toggle Menu and Toolbar
+syntax on
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
