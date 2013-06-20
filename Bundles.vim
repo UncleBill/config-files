@@ -48,7 +48,15 @@ NeoBundle 'csslint.vim'
 NeoBundle 'CSS-2.1-Specification'
 NeoBundle 'vim-scripts/vim-stylus'
 NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', '', 'default'
+call neobundle#config('vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ })
 NeoBundle 'thinca/vim-quickrun'
 "NeoBundle 'benmills/vimux'
 NeoBundle 'jiangmiao/auto-pairs'
