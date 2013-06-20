@@ -181,6 +181,10 @@ let g:quickrun_config.matlab = {
             \ 'exec': '%C -q',
             \ }
 
+abbreviate youcompleteme YouCompleteMe
+abbreviate ultisnip UltiSnip
+abbreviate neocomplete Neocomplete
+
 set re=1
 if has("profile")
 let g:syntime_report=''
