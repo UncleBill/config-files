@@ -57,6 +57,7 @@ call neobundle#config('vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ })
+NeoBundle 'rbtnn/vimconsole.vim'
 NeoBundle 'thinca/vim-quickrun'
 "NeoBundle 'benmills/vimux'
 NeoBundle 'jiangmiao/auto-pairs'

@@ -36,7 +36,7 @@ imap <M-,> <Esc><M-,>
 nmap <M-.> ^i.<Esc>$
 imap <M-.> <Esc><M-.>a
 nmap <leader>= zf%
-nmap <m-h> :noh<cr>
+nmap <silent><m-h> :noh<cr>
 vmap <c-cr> <c-y>,
 imap <M-'> <Space>+ 1
 nmap <C-=> mzgg=G'z
