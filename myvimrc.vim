@@ -185,7 +185,7 @@ abbreviate youcompleteme YouCompleteMe
 abbreviate ultisnip UltiSnip
 abbreviate neocomplete Neocomplete
 
-set re=1
+set re=2
 if has("profile")
 let g:syntime_report=''
 fun! SynTime(eng)
@@ -213,4 +213,51 @@ endfun
 
 command! -nargs=0 SynTime : call DoSynTime()
 endif
+" コピペ厳禁
+
+" quickrun 用のマッピング
+nmap <Space>q <Plug>(precious-quickrun-op)
+omap ic <Plug>(textobj-precious-i)
+vmap ic <Plug>(textobj-precious-i)
+
+
+" コンテキストが切り替わった場合に処理をフック
+augroup my-augroup
+    autocmd!
+    " vim のコンテキストに切り替わった時に
+    " いくつかのマッピングを削除する
+    autocmd User PreciousFiletypeLeave_vim iunmap <buffer> <CR>
+    autocmd User PreciousFiletypeLeave_vim nunmap <buffer> <Leader><Leader>r
+augroup END
+
+
+" filetype=help は insert 時のみ切り替わるように設定
+let g:precious_enable_switch_CursorMoved = {
+\   "help" : 0
+\}
+
+function! s:help()
+    augroup my-help
+        autocmd!
+        autocmd InsertEnter <buffer> :PreciousSwitch
+        autocmd InsertLeave <buffer> :PreciousReset
+    augroup END
+endfunction
+autocmd FileType help call s:help()
+" カーソル移動時の自動切り替えを無効化
+" このオプションは filetype ごとに設定可能
+" "*" は全ての filetype に影響する
+let g:precious_enable_switch_CursorMoved = {
+\   "*" : 0
+\}
+let g:precious_enable_switch_CursorMoved_i = {
+\   "*" : 0
+\}
+
+" insert に入った時にスイッチし、抜けた時に元に戻す
+augroup test
+    autocmd!
+    autocmd InsertEnter * :PreciousSwitch
+    autocmd InsertLeave * :PreciousReset
+augroup END
 " vim:fdm=marker
