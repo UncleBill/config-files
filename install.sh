@@ -1,15 +1,17 @@
 #!/bin/bash
 # vim config files
 
+if [ ! -d "$HOME/.vim/bundle/" ]; then
+    echo "~/.vim/bundle/ doesn't exist. making it"
+    mkdir -p ~/.vim/bundle
+    echo "cloning neobundle into ~/.vim/bundle"
+    git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+fi
+
 for file in *.vim
 do
     ln -f ${file} ~/.vim/${file}
 done
-
-if [ ! -d "$HOME/.vim/" ]; then
-    echo "~/.vim/ doesn't exist. making it"
-    mkdir ~/.vim
-fi
 
 # awesomewm config
 ln -f ./dotfiles/rc.lua ~/.config/awesome/rc.lua
