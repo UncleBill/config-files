@@ -54,7 +54,7 @@ function c(){
     ls
 }
 function update-vim () {
-    cd ~/vim && hg pull && hg update && make VIMRUNTIMEDIR=/usr/share/vim/vim73
+    cd ~/vim && hg pull && hg update && make # VIMRUNTIMEDIR=/usr/share/vim/vim73
 }
 function vundle-update(){
     vim -c "execute \"NeoBundleUpdate\" | NeoBundleUpdateLog"
