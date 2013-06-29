@@ -185,7 +185,7 @@ abbreviate youcompleteme YouCompleteMe
 abbreviate ultisnip UltiSnip
 abbreviate neocomplete Neocomplete
 
-set re=2
+set re=1
 if has("profile")
 let g:syntime_report=''
 fun! SynTime(eng)
