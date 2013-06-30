@@ -70,6 +70,8 @@ NeoBundle 'DataWraith/auto_mkdir'
 "NeoBundle 'quark-zju/vim-cpp-auto-include'
 NeoBundle 'tpope/vim-dispatch'
 "NeoBundle 'pep8'
+"pyflakes syntax checker for python
+NeoBundle 'git://github.com/pyflakes/pyflakes.git'
 "NeoBundle 'functionlist.vim'
 NeoBundle 'autohi'
 NeoBundle 'uguu-org/vim-matrix-screensaver'

@@ -126,10 +126,11 @@ xnoremap <silent> <M-Down> :<C-u>call MoveVisualDown()<CR>
 "================================================================================
 "unite
 "================================================================================
-nnoremap <silent><C-p> :Unite file_rec/async -auto-resize<cr>
+" nnoremap <silent><C-p> :Unite file_rec/async -auto-resize<cr>
+nnoremap <silent> <C-p> :<C-u>Unite -no-split -auto-preview -buffer-name=files file_mru  file_rec/async:!<CR>
 nnoremap <silent><space>/ :Unite grep:. -auto-resize -auto-preview<cr>
 nnoremap <silent><C-x> :Unite file_mru -auto-resize<cr>
-nnoremap <silent><space>y :Unite history/yanks<cr>
+nnoremap <silent><space>y :Unite history/yank<cr>
 nnoremap <silent><space>s :Unite -quick-match buffer<cr>
 let g:unite_winheight = 10
 let g:unite_enable_start_insert = 1
