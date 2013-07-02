@@ -490,10 +490,10 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- custum
-    awful.key({ modkey, "Control"   }, "g", function () awful.util.spawn(chrome) end),
+    awful.key({ modkey, "Control"   }, "g", function () awful.util.spawn(gitg) end),
     awful.key({ modkey,           }, "v", function () awful.util.spawn(gvim) end),
     awful.key({ modkey,           }, "e", function () awful.util.spawn(emacs) end),
-    awful.key({ modkey,           }, "g", function () awful.util.spawn(gitg) end),
+    awful.key({ modkey,           }, "g", function () awful.util.spawn(chrome) end),
     awful.key({ modkey, "Control" }, "l", function () awful.util.spawn(xscreensaver) end)
 )
 
