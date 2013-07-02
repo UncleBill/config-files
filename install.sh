@@ -15,7 +15,7 @@ done
 
 # awesomewm config
 ln -f ./dotfiles/rc.lua ~/.config/awesome/rc.lua
-ln -f ./dotfiles/zhongguo.lua ~/.config/awesome/themes/zhongguo.lua
+ln -f ./dotfiles/zhongguo.lua ~/.config/awesome/themes/zhongguo/zhongguo.lua
 ln -f ./dotfiles/personal.lua ~/.config/awesome/personal.lua
 
 ln -f ./dotfiles/.zshrc ~/.zshrc
