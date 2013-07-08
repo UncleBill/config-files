@@ -1,3 +1,4 @@
+set nocompatible
 let $MYVIMRC_="~/Dropbox/works/Vim/"
 "g:snippets_dir
 "let g:snippets_dir = $MYVIMRC_ . 'snippets'
@@ -59,6 +60,7 @@ set relativenumber
 set noerrorbells
 set visualbell
 set wildmenu
+set backspace=2
 "Toggle Menu and Toolbar
 syntax on
 set guioptions-=m
