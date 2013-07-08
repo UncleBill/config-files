@@ -82,6 +82,18 @@ set scrolloff=3
 "set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
 "let g:indent_guides_auto_colors = 0
+"
+" airline settings
+"
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_fugitive_prefix = ' '
+let g:airline_readonly_symbol = ''
+let g:airline_linecolumn_prefix = ' '
+let g:airline_enable_fugitive = 1
+
 if !has("gui_running")
     hi clear SpellBad
     hi SpellBad cterm=underline ctermfg=red
