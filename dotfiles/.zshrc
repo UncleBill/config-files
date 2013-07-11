@@ -24,6 +24,12 @@ function f55() { # run f5 background
 function release-zip() {
     git archive --format=zip --output ./$1.zip $1
 }
+function dochub(){
+    node ~/projects/dochub/web.js $1 > /dev/null 2>&1 &
+    google-chrome http://localhost:5000 $1 > /dev/null 2>&1
+    rm ./libpeerconnection.log
+}
+
 alias py="python"
 alias js="node"
 alias ipy="ipython"
