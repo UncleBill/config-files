@@ -60,6 +60,7 @@ call neobundle#config('vimproc', {
       \ })
 NeoBundle 'rbtnn/vimconsole.vim'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-painter'
 "NeoBundle 'benmills/vimux'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'tpope/vim-surround'

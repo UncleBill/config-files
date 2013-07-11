@@ -48,8 +48,8 @@ map <C-s> :w<CR>
 "map <c-a> ggVG
 "****************************************
 ""mapping for edit vimrc{{{
-nnoremap <leader>ev :vsplit ~/.vim/<cr>
-nnoremap <leader>sv :source ~/.vim/<cr>
+nnoremap <silent><leader>ev :NERDTree ~/.vim/<cr>
+nnoremap <silent><leader>sv :NERDTree ~/.vim/<cr>
 "}}}
 ""}
 "windows navigating{{{
