@@ -26,7 +26,7 @@ function release-zip() {
 }
 function dochub(){
     node ~/projects/dochub/web.js $1 > /dev/null 2>&1 &
-    google-chrome http://localhost:5000 $1 > /dev/null 2>&1
+    sleep 1.5 && google-chrome http://localhost:5000 $1 > /dev/null 2>&1
     rm ./libpeerconnection.log
 }
 
