@@ -166,26 +166,27 @@ vicious.register(tzswidget, vicious.widgets.thermal,
 cpufreq_widget_0 = widget({ type = "textbox" })
 vicious.register(cpufreq_widget_0, vicious.widgets.cpufreq,
     function(widget, args)
-        return "<span>"..args[1].."/</span>"
+        return math.floor( args[1]/100 ).."/"
     end,10,'cpu0'
 )
 
 cpufreq_widget_1 = widget({ type = "textbox" })
 vicious.register(cpufreq_widget_1, vicious.widgets.cpufreq,
     function(widget, args)
-        return "<span>"..args[1].."/</span>"
+        return math.floor( args[1]/100 ).."/"
     end,10,'cpu1'
 )
 cpufreq_widget_2 = widget({ type = "textbox" })
 vicious.register(cpufreq_widget_2, vicious.widgets.cpufreq,
     function(widget, args)
-        return "<span>"..args[1].."/</span>"
+        return math.floor( args[1]/100 ).."/"
     end,10,'cpu2'
 )
 cpufreq_widget_3 = widget({ type = "textbox" })
 vicious.register(cpufreq_widget_3, vicious.widgets.cpufreq,
     function(widget, args)
-        return "<span>"..args[1].."/</span>"
+        return math.floor( args[1]/100 ).."/"
+        --return "<span>"..args[1].."/</span>"
     end,10,'cpu3'
 )
 -- }}}
