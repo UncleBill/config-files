@@ -7,7 +7,7 @@ let $MYVIMRC_="~/Dropbox/works/Vim/"
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet/autoload/neosnippet,~/Dropbox/works/Vim/snippets'
 " neocomplete settings
 let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete_enable_auto_select = 1
+let g:neocomplete_enable_auto_select = 1
 let g:neocomplete#enable_camel_case_completion = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_underbar_completion = 1

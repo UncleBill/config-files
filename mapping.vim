@@ -14,7 +14,7 @@ map <leader><BS><BS> :wqa<ENTER>
 imap <leader><BS><BS> <Esc>:wqa<ENTER>
 "inoremap {<ENTER> {}<Esc>i<ENTER><Esc>k=2jo
 imap <leader><Esc><Esc> <Esc>:update<ENTER>
-nmap <cr><cr> :w<ENTER>
+nmap <Space><cr> :w<ENTER>
 
 nnoremap <F4> :set number!<CR>
 nnoremap <S-F4> :set relativenumber!<CR>
@@ -48,8 +48,8 @@ map <C-s> :w<CR>
 "map <c-a> ggVG
 "****************************************
 ""mapping for edit vimrc{{{
-nnoremap <silent><leader>ev :NERDTree ~/.vim/<cr>
-nnoremap <silent><leader>sv :NERDTree ~/.vim/<cr>
+nnoremap <silent><leader>ev :vsplit ~/.vim/<cr>
+nnoremap <silent><leader>sv :vsplit ~/.vim/<cr>
 "}}}
 ""}
 "windows navigating{{{

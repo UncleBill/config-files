@@ -9,6 +9,7 @@ if has('vim_starting')
  endif
 
 set rtp+=~/.vim/bundle/vundle/
+let g:neobundle#types#git#default_protocol='git'
 call neobundle#rc(expand('~/.vim/bundle'))
 
 "source Bundles list
@@ -53,13 +54,14 @@ function! Sdcv(...)
     setlocal buftype=nofile bufhidden=delete noswapfile
     nnoremap <buffer> q <c-w>c
     nnoremap <buffer> <Esc> <c-w>c
+    nnoremap <buffer> <Space><Space> <c-f>
     1s/^/\=expl/
     1
     wincmd J
 endfunction
 
 command! -nargs=* Sdcv call Sdcv(<args>)
-nmap <M-d> :Sdcv<cr>
+nmap <silent><M-d> :Sdcv<cr>
 
 colo native
 if has("gui_running")
@@ -129,12 +131,57 @@ xnoremap <silent> <M-Down> :<C-u>call MoveVisualDown()<CR>
 nnoremap <silent><C-p> :Unite file_rec/async -auto-resize<cr>
 " nnoremap <silent> <C-p> :<C-u>Unite -no-split -auto-preview -buffer-name=files file_mru  file_rec/async:!<CR>
 nnoremap <silent><space>/ :Unite grep:. -auto-resize -auto-preview<cr>
+nnoremap <silent><space>? :Unite grep:. -auto-resize -auto-preview<cr><c-r><c-w><cr>
 nnoremap <silent><C-x> :Unite file_mru -auto-resize<cr>
 nnoremap <silent><space>y :Unite history/yank<cr>
 nnoremap <silent><space>s :Unite -quick-match buffer<cr>
 let g:unite_winheight = 10
-let g:unite_enable_start_insert = 1
+" let g:unite_enable_start_insert = 1
 let g:unite_split_rule = 'botright'
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()"{{{
+    " Overwrite settings.
+
+    nmap <buffer> <ESC>      <Plug>(unite_exit)
+    imap <buffer> jj      <Plug>(unite_insert_leave)
+    "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+
+    imap <buffer><expr> j unite#smart_map('j', '')
+    imap <buffer> <TAB>   <Plug>(unite_select_next_line)
+    imap <buffer> <c-j>   <Plug>(unite_select_next_line)
+    imap <buffer> <c-k>   <Plug>(unite_select_previous_line)
+    imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+    imap <buffer> '     <Plug>(unite_quick_match_default_action)
+    nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+    imap <buffer><expr> x
+                \ unite#smart_map('x', "\<Plug>(unite_quick_match_choose_action)")
+    nmap <buffer> x     <Plug>(unite_quick_match_choose_action)
+    nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+    imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+    imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+    nmap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+    nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
+    nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+    imap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+    nnoremap <silent><buffer><expr> l
+                \ unite#smart_map('l', unite#do_action('default'))
+
+    let unite = unite#get_current_unite()
+    if unite.buffer_name =~# '^search'
+        nnoremap <silent><buffer><expr> r     unite#do_action('replace')
+    else
+        nnoremap <silent><buffer><expr> r     unite#do_action('rename')
+    endif
+
+    nnoremap <silent><buffer><expr> cd     unite#do_action('lcd')
+    nnoremap <buffer><expr> S      unite#mappings#set_current_filters(
+                \ empty(unite#mappings#get_current_filters()) ?
+                \ ['sorter_reverse'] : [])
+
+    " Runs "split" action by <C-s>.
+    imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+    imap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
+endfunction"}}}
 
 
 "================================================================================
