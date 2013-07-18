@@ -209,8 +209,8 @@ let g:quickrun_config['*'] = {
             \ 'runner/vimproc/updatetime' : 100,
             \ 'outputter' : 'buffer',
             \ 'runner' : 'vimproc',
-            \ 'running_mark' : 'ﾊﾞﾝ（∩`･ω･）ﾊﾞﾝﾊﾞﾝﾊﾞﾝﾊﾞﾝﾞﾝ',
-            \ 'into' : 1,
+            \ 'running_mark' : 'May the force be with you!',
+            \ 'into' : 0,
             \ 'runmode' : 'async:remote:vimproc'
             \}
 " QuickRun triggers markdown preview
