@@ -5,6 +5,9 @@ let $MYVIMRC_="~/Dropbox/works/Vim/"
 "let g:neosnippet#snippets_directory=$MYVIMRC_ . 'snippets'
 "let g:clang_library_path='/usr/include/'
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet/autoload/neosnippet,~/Dropbox/works/Vim/snippets'
+let g:snips_author = "UncleBill"
+let g:snips_email = "billbill290@gmail.com"
+let g:snips_github = "UncleBill"
 " neocomplete settings
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete_enable_auto_select = 1
