@@ -66,6 +66,7 @@ set wildmenu
 set backspace=2
 "Toggle Menu and Toolbar
 syntax on
+set synmaxcol=500
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
@@ -80,8 +81,8 @@ set cursorline
 highlight clear SignColumn
 set hlsearch
 set incsearch
-set scrolljump=5
-set scrolloff=3
+set scrolljump=3
+set scrolloff=1
 "set list
 "set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 "set guifont=Ubuntu\ Mono\ for\ Powerline\ 11

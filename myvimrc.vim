@@ -132,8 +132,13 @@ nnoremap <silent><C-p> :Unite file_rec/async -auto-resize<cr>
 " nnoremap <silent> <C-p> :<C-u>Unite -no-split -auto-preview -buffer-name=files file_mru  file_rec/async:!<CR>
 nnoremap <silent><space>/ :Unite grep:. -auto-resize -auto-preview<cr>
 nnoremap <silent><space>? :Unite grep:. -auto-resize -auto-preview<cr><c-r><c-w><cr>
+nnoremap <silent><space>y :Unite grep:. -auto-resize -auto-preview<cr><c-r>"<cr>
+nnoremap <silent><space>o :Unite outline -auto-resize -auto-preview<cr>
+nnoremap <silent><space>O :Unite outline -auto-resize -auto-preview -no-split<cr>
+" autocmd BufEnter preview :set previewheight=25
+autocmd BufEnter * if &pvw | resize 25 | endif
+autocmd BufLeave * if &pvw | resize 12 | endif
 nnoremap <silent><C-x> :Unite file_mru -auto-resize<cr>
-nnoremap <silent><space>y :Unite history/yank<cr>
 nnoremap <silent><space>s :Unite -quick-match buffer<cr>
 let g:unite_winheight = 10
 " let g:unite_enable_start_insert = 1
@@ -165,6 +170,10 @@ function! s:unite_my_settings()"{{{
     imap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
     nnoremap <silent><buffer><expr> l
                 \ unite#smart_map('l', unite#do_action('default'))
+    nnoremap <silent><buffer><expr> v
+                \ unite#smart_map('v', unite#do_action('vsplit'))
+    nnoremap <silent><buffer><expr> s
+                \ unite#smart_map('s', unite#do_action('split'))
 
     let unite = unite#get_current_unite()
     if unite.buffer_name =~# '^search'

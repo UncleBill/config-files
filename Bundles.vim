@@ -173,10 +173,11 @@ NeoBundle 'ujihisa/unite-gem'
 "+------------------------------------------------------+unite plgins
 "NeoBundle 'SQLComplete.vim'
 "NeoBundle 'SQLUtilities'
-"NeoBundle 'walm/jshint.vim'
-"NeoBundle 'hallettj/jslint.vim'
+" NeoBundle 'walm/jshint.vim'
+" NeoBundle 'hallettj/jslint.vim'
 "NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'maksimr/vim-jsbeautify'
+command! JsBeautify call JsBeautify()
 "NeoBundle 'intuited/vim-noderepl'
 NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'guyzmo/vim-etherpad'
