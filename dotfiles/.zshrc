@@ -27,7 +27,7 @@ function release-zip() {
 function dochub(){
     node ~/projects/dochub/web.js $1 > /dev/null 2>&1 &
     sleep 1.5 && google-chrome http://localhost:5000 $1 > /dev/null 2>&1
-    rm ./libpeerconnection.log
+    # rm ./libpeerconnection.log && echo 'removed libpeerconnection.log' || echo 'not remove libpeerconnection.log'
 }
 
 alias py="python"

@@ -18,6 +18,7 @@ autocmd FileType html,
                                     \~/Dropbox/works/Vim/dict/javascript.dict,
                                     \~/Dropbox/works/Vim/dict/css.dict
 autocmd FileType javascript,json,coffee set dictionary=~/Dropbox/works/Vim/dict/javascript.dict
+autocmd FileType coffee set ft=coffee.javascript
 autocmd FileType css,styl,less set dictionary=~/Dropbox/works/Vim/dict/css.dict
 autocmd FileType vim set dictionary=~/Dropbox/works/Vim/dict/vim.dict
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS

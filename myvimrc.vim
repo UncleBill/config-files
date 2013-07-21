@@ -130,6 +130,8 @@ xnoremap <silent> <M-Down> :<C-u>call MoveVisualDown()<CR>
 "================================================================================
 nnoremap <silent><C-p> :Unite file_rec/async -auto-resize<cr>
 " nnoremap <silent> <C-p> :<C-u>Unite -no-split -auto-preview -buffer-name=files file_mru  file_rec/async:!<CR>
+let g:unite_source_grep_command = "ag"
+let g:unite_source_grep_default_opts = "--nogroup --nocolor"
 nnoremap <silent><space>/ :Unite grep:. -auto-resize -auto-preview<cr>
 nnoremap <silent><space>? :Unite grep:. -auto-resize -auto-preview<cr><c-r><c-w><cr>
 nnoremap <silent><space>y :Unite grep:. -auto-resize -auto-preview<cr><c-r>"<cr>
@@ -242,7 +244,7 @@ abbreviate youcompleteme YouCompleteMe
 abbreviate ultisnip UltiSnip
 abbreviate neocomplete Neocomplete
 
-set re=1
+" set re=2
 if has("profile")
 let g:syntime_report=''
 fun! SynTime(eng)

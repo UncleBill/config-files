@@ -98,7 +98,7 @@ let g:airline_right_alt_sep = ''
 let g:airline_fugitive_prefix = ''
 let g:airline_readonly_symbol = ''
 let g:airline_linecolumn_prefix = ''
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'light'
 
 if !has("gui_running")
     hi clear SpellBad
