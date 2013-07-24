@@ -13,8 +13,8 @@ ZSH_THEME="fwalch"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias goagentf='python /home/unclebill/Dropbox/works/goagent/goagent-linux/local/proxy.py'
-alias goagent='nohup python /home/unclebill/Dropbox/works/goagent/goagent-linux/local/proxy.py $1 > /dev/null 2>&1 &'
+alias goagentf='python /home/unclebill/projects/goagent-3.0/local/proxy.py'
+alias goagent='nohup python /home/unclebill/projects/goagent-3.0/local/proxy.py $1 > /dev/null 2>&1 &'
 #alias f55='nohup f5 &'
 #http://stackoverflow.com/questions/4797050/how-to-run-process-as-background-and-never-die
 function f55() { # run f5 background
