@@ -44,13 +44,10 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sjl/gundo.vim'
 "NeoBundle 'mbbill/undotree'
 "NeoBundle 'epmatsw/ag.vim'
-augroup css_bundle
-    autocmd!
-    autocmd FileType css NeoBundle 'vim-scripts/css3'
-    autocmd FileType css NeoBundle 'skammer/vim-css-color'
-    autocmd FileType css NeoBundle 'csslint.vim'
-    autocmd FileType css NeoBundle 'CSS-2.1-Specification'
-augroup END
+NeoBundle 'vim-scripts/css3'
+NeoBundle 'skammer/vim-css-color'
+NeoBundle 'csslint.vim'
+NeoBundle 'CSS-2.1-Specification'
 NeoBundle 'vim-scripts/vim-stylus'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'Shougo/vimproc', '', 'default'

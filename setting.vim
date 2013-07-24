@@ -22,6 +22,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : $MYDICTDIR . 'words.dict',
     \ 'vimshell' : $HOME . '/.vimshell_hist',
     \ 'javascript' : $MYDICTDIR . 'javascript.dict',
+    \ 'coffee' : $MYDICTDIR . 'javascript.dict',
     \ 'css' : $MYDICTDIR . 'css.dcit',
     \ 'php' : $MYDICTDIR . 'php.dict',
     \ 'vim' : $MYDICTDIR . 'vim.dict',
@@ -63,10 +64,21 @@ set relativenumber
 set noerrorbells
 set visualbell
 set wildmenu
-set backspace=2
+" -----------------------------------------
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/**
+" -----------------------------------------
+set backspace=indent,eol,start
 "Toggle Menu and Toolbar
 syntax on
-set synmaxcol=500
+set synmaxcol=300
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
