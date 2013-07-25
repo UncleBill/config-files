@@ -9,37 +9,7 @@ let g:snips_author = "UncleBill"
 let g:snips_email = "billbill290@gmail.com"
 let g:snips_github = "UncleBill"
 " neocomplete settings
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_auto_select = 1
-let g:neocomplete#enable_camel_case_completion = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_underbar_completion = 1
-" let g:neocomplete#max_list = 30
-let g:neocomplete#sources#syntax#min_keyword_length = 2
-let g:neocomplete#min_syntax_length = 2
-let $MYDICTDIR = '~/Dropbox/works/Vim/dict/'
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : $MYDICTDIR . 'words.dict',
-    \ 'vimshell' : $HOME . '/.vimshell_hist',
-    \ 'javascript' : $MYDICTDIR . 'javascript.dict',
-    \ 'coffee' : $MYDICTDIR . 'javascript.dict',
-    \ 'css' : $MYDICTDIR . 'css.dcit',
-    \ 'php' : $MYDICTDIR . 'php.dict',
-    \ 'xml' : $MYDICTDIR . 'xml.dict',
-    \ 'html': $MYDICTDIR . 'html.dict',
-    \}
-let g:vimwiki_list = [{'path': '~/Dropbox/media/vimwiki/'}]
-let g:vimwiki_folding='expr'
 " Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:html_indent_inctags = "body,html,head,p,tbody"
-set completeopt-=preview
-"let g:neocomplete_enable_auto_delimiter = 1
 " For snippet_complete marker.
 "let g:AutoPairsFlyMode = 1
 if has('conceal')
@@ -161,11 +131,17 @@ let g:gist_browser_command = 'google-chrome %URL% &'
 let g:gist_post_private = 1
 let g:gist_show_privates = 1
 let g:gitgutter_enabled = 0
-"let g:ycm_min_num_of_chars_for_completion = 1
-"let g:ycm_filetype_blacklist={'*':0}
-"let g:ycm_filetype_whitelist={'*':1}
-"let g:ycm_collect_identifiers_from_comments_and_strins = 1
-"let g:ycm_autoclose_preview_window_after_completion = 1
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:gist_use_password_in_gitconfig = 1
+let g:gitgutter_enabled = 0
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_filetype_blacklist={'*':0}
+let g:ycm_filetype_whitelist={'*':1}
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_add_preview_to_completeopt = 1
 let g:jedi#popup_select_first = 0
 let g:jedi#auto_vim_configuration = 0
 "let g:jedi#popup_on_dot = 0
