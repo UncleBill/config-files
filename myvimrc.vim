@@ -68,10 +68,7 @@ endfunction
 command! -nargs=* Sdcv call Sdcv(<args>)
 nmap <silent><M-d> :Sdcv<cr>
 
-colo native
-if has("gui_running")
-	colo atom
-endif
+colo desert
 
 "line_motions{{{
 function! MoveLineUp()

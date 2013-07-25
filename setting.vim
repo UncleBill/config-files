@@ -86,9 +86,9 @@ set guioptions-=L
 set guioptions-=e
 set laststatus=2
 "don't need show mode dude Powerline
-set noshowmode
-set matchtime=0
-set ruler
+" set noshowmode
+" set matchtime=0
+" set ruler
 set cursorline
 highlight clear SignColumn
 set hlsearch
