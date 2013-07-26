@@ -14,7 +14,7 @@ let g:neocomplete_enable_auto_select = 1
 let g:neocomplete#enable_camel_case_completion = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_underbar_completion = 1
-let g:neocomplete#max_list = 30
+" let g:neocomplete#max_list = 30
 let g:neocomplete#sources#syntax#min_keyword_length = 2
 let g:neocomplete#min_syntax_length = 2
 let $MYDICTDIR = '~/Dropbox/works/Vim/dict/'
@@ -122,8 +122,9 @@ if !has("gui_running")
     hi clear SpellRare
     hi SpellRare cterm=underline ctermfg=blue
 endif
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore=['\.pyc$', '\.bak$', '\.swp$']
 let NERDTreeQuitOnOpen=1
+let g:tagbar_autofocus=1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:gist_use_password_in_gitconfig = 1
 let g:gist_browser_command = 'google-chrome %URL% &'

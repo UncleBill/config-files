@@ -36,6 +36,7 @@ endfunction
 "Random coloschemme function
 command! Ranlook call Ranlook()
 
+let g:sdcv_notebook="~/.vim/extra/sdcv.dict"
 function! Sdcv(...)
     let s:keyword = ""
     if a:0 == 0
@@ -48,6 +49,10 @@ function! Sdcv(...)
         let s:keyword = a:1
     endif
     let expl=system('sdcv -n ' . s:keyword)
+    " save to notebook
+    " +-----------------------------------------+
+    call vimproc#system('echo ' . s:keyword.' >> ' . g:sdcv_notebook)
+    call vimproc#system('cat ' . g:sdcv_notebook . ' | sort | uniq > ' . g:sdcv_notebook)
     "echo expl
     windo if expand("%")=="sdcv-dict-tmp" | q! |  endif
     25sp sdcv-dict-tmp

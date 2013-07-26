@@ -2,6 +2,8 @@
 nnoremap <F3> :<C-u>GundoToggle<CR>
 nmap <silent> <M-e> :NERDTreeToggle<ENTER>
 imap <silent> <M-e> <Esc><M-e>
+nmap <silent> <M-t> :TagbarToggle<ENTER>
+imap <silent> <M-t> <Esc><M-t>
 nnoremap - <C-x>
 nnoremap + <C-a>
 nmap <F7> :tabnew
