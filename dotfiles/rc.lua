@@ -31,6 +31,8 @@ gvim = 'gvim'
 emacs = 'emacs'
 gitg = 'gitg'
 xscreensaver = 'xscreensaver-command -lock'
+batwarn = ""
+batstyle = 'color="red">'
 
 wallpaper_app = "feh" -- if you want to check for app before trying
 wallpaper_dir = os.getenv("HOME") .. "/Pictures/Wallpaper" -- wallpaper dir
@@ -166,27 +168,26 @@ vicious.register(tzswidget, vicious.widgets.thermal,
 cpufreq_widget_0 = widget({ type = "textbox" })
 vicious.register(cpufreq_widget_0, vicious.widgets.cpufreq,
     function(widget, args)
-        return math.floor( args[1]/100 ).."/"
+        return math.floor( args[1]/100 )
     end,10,'cpu0'
 )
 
 cpufreq_widget_1 = widget({ type = "textbox" })
 vicious.register(cpufreq_widget_1, vicious.widgets.cpufreq,
     function(widget, args)
-        return math.floor( args[1]/100 ).."/"
+        return "<span color='yellow'>"..math.floor( args[1]/100 ).."</span>"
     end,10,'cpu1'
 )
 cpufreq_widget_2 = widget({ type = "textbox" })
 vicious.register(cpufreq_widget_2, vicious.widgets.cpufreq,
     function(widget, args)
-        return math.floor( args[1]/100 ).."/"
+        return math.floor( args[1]/100 )
     end,10,'cpu2'
 )
 cpufreq_widget_3 = widget({ type = "textbox" })
 vicious.register(cpufreq_widget_3, vicious.widgets.cpufreq,
     function(widget, args)
-        return math.floor( args[1]/100 ).."/"
-        --return "<span>"..args[1].."/</span>"
+        return "<span color='yellow'>"..math.floor( args[1]/100 ).."</span>"
     end,10,'cpu3'
 )
 -- }}}
@@ -204,10 +205,20 @@ vicious.register(batwidget, vicious.widgets.bat,
 		if args[2] == 0 then return ""
 		else
 			baticon.image = image(beautiful.widget_bat)
+            if args[2] < 40 then
+                baticon.image = image(beautiful.widget_bat_low)
+            end
             if args[3] == "N/A" then
                 return "<span color='green'>".. args[1] .. args[2] .. "%</span>"
             else
-                return "<span color='red'>".. args[1] .. args[2] .. "%" .. "@" .. args[3] .. "</span>"
+                if args[2] < 30 and args[1] == '-' then
+                    batwarn = batwarn.."!!"
+                    batstyle = "background='orange' color='black'>"
+                else
+                    batwarn = ""
+                    batstyle = "background='green' color='black'>"
+                end
+                return "<span "..batstyle..batwarn.. args[1] .. args[2] .. "%@" .. args[3] .. "</span>"
             end
 		end
 	end, 61, "BAT0"

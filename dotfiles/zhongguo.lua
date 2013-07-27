@@ -110,6 +110,7 @@ theme.layout_floating   = theme.themedir .. "/icons/layouts/floating.png"
 -- {{{ Widget icons
 theme.widget_cpu    = theme.themedir .. "/icons/cpu.png"
 theme.widget_bat    = theme.themedir .. "/icons/bat.png"
+theme.widget_bat_low    = theme.themedir .. "/icons/bat_low.png"
 theme.widget_mem    = theme.themedir .. "/icons/mem.png"
 theme.widget_fs     = theme.themedir .. "/icons/disk.png"
 theme.widget_net    = theme.themedir .. "/icons/down.png"

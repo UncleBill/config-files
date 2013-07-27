@@ -3,6 +3,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 ""vim-scripts repos
 NeoBundle 'vim-scripts/L9'
 NeoBundle 'vim-jp/vital.vim'
+NeoBundle 'vim-scripts/ingo-library'
 NeoBundle 'ynkdir/vim-vimlparser'
 NeoBundle 'derekwyatt/vim-fswitch'
 "NeoBundle 'FuzzyFinder'
