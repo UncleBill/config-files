@@ -31,8 +31,6 @@ gvim = 'gvim'
 emacs = 'emacs'
 gitg = 'gitg'
 xscreensaver = 'xscreensaver-command -lock'
-batwarn = ""
-batstyle = 'color="red">'
 
 wallpaper_app = "feh" -- if you want to check for app before trying
 wallpaper_dir = os.getenv("HOME") .. "/Pictures/Wallpaper" -- wallpaper dir
@@ -209,16 +207,15 @@ vicious.register(batwidget, vicious.widgets.bat,
                 baticon.image = image(beautiful.widget_bat_low)
             end
             if args[3] == "N/A" then
+                beautiful.bg_normal = '#3f3f3f'
                 return "<span color='green'>".. args[1] .. args[2] .. "%</span>"
             else
-                if args[2] < 30 and args[1] == '-' then
-                    batwarn = batwarn.."!!"
-                    batstyle = "background='orange' color='black'>"
+                if args[2] < 20 and args[1] == '-' then
+                    beautiful.bg_normal = '#ff3f3f'
                 else
-                    batwarn = ""
-                    batstyle = "background='green' color='black'>"
+                    beautiful.bg_normal = '#40a040'
                 end
-                return "<span "..batstyle..batwarn.. args[1] .. args[2] .. "%@" .. args[3] .. "</span>"
+                return ''..args[1] .. args[2] .. "%@" .. args[3]
             end
 		end
 	end, 61, "BAT0"
