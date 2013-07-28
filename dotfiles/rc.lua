@@ -210,10 +210,9 @@ vicious.register(batwidget, vicious.widgets.bat,
                 beautiful.bg_normal = '#3f3f3f'
                 return "<span color='green'>".. args[1] .. args[2] .. "%</span>"
             else
+                beautiful.bg_normal = '#40a040'
                 if args[2] < 20 and args[1] == '-' then
                     beautiful.bg_normal = '#ff3f3f'
-                else
-                    beautiful.bg_normal = '#40a040'
                 end
                 return ''..args[1] .. args[2] .. "%@" .. args[3]
             end
