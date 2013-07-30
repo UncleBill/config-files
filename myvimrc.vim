@@ -68,6 +68,19 @@ endfunction
 command! -nargs=* Sdcv call Sdcv(<args>)
 nmap <silent><M-d> :Sdcv<cr>
 
+command! -nargs=0 Save2Dict call Save2Dict()
+function! Save2Dict()
+    let word = expand("<cword>")
+    let dictdir = '~/Dropbox/works/Vim/dict/'
+    for ft in split(&filetype,'\.')
+        let file = dictdir.ft.'.dict'
+        " echomsg "for loop"
+        " echomsg file
+        call vimproc#system('echo ' .word. ' >> '.file)
+        call vimproc#system('cat ' .file. ' | sed -e "s/\r$//g" | sort | uniq > '.file)
+    endfor
+endfunction
+
 colo native
 if has("gui_running")
 	colo atom
