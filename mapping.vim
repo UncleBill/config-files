@@ -29,6 +29,7 @@ imap <silent><F5> <esc><F5>
 inoremap <Leader><C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <Leader><C-P> :call PhpDocSingle()<CR>
 vnoremap <Leader><C-P> :call PhpDocRange()<CR>
+vnoremap <silent> <Enter> :EasyAlign<cr>
 
 nnoremap _ <c-w>_
 nmap <M-;> $a;<Esc>

@@ -226,6 +226,26 @@ end))
 
 --}}}
 
+--{{{
+myawesomemenu = {
+    { "manual", terminal .. " -e man awesome" },
+    { "edit config", "gvim ~/.config/awesome/rc.lua" },
+    { "restart", awesome.restart },
+    { "quit", awesome.quit }
+}
+
+mymainmenu = awful.menu.new({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+{ "open terminal", terminal },
+{ "chrome","google-chrome" },
+{ "gvim", "gvim" },
+{ "emacs", "emacs" },
+{ "gimp", "gimp" },
+{ "firefox", "firefox" },
+{ "monitor", "gnome-system-monitor" },
+{ "pdf", "evince" }
+}})
+--}}}
+
 -- {{{ Battery state
 
 -- Initialize widget

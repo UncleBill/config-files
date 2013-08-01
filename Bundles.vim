@@ -125,6 +125,7 @@ NeoBundle 'terryma/vim-instant-markdown'
 " completion plugin
 NeoBundle 'vim-scripts/cmdline-completion'
 NeoBundle 'tyru/capture.vim'
+NeoBundle 'junegunn/vim-easy-align'
 "NeoBundle 'pythoncomplete'
 "NeoBundle 'MarcWeber/vim-addon-mw-utils'
 "NeoBundle 'tomtom/tlib_vim'
