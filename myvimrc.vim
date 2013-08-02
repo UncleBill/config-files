@@ -70,6 +70,7 @@ nmap <silent><M-d> :Sdcv<cr>
 
 command! -nargs=0 Save2Dict call Save2Dict()
 function! Save2Dict()
+    " save the dictionary basing on filetype
     let word = expand("<cword>")
     let dictdir = '~/Dropbox/works/Vim/dict/'
     for ft in split(&filetype,'\.')
