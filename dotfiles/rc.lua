@@ -546,7 +546,7 @@ globalkeys = awful.util.table.join(
     ),
 
     -- all minimized clients are restored 
-    awful.key({ modkey, }, "a", 
+    awful.key({ modkey, }, "n", 
     function()
         local tag = awful.tag.selected()
         for i=1, #tag:clients() do
@@ -761,7 +761,7 @@ awful.key(
    {},
    "Print",
    function()
-       awful.util.spawn("capscr",false)
+       awful.util.spawn_with_shell("import -window root -quality 98 ~/Downloads/screen-$(date +%m-%d-%y).png")
    end
 )
 -- run once
@@ -769,8 +769,7 @@ function run_once(prg)
     if not prg then
         do return nil end
     end
-    awful.util.spawn_with_shell("pgrep -f -u $USER -x " .. prg .. " || (" .. prg .. ")")
+    awful.util.spawn_with_shell("pgrep -f " .. prg .. " || (" .. prg .. ")")
 end
 --run_once('sh /home/unclebill/Dropbox/media/wallpapers/nasaBackground.sh')
-conky_statusbar = awful.wibox({ position = "top", screen = 1, ontop = false, width = 1, height = 16 })
 -- vim:fdm=marker
