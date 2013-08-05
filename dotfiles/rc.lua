@@ -533,25 +533,32 @@ globalkeys = awful.util.table.join(
             end
         end),
 
-    -- view only focusing client
+    -- toggle only focusing client
     awful.key({ modkey, }, "o",
         function ()
             local clients = awful.client.visible()
-            for i = 1, #clients do
-                if client.focus ~= clients[i] then
-                    clients[i].minimized = true
+            if #clients <= 1 then
+                local tag = awful.tag.selected()
+                for i=1, #tag:clients() do
+                    tag:clients()[i].minimized=false
+                    --tag:clients()[i]:redraw()
+                end
+            else
+                for i = 1, #clients do
+                    if client.focus ~= clients[i] then
+                        clients[i].minimized = true
+                    end
                 end
             end
         end
     ),
 
-    -- all minimized clients are restored 
+    -- hide all clients
     awful.key({ modkey, }, "n", 
     function()
         local tag = awful.tag.selected()
         for i=1, #tag:clients() do
-            tag:clients()[i].minimized=false
-            tag:clients()[i]:redraw()
+            tag:clients()[i].minimized=true
         end
     end),
 
