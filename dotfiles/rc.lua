@@ -189,6 +189,7 @@ vicious.register(cpufreq_widget_3, vicious.widgets.cpufreq,
     end,10,'cpu3'
 )
 -- }}}
+--
 
 -- taskbar {{{
 taskbar = {}
@@ -206,6 +207,7 @@ awful.button({ }, 1, function (c)
         c:raise()
     end
 end),
+
 awful.button({ }, 3, function ()
     if instance then
         instance:hide()
@@ -530,6 +532,28 @@ globalkeys = awful.util.table.join(
                 client.focus:raise()
             end
         end),
+
+    -- view only focusing client
+    awful.key({ modkey, }, "o",
+        function ()
+            local clients = awful.client.visible()
+            for i = 1, #clients do
+                if client.focus ~= clients[i] then
+                    clients[i].minimized = true
+                end
+            end
+        end
+    ),
+
+    -- all minimized clients are restored 
+    awful.key({ modkey, }, "a", 
+    function()
+        local tag = awful.tag.selected()
+        for i=1, #tag:clients() do
+            tag:clients()[i].minimized=false
+            tag:clients()[i]:redraw()
+        end
+    end),
 
     -- Standard program
     awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn(terminal) end),

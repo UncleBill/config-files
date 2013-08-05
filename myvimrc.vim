@@ -153,16 +153,16 @@ let g:unite_source_grep_command = "ag"
 let g:unite_source_grep_default_opts = "--nogroup --nocolor"
 let g:unite_source_grep_max_candidates=500
 let g:unite_source_file_mru_limit=300
-nnoremap <silent><space>/ :Unite grep:. -auto-resize -auto-preview<cr>
-nnoremap <silent><space>? :Unite grep:. -auto-resize -auto-preview<cr><c-r><c-w><cr>
-nnoremap <silent><space>y :Unite grep:. -auto-resize -auto-preview<cr><c-r>"<cr>
-nnoremap <silent><space>o :Unite outline -auto-resize -auto-preview<cr>
-nnoremap <silent><space>O :Unite outline -auto-resize -auto-preview -no-split<cr>
+nnoremap <silent><space>/ :Unite grep:. -auto-resize -auto-preview -immediately<cr>
+nnoremap <silent><space>? :Unite grep:. -auto-resize -auto-preview -immediately<cr><c-r><c-w><cr>
+nnoremap <silent><space>y :Unite grep:. -auto-resize -auto-preview -immediately<cr><c-r>"<cr>
+nnoremap <silent><space>o :Unite outline -auto-resize -auto-preview -immediately<cr>
+nnoremap <silent><space>O :Unite outline -auto-preview -tab -immediately<cr>
 " autocmd BufEnter preview :set previewheight=25
-autocmd BufEnter * if &pvw | resize 25 | endif
+autocmd BufEnter * if &pvw | resize 30 | endif
 autocmd BufLeave * if &pvw | resize 12 | endif
-nnoremap <silent><C-x> :Unite file_mru -auto-resize<cr>
-nnoremap <silent><space>s :Unite -quick-match buffer<cr>
+nnoremap <silent><C-x> :Unite file_mru -auto-resize -immediately<cr>
+nnoremap <silent><space>s :Unite -quick-match buffer -immediately<cr>
 let g:unite_winheight = 10
 " let g:unite_enable_start_insert = 1
 let g:unite_split_rule = 'botright'
@@ -265,7 +265,7 @@ abbreviate youcompleteme YouCompleteMe
 abbreviate ultisnip UltiSnip
 abbreviate neocomplete Neocomplete
 
-set re=1
+" set re=1
 if has("profile")
 let g:syntime_report=''
 fun! SynTime(eng)
@@ -279,6 +279,7 @@ fun! SynTime(eng)
       redraw!
       redir =>> g:syntime_report
       echom "Engine" a:eng
+      echom ""
       syntime report
       syntime off
       redir END
