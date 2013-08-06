@@ -6,7 +6,7 @@ nmap <silent> <M-t> :TagbarToggle<ENTER>
 imap <silent> <M-t> <Esc><M-t>
 nnoremap - <C-x>
 nnoremap + <C-a>
-nmap <F7> :tabnew
+nmap <F7> :tabnew<CR>
 imap <F7> <Esc><F7>
 nmap <S-F7> <F7><ENTER>
 imap <S-F7> <Esc><F7><ENTER>

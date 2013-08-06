@@ -36,7 +36,7 @@ endif
 let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:acp_enableAtStartup = 0
+let g:html_indent_inctags = "body,html,head,p,tbody"
 "set completeopt-=preview
 "let g:neocomplete_enable_auto_delimiter = 1
 " For snippet_complete marker.
