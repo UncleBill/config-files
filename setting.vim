@@ -25,7 +25,6 @@ let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'coffee' : $MYDICTDIR . 'javascript.dict',
     \ 'css' : $MYDICTDIR . 'css.dcit',
     \ 'php' : $MYDICTDIR . 'php.dict',
-    \ 'vim' : $MYDICTDIR . 'vim.dict',
     \ 'xml' : $MYDICTDIR . 'xml.dict',
     \ 'html': $MYDICTDIR . 'html.dict',
     \}
@@ -78,6 +77,7 @@ set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/*
 set backspace=indent,eol,start
 "Toggle Menu and Toolbar
 syntax on
+let g:syntastic_ignore_files=['^/usr/include/', '\c\.h$']
 set synmaxcol=300
 set guioptions-=m
 set guioptions-=T
@@ -125,6 +125,8 @@ endif
 let NERDTreeIgnore=['\.pyc$', '\.bak$', '\.swp$']
 let NERDTreeQuitOnOpen=1
 let g:tagbar_autofocus=1
+let g:tagbar_width=35
+let g:tagbar_expand = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:gist_use_password_in_gitconfig = 1
 let g:gist_browser_command = 'google-chrome %URL% &'
