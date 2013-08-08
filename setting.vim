@@ -127,6 +127,7 @@ let NERDTreeQuitOnOpen=1
 let g:tagbar_autofocus=1
 let g:tagbar_width=35
 let g:tagbar_expand = 1
+let g:tagbar_sort = 0
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:gist_use_password_in_gitconfig = 1
 let g:gist_browser_command = 'google-chrome %URL% &'
