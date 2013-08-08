@@ -52,7 +52,7 @@ NeoBundle 'skammer/vim-css-color'
 NeoBundle 'csslint.vim'
 NeoBundle 'CSS-2.1-Specification'
 NeoBundle 'vim-scripts/vim-stylus'
-NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Shougo/vimproc', '', 'default'
 call neobundle#config('vimproc', {
       \ 'build' : {
