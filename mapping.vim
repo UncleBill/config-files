@@ -26,6 +26,9 @@ imap <S-F4> <Esc><F4>
 nnoremap <silent><F5> :QuickRun<cr>
 imap <silent><F5> <esc><F5>
 
+" bind print-screen to TOhtml
+nnoremap <silent><t_%9> :TOhtml<cr>
+
 inoremap <Leader><C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <Leader><C-P> :call PhpDocSingle()<CR>
 vnoremap <Leader><C-P> :call PhpDocRange()<CR>
