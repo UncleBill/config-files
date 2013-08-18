@@ -63,6 +63,7 @@ set relativenumber
 set noerrorbells
 set visualbell
 set wildmenu
+" set keywordprg=sdcv\ -n
 " -----------------------------------------
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*DS_Store*
@@ -78,6 +79,10 @@ set backspace=indent,eol,start
 "Toggle Menu and Toolbar
 syntax on
 let g:syntastic_ignore_files=['^/usr/include/', '\c\.h$']
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_enable_balloons = 1
+" let g:syntastic_check_on_wq=0
 set synmaxcol=300
 set guioptions-=m
 set guioptions-=T
@@ -85,6 +90,7 @@ set guioptions-=r
 set guioptions-=L
 set guioptions-=e
 set laststatus=2
+set lazyredraw
 "don't need show mode dude Powerline
 set noshowmode
 set matchtime=0
