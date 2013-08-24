@@ -51,6 +51,7 @@ set path=.,./include,/usr/local/include,/usr/include
 au BufEnter *.php set dictionary+=~/.vim/extra/php-funclist.txt
 au BufLeave *.php set dictionary-=~/.vim/extra/php-funclist.txt
 set history=1000
+set hidden
 set shiftwidth=4
 set tabstop=4
 set expandtab
@@ -95,7 +96,7 @@ set lazyredraw
 set noshowmode
 set matchtime=0
 set ruler
-set cursorline
+" set cursorline
 highlight clear SignColumn
 set hlsearch
 set incsearch

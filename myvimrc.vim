@@ -85,6 +85,7 @@ endfunction
 colo native
 if has("gui_running")
 	colo atom
+    set cursorline
 endif
 
 "line_motions{{{
