@@ -46,7 +46,7 @@ endif
 
 set backupdir=~/.vim/.backup/
 set directory=~/.vim/.vim_swp/
-set path=.,./include,/usr/local/include,/usr/include
+set path=.,./lib,./include,/usr/local/include,/usr/include
 "set dictionary=~/
 au BufEnter *.php set dictionary+=~/.vim/extra/php-funclist.txt
 au BufLeave *.php set dictionary-=~/.vim/extra/php-funclist.txt
