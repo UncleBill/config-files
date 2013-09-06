@@ -553,13 +553,10 @@ globalkeys = awful.util.table.join(
         end
     ),
 
-    -- hide all clients
+    -- hide focus client
     awful.key({ modkey, }, "n", 
     function()
-        local tag = awful.tag.selected()
-        for i=1, #tag:clients() do
-            tag:clients()[i].minimized=true
-        end
+        client.focus.minimized = true
     end),
 
     -- Standard program
