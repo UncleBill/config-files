@@ -82,7 +82,7 @@ function! Save2Dict()
     endfor
 endfunction
 
-colo native
+colo mrkn256
 if has("gui_running")
 	colo atom
     set cursorline
@@ -160,7 +160,7 @@ nnoremap <silent><space>y :Unite grep:. -auto-resize -auto-preview -immediately<
 nnoremap <silent><space>r :Unite grep -resume<cr>
 nnoremap <silent><space>o :Unite outline -auto-resize -auto-preview -immediately<cr>
 nnoremap <silent><space>O :Unite outline -auto-preview -tab -immediately<cr>
-nnoremap <silent><space>b :Unite buffer -auto-resize -auto-preview<cr>
+nnoremap <silent><space>b :Unite buffer -auto-resize<cr>
 nnoremap <silent><space>B :Unite buffer -immediately<cr>
 " autocmd BufEnter preview :set previewheight=25
 autocmd BufEnter * if &pvw | resize 30 | endif
