@@ -75,6 +75,7 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/**
+set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
 " -----------------------------------------
 set backspace=indent,eol,start
 "Toggle Menu and Toolbar

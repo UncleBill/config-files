@@ -98,7 +98,7 @@ NeoBundle 'VimOutliner'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'taglist.vim'
 " NeoBundle 'colorv.vim'
-" NeoBundle 'lilydjwg/colorizer'
+" NeoBundle 'lilydjwg/colorizer'        " too slow
 "NeoBundle 'kien/rainbow_parentheses.vim'
 "colorscheme"
 "{{{
