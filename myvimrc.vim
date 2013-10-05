@@ -36,6 +36,18 @@ endfunction
 "Random coloschemme function
 command! Ranlook call Ranlook()
 
+" google search
+" =============
+function! Google(...)
+    if a:0 == 0
+        let kw = expand('<cword>')
+    else
+        let kw = a:1
+    endif
+    call vimproc#system("google-chrome http://www.google.com/search?q=".kw)
+endfunction
+command! -nargs=* Google call Google(<f-args>)
+
 let g:sdcv_notebook="~/.vim/extra/sdcv.dict"
 function! Sdcv(...)
     let s:keyword = ""
@@ -65,7 +77,7 @@ function! Sdcv(...)
     wincmd J
 endfunction
 
-command! -nargs=* Sdcv call Sdcv(<args>)
+command! -nargs=* Sdcv call Sdcv(<f-args>)
 nmap <silent><M-d> :Sdcv<cr>
 
 command! -nargs=0 Save2Dict call Save2Dict()
