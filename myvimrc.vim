@@ -42,7 +42,7 @@ function! Google(...)
     if a:0 == 0
         let kw = expand('<cword>')
     else
-        let kw = a:1
+        let kw = join(a:000, '%20')
     endif
     call vimproc#system("google-chrome http://www.google.com/search?q=".kw)
 endfunction
