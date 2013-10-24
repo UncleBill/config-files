@@ -118,7 +118,7 @@ let g:airline_right_alt_sep = ''
 let g:airline_branch_prefix = ''
 let g:airline_readonly_symbol = ''
 let g:airline_linecolumn_prefix = ''
-let g:airline_theme = 'base16'
+let g:airline_theme = 'lucius'
 
 if !has("gui_running")
     hi clear SpellBad

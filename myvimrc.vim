@@ -179,7 +179,7 @@ autocmd BufEnter * if &pvw | resize 30 | endif
 autocmd BufLeave * if &pvw | resize 12 | endif
 nnoremap <silent><C-x> :Unite file_mru -auto-resize -immediately<cr>
 nnoremap <silent><space>s :Unite -quick-match buffer -immediately<cr>
-let g:unite_winheight = 10
+let g:unite_winheight = 30
 " let g:unite_enable_start_insert = 1
 let g:unite_split_rule = 'botright'
 autocmd FileType unite call s:unite_my_settings()
