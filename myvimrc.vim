@@ -60,14 +60,14 @@ function! Sdcv(...)
     else
         let s:keyword = a:1
     endif
-    let expl=system('sdcv -n ' . s:keyword)
+    let expl=system('sdcv -n ' . s:keyword).'___end___'
     " save to notebook
     " +-----------------------------------------+
     call vimproc#system('echo ' . s:keyword.' >> ' . g:sdcv_notebook)
     call vimproc#system('cat ' . g:sdcv_notebook . ' | sort | uniq > ' . g:sdcv_notebook)
     "echo expl
     windo if expand("%")=="sdcv-dict-tmp" | q! |  endif
-    25sp sdcv-dict-tmp
+    split sdcv-dict-tmp
     setlocal buftype=nofile bufhidden=delete noswapfile
     nnoremap <buffer> q <c-w>c
     nnoremap <buffer> <Esc> <c-w>c
@@ -75,6 +75,9 @@ function! Sdcv(...)
     1s/^/\=expl/
     1
     wincmd J
+    let halfheight = 20
+    let num = min( [len(split(expl,"\n")), halfheight] )
+    execute "resize ".num
 endfunction
 
 command! -nargs=* Sdcv call Sdcv(<f-args>)
