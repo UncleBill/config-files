@@ -75,8 +75,8 @@ function! Sdcv(...)
     1s/^/\=expl/
     1
     wincmd J
-    let halfheight = 20
-    let num = min( [len(split(expl,"\n")), halfheight] )
+    let maxheight = 30
+    let num = min( [len(split(expl,"\n")), maxheight] )
     execute "resize ".num
 endfunction
 
