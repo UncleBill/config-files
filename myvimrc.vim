@@ -48,6 +48,14 @@ function! Google(...)
 endfunction
 command! -nargs=* Google call Google(<f-args>)
 
+" css Uncompress
+" ==============
+function! CssUncompress()
+    execute '%s/\([;,{}]\)/\1\r/g'
+    normal gg=G
+endfunction
+autocmd FileType css command!  CssUncompress call CssUncompress()
+
 let g:sdcv_notebook="~/.vim/extra/sdcv.dict"
 function! Sdcv(...)
     let s:keyword = ""
