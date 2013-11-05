@@ -68,7 +68,13 @@ function! Sdcv(...)
     else
         let s:keyword = a:1
     endif
-    let expl=system('sdcv -n ' . s:keyword).'___end___'
+    let expl=system('sdcv -n ' . s:keyword)
+    let failstr = "Nothing similar to ".s:keyword.", sorry :(\n"
+    if expl == failstr
+        echomsg "Can't find '".s:keyword."'"
+        return
+    endif
+    let expl = expl.'___end___'
     " save to notebook
     " +-----------------------------------------+
     call vimproc#system('echo ' . s:keyword.' >> ' . g:sdcv_notebook)
