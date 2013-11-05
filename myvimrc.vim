@@ -185,6 +185,7 @@ nnoremap <silent><space>o :Unite outline -auto-resize -auto-preview -immediately
 nnoremap <silent><space>O :Unite outline -auto-preview -tab -immediately<cr>
 nnoremap <silent><space>b :Unite buffer -auto-resize<cr>
 nnoremap <silent><space>B :Unite buffer -immediately<cr>
+nnoremap <silent><space>t :Unite tab -auto-resize<cr>
 " autocmd BufEnter preview :set previewheight=25
 autocmd BufEnter * if &pvw | resize 30 | endif
 autocmd BufLeave * if &pvw | resize 12 | endif

@@ -183,7 +183,7 @@ NeoBundle 'ujihisa/unite-gem'
 "NeoBundle 'SQLUtilities'
 " NeoBundle 'walm/jshint.vim'
 " NeoBundle 'hallettj/jslint.vim'
-NeoBundle 'pangloss/vim-javascript'
+" NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'maksimr/vim-jsbeautify'
 command! JsBeautify call JsBeautify()
 "NeoBundle 'intuited/vim-noderepl'
