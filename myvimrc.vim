@@ -81,7 +81,7 @@ function! Sdcv(...)
     call vimproc#system('cat ' . g:sdcv_notebook . ' | sort | uniq > ' . g:sdcv_notebook)
     "echo expl
     windo if expand("%")=="sdcv-dict-tmp" | q! |  endif
-    split sdcv-dict-tmp
+    silent split sdcv-dict-tmp
     setlocal buftype=nofile bufhidden=delete noswapfile
     nnoremap <buffer> q <c-w>c
     nnoremap <buffer> <Esc> <c-w>c

@@ -69,6 +69,7 @@ function update-vim () {
 function vundle-update(){
     vim -c "execute \"NeoBundleUpdate\" | NeoBundleUpdateLog"
 }
+
 source ~/.zshrc-personal.zsh
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
