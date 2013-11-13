@@ -193,8 +193,8 @@ nnoremap <silent><space>b :Unite buffer -auto-resize<cr>
 nnoremap <silent><space>B :Unite buffer -immediately<cr>
 nnoremap <silent><space>t :Unite tab -auto-resize<cr>
 " autocmd BufEnter preview :set previewheight=25
-autocmd BufEnter * if &pvw | resize 30 | endif
-autocmd BufLeave * if &pvw | resize 12 | endif
+" autocmd BufEnter * if &pvw | resize 30 | endif
+" autocmd BufLeave * if &pvw | resize 12 | endif
 nnoremap <silent><C-x> :Unite file_mru -auto-resize -immediately<cr>
 nnoremap <silent><space>s :Unite -quick-match buffer -immediately<cr>
 let g:unite_winheight = 30

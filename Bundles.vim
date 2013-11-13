@@ -185,7 +185,13 @@ NeoBundle 'ujihisa/unite-gem'
 " NeoBundle 'hallettj/jslint.vim'
 " NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'maksimr/vim-jsbeautify'
-command! JsBeautify call JsBeautify()
+function! JsBeautifyWrapper()
+    call JsBeautify()
+    if &filetype == ''
+        setfiletype javascript
+    endif
+endfunction
+command! JsBeautify call JsBeautifyWrapper()
 "NeoBundle 'intuited/vim-noderepl'
 NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'guyzmo/vim-etherpad'
