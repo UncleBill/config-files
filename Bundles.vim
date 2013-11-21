@@ -163,7 +163,7 @@ NeoBundle 'vim-scripts/sudo.vim'
 "unite plgins+------------------------------------------------------+
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'majutsushi/tagbar'
 "NeoBundle 'ujihisa/unite-locate'
 NeoBundle 'sgur/unite-everything'
