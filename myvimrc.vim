@@ -68,6 +68,7 @@ function! Sdcv(...)
     else
         let s:keyword = a:1
     endif
+    let s:sdcv_pre_winnr = winnr()
     let expl=system('sdcv -n ' . s:keyword)
     let failstr = "Nothing similar to ".s:keyword.", sorry :(\n"
     if expl == failstr
@@ -83,6 +84,7 @@ function! Sdcv(...)
     windo if expand("%")=="sdcv-dict-tmp" | q! |  endif
     silent split sdcv-dict-tmp
     setlocal buftype=nofile bufhidden=delete noswapfile
+    autocmd! BufLeave sdcv-dict-tmp execute s:sdcv_pre_winnr.'wincmd w'
     nnoremap <buffer> q <c-w>c
     nnoremap <buffer> <Esc> <c-w>c
     nnoremap <buffer> <Space><Space> <c-f>
