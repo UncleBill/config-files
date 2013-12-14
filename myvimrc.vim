@@ -96,8 +96,21 @@ function! Sdcv(...)
     execute "resize ".num
 endfunction
 
-command! -nargs=* Sdcv call Sdcv(<f-args>)
+function! Sdcvhis(...)
+    return split( system('cat ' . g:sdcv_notebook) )
+endfunction
+
+command! -nargs=* -complete=customlist,Sdcvhis Sdcv call Sdcv(<f-args>)
 nmap <silent><M-d> :Sdcv<cr>
+
+command! Sthissession call Sthissession()
+function! Sthissession()
+    if v:this_session == ''
+        echomsg 'No session opened!'
+        return
+    endif
+    execute 'mksession! ' . v:this_session
+endfunction
 
 command! -nargs=0 Save2Dict call Save2Dict()
 function! Save2Dict()
