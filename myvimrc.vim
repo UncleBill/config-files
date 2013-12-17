@@ -96,11 +96,11 @@ function! Sdcv(...)
     execute "resize ".num
 endfunction
 
-function! b:sdcv_his(...)
+function! s:sdcv_his(...)
     return split( system('cat ' . g:sdcv_notebook) )
 endfunction
 
-command! -nargs=* -complete=customlist,b:sdcv_his Sdcv call Sdcv(<f-args>)
+command! -nargs=* -complete=customlist,s:sdcv_his Sdcv call Sdcv(<f-args>)
 nmap <silent><M-d> :Sdcv<cr>
 
 command! Sthissession call Sthissession()
