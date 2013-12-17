@@ -96,11 +96,14 @@ function! Sdcv(...)
     execute "resize ".num
 endfunction
 
-function! s:sdcv_his(...)
-    return split( system('cat ' . g:sdcv_notebook) )
+function! s:sdcv_look(...)
+    if a:1 == ''
+        return split( system('cat ' . g:sdcv_notebook) )
+    endif
+    return halffuzzy#look(a:1)
 endfunction
 
-command! -nargs=* -complete=customlist,s:sdcv_his Sdcv call Sdcv(<f-args>)
+command! -nargs=* -complete=customlist,s:sdcv_look Sdcv call Sdcv(<f-args>)
 nmap <silent><M-d> :Sdcv<cr>
 
 command! Sthissession call Sthissession()
@@ -209,6 +212,7 @@ nnoremap <silent><space>B :Unite buffer -immediately<cr>
 nnoremap <silent><space>t :Unite tab -auto-resize<cr>
 nnoremap <silent><space>k :bprevious<cr>
 nnoremap <silent><space>j :bnext<cr>
+nnoremap <silent><Space><Tab> :buffer #<cr>
 " autocmd BufEnter preview :set previewheight=25
 " autocmd BufEnter * if &pvw | resize 30 | endif
 " autocmd BufLeave * if &pvw | resize 12 | endif
