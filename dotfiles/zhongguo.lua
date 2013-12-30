@@ -12,7 +12,7 @@ theme.themedir       = awful.util.getdir("config")
 theme.themedir      = theme.themedir .. "/themes/zhongguo"
 -- }}}
 
-theme.wallpaper_cmd = { "awsetbg /home/unclebill/Dropbox/media/wallpapers/starwars.jpg" }
+theme.wallpaper_cmd = { "awsetbg /home/unclebill/Dropbox/media/wallpapers/space-bar.jpg" }
 
 
 
