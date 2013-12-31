@@ -380,12 +380,25 @@ vicious.cache(vicious.widgets.volume)
 vicious.register(volbar,    vicious.widgets.volume,  "$1",  2, "Master")
 vicious.register(volwidget, vicious.widgets.volume, " $1%", 2, "Master")
 -- Register buttons
+function volumeup()
+    exec("amixer -q set Master 2dB+", false)
+    vicious.force({volbar, volwidget})
+end
+function volumedown()
+    exec("amixer -q set Master 2dB-", false)
+    vicious.force({volbar, volwidget})
+end
+
 volbar.widget:buttons(awful.util.table.join(
    awful.button({ }, 1, function () exec("kmix") end),
-   awful.button({ }, 4, function () exec("amixer -q set Master 2dB+", false) vicious.force({volbar, volwidget}) end),
-   awful.button({ }, 5, function () exec("amixer -q set Master 2dB-", false) vicious.force({volbar, volwidget}) end)
+   awful.button({ }, 4, volumeup),
+   awful.button({ }, 5, volumedown)
 )) -- Register assigned buttons
 volwidget:buttons(volbar.widget:buttons())
+volwidget:buttons(awful.util.table.join(
+   awful.button({ }, 4, volumeup),
+   awful.button({ }, 5, volumedown)
+))
 -- }}}
 
 -- {{{ Date and time
@@ -765,7 +778,7 @@ sexec('xscreensaver -no-splash')
 sexec("python /home/unclebill/projects/goagent/local/proxy.py")
 --sexec('indicator-cpufreq')
 --sexec('everpad')
-run_once('jupiter')
+-- run_once('jupiter')
 run_once('stardict -h')
 -- bind PrintScrn to capture a screen
 awful.key(
@@ -775,12 +788,16 @@ awful.key(
        awful.util.spawn_with_shell("import -window root -quality 98 ~/Downloads/screen-$(date +%m-%d-%y).png")
    end
 )
+
+-- send a foretune adage.
+sexec('__fortune=$(fortune) && notify-send "$__fortune" -t 10000 -u normal')
+
 -- run once
 function run_once(prg)
     if not prg then
         do return nil end
     end
-    awful.util.spawn_with_shell("pgrep -f " .. prg .. " || (" .. prg .. ")")
+    sexec("pgrep -f " .. prg .. " || (" .. prg .. ")")
 end
 --run_once('sh /home/unclebill/Dropbox/media/wallpapers/nasaBackground.sh')
 -- vim:fdm=marker
