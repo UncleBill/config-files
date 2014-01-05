@@ -270,12 +270,12 @@ vicious.register(batwidget, vicious.widgets.bat,
                 beautiful.bg_normal = '#40a040'
                 if args[2] < 20 and args[1] == '-' then
                     beautiful.bg_normal = '#ff3f3f'
+                    naughty.notify{
+                        preset = naughty.config.presets.critical,
+                        title = "电量警报",
+                        text = '电池电量只剩下 ' .. percent .. '% 了！',
+                    }
                 end
-                naughty.notify{
-                    preset = naughty.config.presets.critical,
-                    title = "电量警报",
-                    text = '电池电量只剩下 ' .. percent .. '% 了！',
-                }
                 return ''..args[1] .. args[2] .. "%@" .. args[3]
             end
 		end
