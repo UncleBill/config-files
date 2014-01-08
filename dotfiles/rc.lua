@@ -276,7 +276,7 @@ vicious.register(batwidget, vicious.widgets.bat,
                     naughty.notify{
                         preset = naughty.config.presets.critical,
                         title = "电量警报",
-                        text = '电池电量只剩下 ' .. percent .. '% 了！',
+                        text = '电池电量只剩下 ' .. args[2] .. '% 了！',
                     }
                 end
                 return ''..args[1] .. args[2] .. "%@" .. args[3]
