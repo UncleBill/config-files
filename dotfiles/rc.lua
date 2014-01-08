@@ -263,13 +263,16 @@ vicious.register(batwidget, vicious.widgets.bat,
             if args[2] < 40 then
                 baticon.image = image(beautiful.widget_bat_low)
             end
+            -- battery is full of charge
             if args[3] == "N/A" then
                 beautiful.bg_normal = '#3f3f3f'
                 return "<span color='green'>".. args[1] .. args[2] .. "%</span>"
             else
-                beautiful.bg_normal = '#40a040'
+                -- power is low.
+                -- dynamically change the background color by power status
+                local red_value = (100 - args[2]) / 100 * 255
+                beautiful.bg_normal = string.format('#%0.2x3f3f', red_value)
                 if args[2] < 20 and args[1] == '-' then
-                    beautiful.bg_normal = '#ff3f3f'
                     naughty.notify{
                         preset = naughty.config.presets.critical,
                         title = "电量警报",
