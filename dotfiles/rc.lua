@@ -384,21 +384,23 @@ vicious.register(volbar,    vicious.widgets.volume,  "$1",  2, "Master")
 vicious.register(volwidget, vicious.widgets.volume, " $1%", 2, "Master")
 -- Register buttons
 function volumeup()
-    exec("amixer -q set Master 2dB+", false)
+    exec("amixer -q set Master 1%+", false)
     vicious.force({volbar, volwidget})
 end
 function volumedown()
-    exec("amixer -q set Master 2dB-", false)
+    exec("amixer -q set Master 1%-", false)
     vicious.force({volbar, volwidget})
 end
+function volumetoggle() exec("amixer -D pulse set Master 1+ toggle") end
 
 volbar.widget:buttons(awful.util.table.join(
-   awful.button({ }, 1, function () exec("kmix") end),
+   awful.button({ }, 1, volumetoggle),
    awful.button({ }, 4, volumeup),
    awful.button({ }, 5, volumedown)
 )) -- Register assigned buttons
 volwidget:buttons(volbar.widget:buttons())
 volwidget:buttons(awful.util.table.join(
+   awful.button({ }, 1, volumetoggle),
    awful.button({ }, 4, volumeup),
    awful.button({ }, 5, volumedown)
 ))
@@ -411,6 +413,8 @@ dateicon.image = image(beautiful.widget_date)
 datewidget = widget({ type = "textbox" })
 -- Register widget
 vicious.register(datewidget, vicious.widgets.date, date_format, 61)
+require('calendar2')
+calendar2.addCalendarToWidget(datewidget)
 -- }}}
 
 -- {{{ mpd
