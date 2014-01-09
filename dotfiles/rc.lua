@@ -776,7 +776,7 @@ end)
 
 require_safe('autorun')
 sexec('dropbox start -i')
-sexec('conky')
+-- sexec('conky')
 sexec('xscreensaver -no-splash')
 sexec("python /home/unclebill/projects/goagent/local/proxy.py")
 --sexec('indicator-cpufreq')
