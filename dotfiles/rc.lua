@@ -383,26 +383,27 @@ vicious.cache(vicious.widgets.volume)
 vicious.register(volbar,    vicious.widgets.volume,  "$1",  2, "Master")
 vicious.register(volwidget, vicious.widgets.volume, " $1%", 2, "Master")
 -- Register buttons
-function volumeup()
-    exec("amixer -q set Master 1%+", false)
-    vicious.force({volbar, volwidget})
+function volume_control(dir)
+    local func = function ()
+        exec("amixer -q set Master 1%"..dir, false)
+        vicious.force({volbar, volwidget})
+    end
+    return func
 end
-function volumedown()
-    exec("amixer -q set Master 1%-", false)
-    vicious.force({volbar, volwidget})
+function volumetoggle() 
+    exec("amixer -D pulse set Master 1+ toggle")
 end
-function volumetoggle() exec("amixer -D pulse set Master 1+ toggle") end
 
 volbar.widget:buttons(awful.util.table.join(
    awful.button({ }, 1, volumetoggle),
-   awful.button({ }, 4, volumeup),
-   awful.button({ }, 5, volumedown)
+   awful.button({ }, 4, volume_control('+')),
+   awful.button({ }, 5, volume_control('-'))
 )) -- Register assigned buttons
 volwidget:buttons(volbar.widget:buttons())
 volwidget:buttons(awful.util.table.join(
    awful.button({ }, 1, volumetoggle),
-   awful.button({ }, 4, volumeup),
-   awful.button({ }, 5, volumedown)
+   awful.button({ }, 4, volume_control('+')),
+   awful.button({ }, 5, volume_control('-'))
 ))
 -- }}}
 
