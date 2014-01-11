@@ -142,6 +142,7 @@ NeoBundle 'junegunn/vim-easy-align'
 "let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 "NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 " NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplete.vim'
 "NeoBundle 'Shougo/neocomplcache-clang'
