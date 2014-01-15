@@ -410,6 +410,39 @@ volwidget:buttons(awful.util.table.join(
    awful.button({ }, 5, volume_control('-'))
 ))
 -- }}}
+--
+mocpwidget = widget({ type = 'textbox' })
+function startmocp()
+    local fd = {}
+    local ran = nil
+    fd = io.popen('pgrep mocp')
+    
+    ran = fd:read()
+    if ran == nil then
+        io.popen('mocp -S && mocp -p')
+        ran = fd:read()
+    end
+    if ran ~= nil then
+        fd:close()
+        
+        -- toggle
+        io.popen('mocp -G')
+        fd = io.popen('mocp -i')
+        state = string.gsub(fd:read(),"State:%s*","")
+        mocpwidget.text = state
+        fd:close()
+    end
+    fd:close()
+end
+
+mocpwidget.text = 'mocp'
+mocpwidget:buttons(awful.util.table.join(
+    awful.button({  }, 1, startmocp),
+    awful.button({  }, 3, function ()
+        io.open('mocp -f')
+    end)
+))
+
 
 -- {{{ Date and time
 dateicon = widget({ type = "imagebox" })
@@ -498,7 +531,7 @@ for s = 1, screen.count() do
         s == 1 and separator or nil, -- only show on first screen
         datewidget, dateicon,
         baticon.image and separator, batwidget, baticon or nil,
-        separator, volwidget,  volbar.widget, volicon,
+        separator, mocpwidget, separator,volwidget,  volbar.widget, volicon,
         dnicon.image and separator, upicon, netwidget, dnicon or nil,
         separator, fs.r.widget, fs.s.widget, fsicon,
         separator, memtext, membar_enable and membar.widget or nil, memicon,
@@ -787,7 +820,7 @@ require_safe('autorun')
 sexec('dropbox start -i')
 -- sexec('conky')
 sexec('xscreensaver -no-splash')
-sexec("python /home/unclebill/projects/goagent/local/proxy.py")
+sexec("python /home/unclebill/projects/goagent/local/proxy.py $1 > /dev/null 2>&1")
 --sexec('indicator-cpufreq')
 --sexec('everpad')
 -- run_once('jupiter')
