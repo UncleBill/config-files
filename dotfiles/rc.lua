@@ -412,21 +412,17 @@ volbar.widget:buttons(awful.util.table.join(
    awful.button({ }, 5, volume_control('-'))
 )) -- Register assigned buttons
 volwidget:buttons(volbar.widget:buttons())
-volwidget:buttons(awful.util.table.join(
-   awful.button({ }, 1, volumetoggle),
-   awful.button({ }, 4, volume_control('+')),
-   awful.button({ }, 5, volume_control('-'))
-))
+volicon:buttons(volbar.widget:buttons())
 -- }}}
 
 -- {{{mocp widget
 mocpwidget = widget({ type = 'imagebox' })
 mocpwidget.image = image(beautiful.widget_music)
 mocp_txt_widget = widget({ type = 'textbox' })
-mocp_txt_widget.text = ''
+mocp_txt_widget.text = ''   -- hidden
 
 -- start mocp or play next
-function startmocp()
+function mocp_start()
     local fd = {}
     local ran = nil
     local state = nil
@@ -451,24 +447,36 @@ function startmocp()
     fd:close()
 end
 
-mocpwidget:buttons(awful.util.table.join(
-    awful.button({  }, 1, startmocp),
-    awful.button({  }, 2, function ()
+function mocp_toggle()
+    local fd = {}
+    -- toggle
+    io.popen('mocp -G')
+    fd = io.popen('mocp -i')
+    state = string.gsub(fd:read(),"State:%s*","")
+    mocpwidget.text = state
+    fd:close()
+end
 
-    end),
-    awful.button({  }, 3, function ()
-        -- play previous song
-        io.open('mocp -r')
-    end),
-    awful.button({ modkey }, 2, function ()
-        io.open('mocp -x')
-        naughty.notify({
-            title="mocp",
-            text = "Shutting down mocp..."
-        })
-        mocp_txt_widget.text = ''
-    end)
+function mocp_exit()
+    io.popen('mocp -x')
+    naughty.notify({
+        title="mocp",
+        text = "Shutting down mocp..."
+    })
+    mocp_txt_widget.text = ''
+end
+
+function mocp_prev()
+    io.popen('mocp -r')
+end
+
+mocpwidget:buttons(awful.util.table.join(
+    awful.button({  }, 1, mocp_start),
+    awful.button({  }, 2, mocp_toggle),
+    awful.button({ modkey }, 2, mocp_exit),
+    awful.button({  }, 3, mocp_prev)
 ))
+mocp_txt_widget:buttons( mocpwidget.widget:buttons() )
 -- }}}
 
 
