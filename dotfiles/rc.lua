@@ -418,38 +418,58 @@ volwidget:buttons(awful.util.table.join(
    awful.button({ }, 5, volume_control('-'))
 ))
 -- }}}
---
-mocpwidget = widget({ type = 'textbox' })
+
+-- {{{mocp widget
+mocpwidget = widget({ type = 'imagebox' })
+mocpwidget.image = image(beautiful.widget_music)
+mocp_txt_widget = widget({ type = 'textbox' })
+mocp_txt_widget.text = ''
+
+-- start mocp or play next
 function startmocp()
     local fd = {}
     local ran = nil
+    local state = nil
     fd = io.popen('pgrep mocp')
     
     ran = fd:read()
     if ran == nil then
         io.popen('mocp -S && mocp -p')
+        mocp_txt_widget.text = string.lower( state )
         ran = fd:read()
     end
     if ran ~= nil then
         fd:close()
         
         -- toggle
-        io.popen('mocp -G')
+        io.popen('mocp -f')
         fd = io.popen('mocp -i')
         state = string.gsub(fd:read(),"State:%s*","")
-        mocpwidget.text = state
+        mocp_txt_widget.text = string.lower( state )
         fd:close()
     end
     fd:close()
 end
 
-mocpwidget.text = 'mocp'
 mocpwidget:buttons(awful.util.table.join(
     awful.button({  }, 1, startmocp),
+    awful.button({  }, 2, function ()
+
+    end),
     awful.button({  }, 3, function ()
-        io.open('mocp -f')
+        -- play previous song
+        io.open('mocp -r')
+    end),
+    awful.button({ modkey }, 2, function ()
+        io.open('mocp -x')
+        naughty.notify({
+            title="mocp",
+            text = "Shutting down mocp..."
+        })
+        mocp_txt_widget.text = ''
     end)
 ))
+-- }}}
 
 
 -- {{{ Date and time
@@ -539,7 +559,7 @@ for s = 1, screen.count() do
         s == 1 and separator or nil, -- only show on first screen
         datewidget, dateicon,
         baticon.image and separator, batwidget, baticon or nil,
-        separator, mocpwidget, separator,volwidget,  volbar.widget, volicon,
+        separator, mocp_txt_widget, mocpwidget, separator,volwidget,  volbar.widget, volicon,
         dnicon.image and separator, upicon, netwidget, dnicon or nil,
         separator, fs.r.widget, fs.s.widget, fsicon,
         separator, memtext, membar_enable and membar.widget or nil, memicon,
