@@ -396,6 +396,14 @@ function volume_control(dir)
 end
 function volumetoggle() 
     exec("amixer -D pulse set Master 1+ toggle")
+    local master = io.popen('amixer sget Master')
+    local isoff = string.find(master:read('*a'), 'off')
+    if isoff == nil then
+        volicon.image = image(beautiful.widget_mute)
+    else
+        volicon.image = image(beautiful.widget_vol)
+    end
+    master:close()
 end
 
 volbar.widget:buttons(awful.util.table.join(
