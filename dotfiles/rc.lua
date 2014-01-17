@@ -406,13 +406,15 @@ function volumetoggle()
     master:close()
 end
 
-volbar.widget:buttons(awful.util.table.join(
+volbar_buttons = awful.util.table.join(
    awful.button({ }, 1, volumetoggle),
    awful.button({ }, 4, volume_control('+')),
    awful.button({ }, 5, volume_control('-'))
-)) -- Register assigned buttons
-volwidget:buttons(volbar.widget:buttons())
-volicon:buttons(volbar.widget:buttons())
+)
+
+volbar.widget:buttons(volbar_buttons) -- Register assigned buttons
+volwidget:buttons(volbar_buttons)
+volicon:buttons(volbar_buttons)
 -- }}}
 
 -- {{{mocp widget
@@ -470,13 +472,15 @@ function mocp_prev()
     io.popen('mocp -r')
 end
 
-mocpwidget:buttons(awful.util.table.join(
+mocp_buttons = awful.util.table.join(
     awful.button({  }, 1, mocp_start),
     awful.button({  }, 2, mocp_toggle),
     awful.button({ modkey }, 2, mocp_exit),
     awful.button({  }, 3, mocp_prev)
-))
-mocp_txt_widget:buttons( mocpwidget.widget:buttons() )
+)
+
+mocpwidget:buttons(mocp_buttons)
+mocp_txt_widget:buttons(mocp_buttons)
 -- }}}
 
 
