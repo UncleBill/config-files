@@ -267,12 +267,11 @@ vicious.register(batwidget, vicious.widgets.bat,
             if args[1] == '-' or args[1] == '+' then
                 -- dynamically change the background color by power status
                 local red_value = ( (100 - args[2]) / 100 * (0xff - 0x3f) ) + 0x3f;
-                beautiful.bg_normal = string.format('#%0.2x3f3f', red_value)
+                batwidget.bg = string.format('#%0.2x3f3f', red_value)
             end
 
             -- battery is full of charge
             if args[3] == "N/A" then
-                beautiful.bg_normal = '#3f3f3f'
                 return "<span color='green'>".. args[1] .. args[2] .. "%</span>"
             else
                 -- power is low.
