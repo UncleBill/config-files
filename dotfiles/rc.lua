@@ -417,69 +417,23 @@ volicon:buttons(volbar_buttons)
 -- }}}
 
 -- {{{mocp widget
-mocpwidget = widget({ type = 'imagebox' })
-mocpwidget.image = image(beautiful.widget_music)
-mocp_txt_widget = widget({ type = 'textbox' })
-mocp_txt_widget.text = ''   -- hidden
+mocp_icon = widget({ type = 'imagebox' })
+mocp_icon.image = image(beautiful.widget_music)
+mocp_txt = widget({ type = 'textbox' })
+mocp_txt.text = ''   -- hidden
 
--- start mocp or play next
-function mocp_start()
-    local fd = {}
-    local ran = nil
-    local state = nil
-    fd = io.popen('pgrep mocp')
-    
-    ran = fd:read()
-    if ran == nil then
-        io.popen('mocp -S && mocp -p')
-        mocp_txt_widget.text = string.lower( state )
-        ran = fd:read()
-    end
-    if ran ~= nil then
-        fd:close()
-        
-        -- toggle
-        io.popen('mocp -f')
-        fd = io.popen('mocp -i')
-        state = string.gsub(fd:read(),"State:%s*","")
-        mocp_txt_widget.text = string.lower( state )
-        fd:close()
-    end
-    fd:close()
-end
-
-function mocp_toggle()
-    local fd = {}
-    -- toggle
-    io.popen('mocp -G')
-    fd = io.popen('mocp -i')
-    state = string.gsub(fd:read(),"State:%s*","")
-    mocpwidget.text = state
-    fd:close()
-end
-
-function mocp_exit()
-    io.popen('mocp -x')
-    naughty.notify({
-        title="mocp",
-        text = "Shutting down mocp..."
-    })
-    mocp_txt_widget.text = ''
-end
-
-function mocp_prev()
-    io.popen('mocp -r')
-end
+mocp = require('mymocp')
+mocp.setup(mocp_icon, mocp_txt)
 
 mocp_buttons = awful.util.table.join(
-    awful.button({  }, 1, mocp_start),
-    awful.button({  }, 2, mocp_toggle),
-    awful.button({ modkey }, 2, mocp_exit),
-    awful.button({  }, 3, mocp_prev)
+    awful.button({  }, 1, mocp.play),
+    awful.button({  }, 2, mocp.toggle),
+    awful.button({ modkey }, 2, mocp.exit),
+    awful.button({  }, 3, mocp.prev)
 )
 
-mocpwidget:buttons(mocp_buttons)
-mocp_txt_widget:buttons(mocp_buttons)
+mocp_icon:buttons(mocp_buttons)
+mocp_txt:buttons(mocp_buttons)
 -- }}}
 
 
@@ -570,7 +524,7 @@ for s = 1, screen.count() do
         s == 1 and separator or nil, -- only show on first screen
         datewidget, dateicon,
         baticon.image and separator, batwidget, baticon or nil,
-        separator, mocp_txt_widget, mocpwidget, separator,volwidget,  volbar.widget, volicon,
+        separator, mocp_txt, mocp_icon, separator,volwidget,  volbar.widget, volicon,
         dnicon.image and separator, upicon, netwidget, dnicon or nil,
         separator, fs.r.widget, fs.s.widget, fsicon,
         separator, memtext, membar_enable and membar.widget or nil, memicon,

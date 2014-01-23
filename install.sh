@@ -4,7 +4,7 @@
 if [ ! -d "$HOME/.vim/bundle/" ]; then
     echo "~/.vim/bundle/ doesn't exist. making it"
     mkdir -p ~/.vim/bundle
-    echo "cloning neobundle into ~/.vim/bundle"
+    echo "Cloning neobundle into ~/.vim/bundle"
     git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 fi
 
@@ -15,6 +15,7 @@ done
 
 # awesomewm config
 ln -f ./dotfiles/rc.lua ~/.config/awesome/rc.lua
+ln -f ./dotfiles/mymocp.lua ~/.config/awesome/mymocp.lua
 ln -f ./dotfiles/zhongguo.lua ~/.config/awesome/themes/zhongguo/zhongguo.lua
 ln -f ./dotfiles/personal.lua ~/.config/awesome/personal.lua
 
