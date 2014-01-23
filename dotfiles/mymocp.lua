@@ -2,7 +2,6 @@
 
 local io = require('io')
 local os = require('os')
-local awful = require('awful')
 
 local CMDS = {
     ["START"] = 'mocp --server && mocp --play',
@@ -15,16 +14,17 @@ local CMDS = {
     ["EXIT"]  = 'mocp --exit'
 }
 
-local mocp = { }
+local mocp = { 
+}
 
 -- @text_wid: widget for update mocp state
 -- @icon_wid: icon widget
-function mocp:setup(icon_wid, text_wid)
-    mocp.text_wid = text_wid
-    mocp.icon_wid = icon_wid
+function mocp.setup(icon_w, text_w)
+    mocp.icon_wid = icon_w
+    mocp.text_wid = text_w
 end
 
-function mocp:started()
+function mocp.started()
     local fd = io.popen('pgrep mocp')
     local ran = fd:read('*a')
 
@@ -36,7 +36,7 @@ function mocp:started()
     end
 end
 
-function mocp:state()
+function mocp.state()
     local fd = {}
     local state = nil
 
@@ -52,12 +52,12 @@ function mocp:state()
     end
 end
 
-function mocp:update_state()
+function mocp.update_state()
     mocp.text_wid.text = mocp.state()
 end
 
 -- Play or next
-function mocp:play()
+function mocp.play()
     local running = mocp.started()
     if not running then
         os.execute( CMDS['START'] )
@@ -68,7 +68,7 @@ function mocp:play()
     mocp.update_state()
 end
 
-function mocp:prev()
+function mocp.prev()
     if mocp.started() then
         os.execute(CMDS['PREV'])
         mocp.update_state()
@@ -77,7 +77,7 @@ function mocp:prev()
     end
 end
 
-function mocp:toggle()
+function mocp.toggle()
     if mocp.started() then
         os.execute(CMDS['PAUSE'])
         mocp.update_state()
@@ -86,7 +86,7 @@ function mocp:toggle()
     end
 end
 
-function mocp:exit()
+function mocp.exit()
     if mocp.started() then
         os.execute(CMDS['EXIT'])
         naughty.notify({

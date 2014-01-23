@@ -424,6 +424,9 @@ mocp_txt.text = ''   -- hidden
 
 mocp = require('mymocp')
 mocp.setup(mocp_icon, mocp_txt)
+-- setup
+-- mocp.icon_wid = mocp_icon
+-- mocp.text_wid = mocp_txt
 
 mocp_buttons = awful.util.table.join(
     awful.button({  }, 1, mocp.play),
