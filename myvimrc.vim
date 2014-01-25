@@ -36,18 +36,6 @@ endfunction
 "Random coloschemme function
 command! Ranlook call Ranlook()
 
-" google search
-" =============
-function! Google(...)
-    if a:0 == 0
-        let kw = expand('<cword>')
-    else
-        let kw = join(a:000, '%20')
-    endif
-    call vimproc#system("google-chrome http://www.google.com/search?q=".kw)
-endfunction
-command! -nargs=* Google call Google(<f-args>)
-
 " css Uncompress
 " ==============
 function! CssUncompress()
@@ -100,6 +88,7 @@ function! s:sdcv_look(...)
     if a:1 == ''
         return split( system('cat ' . g:sdcv_notebook) )
     endif
+    " use neco-look's lazy-load function
     return halffuzzy#look(a:1)
 endfunction
 
