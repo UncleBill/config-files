@@ -14,6 +14,10 @@ local CMDS = {
     ["EXIT"]  = 'mocp --exit'
 }
 
+local function reload_playlist()
+    os.execute('python ~/.config/awesome/reload.py')
+end
+
 local mocp = { 
 }
 
@@ -61,6 +65,7 @@ function mocp.play()
     local running = mocp.started()
     if not running then
         os.execute( CMDS['START'] )
+        reload_playlist()
     end
     if running then
         os.execute(CMDS['NEXT'])
