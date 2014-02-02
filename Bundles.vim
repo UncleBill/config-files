@@ -186,6 +186,7 @@ NeoBundle 'ujihisa/unite-gem'
 " NeoBundle 'walm/jshint.vim'
 " NeoBundle 'hallettj/jslint.vim'
 " NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'marijnh/tern_for_vim'    " Intelligent javascript tooling
 NeoBundle 'maksimr/vim-jsbeautify'
 function! JsBeautifyWrapper()
     call JsBeautify()
