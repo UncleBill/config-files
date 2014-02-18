@@ -33,3 +33,18 @@ autocmd! BufNewFile,BufRead *.scss *.sass set ft=scss
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesEven guibg=green ctermbg=4
 "autocmd! BufEnter *.coffee map <F5> :CoffeeCompile<cr>
 "autocmd! BufLeave *.coffee map <F5> :QuickRun<cr>
+
+" auto mkdir
+augroup auto_mkdir
+	au!
+	au BufWritePre,FileWritePre * call <SID>auto_mkdir()
+augroup END
+function <SID>auto_mkdir()
+	" Get directory the file is supposed to be saved in
+	let s:dir = expand("<afile>:p:h")
+
+	" Create that directory (and its parents) if it doesn't exist yet
+	if !isdirectory(s:dir)
+		call mkdir(s:dir, "p")
+	endif
+endfunction
