@@ -559,7 +559,12 @@ clientbuttons = awful.util.table.join(
 )
 -- }}}
 
-
+local function setToAllClient( prop, value )
+    local clts = awful.tag.selected():clients()
+    for i = 1, #clts do
+        clts[i][prop] = value
+    end
+end
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
@@ -597,11 +602,7 @@ globalkeys = awful.util.table.join(
         function ()
             local clients = awful.client.visible()
             if #clients <= 1 then
-                local tag = awful.tag.selected()
-                for i=1, #tag:clients() do
-                    tag:clients()[i].minimized=false
-                    --tag:clients()[i]:redraw()
-                end
+                setToAllClient('minimized', false)
             else
                 for i = 1, #clients do
                     if client.focus ~= clients[i] then
@@ -609,6 +610,13 @@ globalkeys = awful.util.table.join(
                     end
                 end
             end
+        end
+    ),
+
+    -- show all clients
+    awful.key({ modkey }, "a",
+        function ()
+            setToAllClient('minimized', false)
         end
     ),
 
