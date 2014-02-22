@@ -17,6 +17,8 @@ imap <leader><BS><BS> <Esc>:wqa<ENTER>
 "inoremap {<ENTER> {}<Esc>i<ENTER><Esc>k=2jo
 imap <leader><Esc><Esc> <Esc>:update<ENTER>
 nmap <Space><cr> :w<ENTER>
+inoremap <c-u> <C-g>u<c-u>
+inoremap <c-w> <C-g>u<c-w>
 
 nnoremap <F4> :set number!<CR>
 nnoremap <S-F4> :set relativenumber!<CR>
@@ -71,7 +73,7 @@ abbr #g +<-----------------------<+
 abbr #k +~~~~~~~~~~~~~~~~~~~+
 abbr #l +-----------------------------------------+
 " neocomplete Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
+" inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 " Recommended key-mappings.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
