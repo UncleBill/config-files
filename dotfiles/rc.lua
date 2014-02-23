@@ -199,7 +199,8 @@ awful.button({ }, 1, function (c)
         c.minimized = true
     else
         if not c:isvisible() then
-            awful.tag.viewonly(c:tags()[1])
+            local tag = awful.tag.selected()
+            awful.tag.viewonly(tag)
         end
         -- This will also un-minimize
         -- the client, if needed
