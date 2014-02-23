@@ -560,7 +560,7 @@ clientbuttons = awful.util.table.join(
 )
 -- }}}
 
-local function setToAllClient( prop, value )
+local function setToAllClients( prop, value )
     local clts = awful.tag.selected():clients()
     for i = 1, #clts do
         clts[i][prop] = value
@@ -603,7 +603,7 @@ globalkeys = awful.util.table.join(
         function ()
             local clients = awful.client.visible()
             if #clients <= 1 then
-                setToAllClient('minimized', false)
+                setToAllClients('minimized', false)
             else
                 for i = 1, #clients do
                     if client.focus ~= clients[i] then
@@ -614,10 +614,10 @@ globalkeys = awful.util.table.join(
         end
     ),
 
-    -- show all clients
+    -- show all clients in selected tag
     awful.key({ modkey }, "a",
         function ()
-            setToAllClient('minimized', false)
+            setToAllClients('minimized', false)
         end
     ),
 
