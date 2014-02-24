@@ -1,6 +1,9 @@
 #!/bin/bash
 # vim config files
 
+AWESOME_FILES="rc.lua mymocp.lua personal.lua reload.py"
+DOT_FILES=".zshrc .conkyrc .gtkrc-2.0"
+
 if [ ! -d "$HOME/.vim/bundle/" ]; then
     echo "~/.vim/bundle/ doesn't exist. making it"
     mkdir -p ~/.vim/bundle
@@ -8,17 +11,22 @@ if [ ! -d "$HOME/.vim/bundle/" ]; then
     git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 fi
 
+# vim scripts
 for file in *.vim
 do
     ln -f ${file} ~/.vim/${file}
 done
+echo "Installed: vim scripts"
 
 # awesomewm config
-ln -f ./dotfiles/rc.lua ~/.config/awesome/rc.lua
-ln -f ./dotfiles/mymocp.lua ~/.config/awesome/mymocp.lua
+for f in $AWESOME_FILES; do
+    ln -f -s ./dotfiles/$f ~/.config/awesome/$f
+done
+echo "Installed: $AWESOME_FILES"
 ln -f ./dotfiles/zhongguo.lua ~/.config/awesome/themes/zhongguo/zhongguo.lua
-ln -f ./dotfiles/personal.lua ~/.config/awesome/personal.lua
 
-ln -f ./dotfiles/.zshrc ~/.zshrc
-ln -f ./dotfiles/.conkyrc ~/.conkyrc
-ln -f ./dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0
+# dot files
+for f in $DOT_FILES; do
+    ln -f -s ./dotfiles/$f ~/$f
+done
+echo "Installed: $DOT_FILES"
