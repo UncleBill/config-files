@@ -1,7 +1,7 @@
 #!/bin/bash
 # vim config files
 
-AWESOME_FILES="rc.lua mymocp.lua personal.lua reload.py"
+AWESOME_FILES="rc.lua mymocp.lua personal.lua reload.py calendar2.lua"
 DOT_FILES=".zshrc .conkyrc .gtkrc-2.0"
 
 if [ ! -d "$HOME/.vim/bundle/" ]; then
