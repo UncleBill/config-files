@@ -276,7 +276,7 @@ vicious.register(batwidget, vicious.widgets.bat,
                 return "<span color='green'>".. args[1] .. args[2] .. "%</span>"
             else
                 -- power is low.
-                if args[2] < 20 and args[1] == '-' and ( args[2] % 5 ) == 0 then
+                if args[2] <= 20 and args[1] == '-' and ( args[2] % 5 ) == 0 then
                     naughty.notify{
                         preset = naughty.config.presets.critical,
                         title = "电量警报",
