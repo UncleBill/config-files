@@ -20,13 +20,13 @@ echo "Installed: vim scripts"
 
 # awesomewm config
 for f in $AWESOME_FILES; do
-    ln -f -s ./dotfiles/$f ~/.config/awesome/$f
+    ln -f ./dotfiles/$f ~/.config/awesome/$f
 done
 echo "Installed: $AWESOME_FILES"
 ln -f ./dotfiles/zhongguo.lua ~/.config/awesome/themes/zhongguo/zhongguo.lua
 
 # dot files
 for f in $DOT_FILES; do
-    ln -f -s ./dotfiles/$f ~/$f
+    ln -f ./dotfiles/$f ~/$f
 done
 echo "Installed: $DOT_FILES"
