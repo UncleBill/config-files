@@ -61,11 +61,11 @@ nnoremap <silent><leader>sv :vsplit ~/.vim/<cr>
 "}}}
 ""}
 "windows navigating{{{
-nmap <C-h> <C-w>h
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
-nmap <C-j> <C-w>j
-nmap <C-tab> <C-w>p
+nnoremap <C-h> <C-w>h
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-tab> <C-w>p
 "}}}
 "abbr
 abbr #G +>----------------------->+
