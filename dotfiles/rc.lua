@@ -421,9 +421,12 @@ mocp.setup(mocp_icon, mocp_txt)
 
 mocp_buttons = awful.util.table.join(
     awful.button({  }, 1, mocp.play),
+    awful.key({  }, "XF86AudioNext", mocp.play),
     awful.button({  }, 2, mocp.toggle),
+    awful.key({  }, "XF86AudioPlay", mocp.toggle),
     awful.button({ modkey }, 2, mocp.exit),
-    awful.button({  }, 3, mocp.prev)
+    awful.button({  }, 3, mocp.prev),
+    awful.key({  }, "XF86AudioPrev", mocp.prev)
 )
 
 mocp_icon:buttons(mocp_buttons)
@@ -577,6 +580,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 9%+", false) end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 9%-", false) end),
+    awful.key({ }, "XF86AudioMute", volumetoggle),
     awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.history.previous()
