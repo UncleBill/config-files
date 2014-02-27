@@ -163,31 +163,17 @@ vicious.register(tzswidget, vicious.widgets.thermal,
 -- }}}
 
 -- {{{ cpu freq
-cpufreq_widget_0 = widget({ type = "textbox" })
-vicious.register(cpufreq_widget_0, vicious.widgets.cpufreq,
-    function(widget, args)
-        return math.floor( args[1]/100 )
-    end,10,'cpu0'
-)
+cpufreq_widget = widget({ type = "textbox" })
+vicious.register(cpufreq_widget,  function ()
+    local f = { cpu0 = 0, cpu1 = 0, cpu2 = 0, cpu3 = 0 }
 
-cpufreq_widget_1 = widget({ type = "textbox" })
-vicious.register(cpufreq_widget_1, vicious.widgets.cpufreq,
-    function(widget, args)
-        return "<span color='yellow'>"..math.floor( args[1]/100 ).."</span>"
-    end,10,'cpu1'
-)
-cpufreq_widget_2 = widget({ type = "textbox" })
-vicious.register(cpufreq_widget_2, vicious.widgets.cpufreq,
-    function(widget, args)
-        return math.floor( args[1]/100 )
-    end,10,'cpu2'
-)
-cpufreq_widget_3 = widget({ type = "textbox" })
-vicious.register(cpufreq_widget_3, vicious.widgets.cpufreq,
-    function(widget, args)
-        return "<span color='yellow'>"..math.floor( args[1]/100 ).."</span>"
-    end,10,'cpu3'
-)
+    for k, _ in pairs(f) do
+        f[k] = math.floor(vicious.widgets.cpufreq('', k)[1]/100)
+    end
+
+    return "<span color='yellow'>"..f.cpu0.."</span>"..f.cpu1 .."<span color='yellow'>"..f.cpu2 .."</span>"..f.cpu3
+
+    end, 10)
 -- }}}
 --
 
@@ -385,7 +371,11 @@ volbar:set_gradient_colors({ beautiful.fg_widget,
 vicious.cache(vicious.widgets.volume)
 -- Register widgets
 vicious.register(volbar,    vicious.widgets.volume,  "$1",  2, "Master")
-vicious.register(volwidget, vicious.widgets.volume, " $1%", 2, "Master")
+vicious.register(volwidget, vicious.widgets.volume, function (widget, args)
+    -- Mute
+    volicon.image = ( args[2] == "♩" and image(beautiful.widget_mute) ) or image(beautiful.widget_vol)
+    return " "..args[1].."%"
+end, 2, "Master")
 -- Register buttons
 function volume_control(dir)
     local func = function ()
@@ -534,10 +524,7 @@ for s = 1, screen.count() do
         separator, memtext, membar_enable and membar.widget or nil, memicon,
         separator, tzfound and tzswidget or nil,
         cpugraph_enable and cpugraph.widget or nil, cpuwidget, cpuicon,
-        cpufreq_widget_0,
-        cpufreq_widget_1,
-        cpufreq_widget_2,
-        cpufreq_widget_3,
+        cpufreq_widget,
         taskbar[s],
         ["layout"] = awful.widget.layout.horizontal.rightleft
     }
