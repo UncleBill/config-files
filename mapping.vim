@@ -19,6 +19,7 @@ imap <leader><Esc><Esc> <Esc>:update<ENTER>
 nmap <Space><cr> :w<ENTER>
 inoremap <c-u> <C-g>u<c-u>
 inoremap <c-w> <C-g>u<c-w>
+inoremap <c-s><c-s> <c-o>:w<cr>
 
 nnoremap <F4> :set number!<CR>
 nnoremap <S-F4> :set relativenumber!<CR>
