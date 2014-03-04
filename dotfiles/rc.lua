@@ -47,7 +47,17 @@ memtext_format = " $1%" -- %1 percentage, %2 used %3 total %4 free
 
 date_format = "%a %m/%d/%Y %l:%M%p" -- refer to http://en.wikipedia.org/wiki/Date_(Unix) specifiers
 
-networks = {'eth0'} -- add your devices network interface here netwidget, only shows first one thats up.
+local function get_networks()
+    local ret = {}
+    for line in io.lines('/proc/net/dev') do
+        local name = string.match(line, "^[%s]?[%s]?[%s]?[%s]?([%w]+):")
+        if name ~= nil and name ~= 'lo' then
+            table.insert(ret, name)
+        end
+    end
+    return ret
+end
+local networks = get_networks()
 
 require_safe('personal')
 
@@ -342,8 +352,10 @@ netwidget = widget({ type = "textbox" })
 -- Register widget
 vicious.register(netwidget, vicious.widgets.net,
 	function (widget, args)
+        local carrier = nil
 		for _,device in pairs(networks) do
-			if tonumber(args["{".. device .." carrier}"]) > 0 then
+            carrier = tonumber(args["{".. device .." carrier}"])
+			if  carrier and carrier > 0 then
 				netwidget.found = true
 				dnicon.image = image(beautiful.widget_net)
 				upicon.image = image(beautiful.widget_netup)
