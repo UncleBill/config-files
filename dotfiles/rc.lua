@@ -339,9 +339,9 @@ vicious.register(fs.s, vicious.widgets.fs, "${/media/files used_p}", 599)
 
 -- {{{ Network usage
 function print_net(name, down, up)
-	return '<span color="'
-	.. beautiful.fg_netdn_widget ..'">' .. down .. '</span> <span color="'
-	.. beautiful.fg_netup_widget ..'">' .. up  .. '</span>'
+    return '<span color="'
+    .. beautiful.fg_netdn_widget ..'">' .. down .. '</span> <span color="'
+    .. beautiful.fg_netup_widget ..'">' .. up  .. '</span>'
 end
 
 dnicon = widget({ type = "imagebox" })
@@ -351,18 +351,18 @@ upicon = widget({ type = "imagebox" })
 netwidget = widget({ type = "textbox" })
 -- Register widget
 vicious.register(netwidget, vicious.widgets.net,
-	function (widget, args)
-        local carrier = nil
-		for _,device in pairs(networks) do
-            carrier = tonumber(args["{".. device .." carrier}"])
-			if  carrier and carrier > 0 then
-				netwidget.found = true
-				dnicon.image = image(beautiful.widget_net)
-				upicon.image = image(beautiful.widget_netup)
-				return print_net(device, args["{"..device .." down_kb}"], args["{"..device.." up_kb}"])
-			end
-		end
-	end, 3)
+function (widget, args)
+    local carrier = nil
+    for _,device in pairs(networks) do
+        carrier = tonumber(args["{".. device .." carrier}"])
+        if  carrier and carrier > 0 then
+            netwidget.found = true
+            dnicon.image = image(beautiful.widget_net)
+            upicon.image = image(beautiful.widget_netup)
+            return print_net(device, args["{"..device .." down_kb}"], args["{"..device.." up_kb}"])
+        end
+    end
+end, 3)
 -- }}}
 
 
