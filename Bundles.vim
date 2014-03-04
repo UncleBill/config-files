@@ -115,6 +115,7 @@ NeoBundle 'vim-scripts/zenesque.vim'
 "}}}
 "syntax
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'leafo/moonscript-vim'
 NeoBundle 'visionmedia/jade'
 NeoBundle 'vim-jp/cpp-vim'
 NeoBundle 'vim-scripts/gdbmgr'
