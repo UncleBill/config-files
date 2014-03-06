@@ -139,12 +139,12 @@ NeoBundle 'junegunn/vim-easy-align'
 "NeoBundle 'tomtom/tlib_vim'
 "NeoBundle 'JazzCore/neocomplcache-ultisnips'
 "NeoBundle 'Rip-Rip/clang_complete'
-"NeoBundle 'SirVer/ultisnips'
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<tab>"
-"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+NeoBundle 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 "NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'Shougo/neosnippet'
+" NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 " NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplete.vim'
@@ -153,7 +153,7 @@ NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'osyo-manga/vim-precious'
 NeoBundle 'kana/vim-textobj-user'
 "NeoBundle 'Shougo/unite-session'
-"NeoBundle 'honza/vim-snippets'
+NeoBundle 'honza/vim-snippets'
 NeoBundle 'hrsh7th/vim-neco-calc'
 NeoBundle 'UncleBill/neco-look'
 " NeoBundle 'UncleBill/neco-stardict'
