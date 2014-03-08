@@ -52,7 +52,7 @@ NeoBundle 'sjl/gundo.vim'
 "NeoBundle 'mbbill/undotree'
 "NeoBundle 'epmatsw/ag.vim'
 " NeoBundle 'vim-scripts/css3'
-NeoBundle 'skammer/vim-css-color'
+" NeoBundle 'skammer/vim-css-color'  "Makes <c-w> unuse in Markdown
 NeoBundle 'csslint.vim'
 NeoBundle 'CSS-2.1-Specification'
 NeoBundle 'vim-scripts/vim-stylus'
