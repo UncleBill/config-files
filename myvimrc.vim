@@ -8,7 +8,7 @@ if has('vim_starting')
    set runtimepath+=~/.vim/bundle/neobundle.vim/
  endif
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/neobundle.vim/
 let g:neobundle#types#git#default_protocol='git'
 call neobundle#rc(expand('~/.vim/bundle'))
 
