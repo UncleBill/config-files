@@ -30,3 +30,14 @@ for f in $DOT_FILES; do
     ln -f ./dotfiles/$f ~/$f
 done
 echo "Installed: $DOT_FILES"
+
+#####################
+#  awesome plugins  #
+#####################
+
+# teardrop
+if [[ ! -f "$HOME/.config/awesome/teardrop.lua" ]]; then
+    echo "Installing teardrop.lua..."
+    wget https://raw.github.com/lucmazon/awesome-config/master/teardrop.lua -O $HOME/.config/awesome/teardrop.lua
+    echo "Installed teardrop.lua!"
+fi
