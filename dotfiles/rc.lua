@@ -651,7 +651,7 @@ globalkeys = awful.util.table.join(
          wibox[mouse.screen].visible = not wibox[mouse.screen].visible
     end),
     awful.key({ modkey }, "p", function ()
-        teardrop('urxvt', 'bottom', 'center', 550, 200, true)
+        teardrop('urxvt', 'bottom', 'center', 600, 230, true)
     end),
 
     -- Prompt
