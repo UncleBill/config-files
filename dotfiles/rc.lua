@@ -17,6 +17,7 @@ require("naughty")
 -- User libraries
 require("vicious") -- ./vicious
 require("helpers") -- helpers.lua
+require('teardrop')
 -- }}}
 
 -- {{{ Default configuration
@@ -648,6 +649,9 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey }, "b", function ()
          wibox[mouse.screen].visible = not wibox[mouse.screen].visible
+    end),
+    awful.key({ modkey }, "p", function ()
+        teardrop('urxvt', 'bottom', 'center', 550, 200, true)
     end),
 
     -- Prompt
