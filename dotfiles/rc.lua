@@ -458,6 +458,20 @@ require('calendar2')
 calendar2.addCalendarToWidget(datewidget)
 -- }}}
 
+-- {{{ Gmail checker
+gmailicon = widget({ type = "imagebox" })
+gmailicon.image = image(beautiful.widget_mail)
+-- Initialize widget
+gmailwidget = widget({ type = "textbox" })
+-- Register widget
+gmail_buttons = awful.button({ }, 1, function ()
+       awful.util.spawn('xdg-open https://mail.google.com/mail/u/0/#inbox')
+   end)
+gmailicon:buttons(gmail_buttons)
+gmailwidget:buttons(gmail_buttons)
+vicious.register(gmailwidget, vicious.widgets.gmail,  "<span color='yellow'>${count}</span>", 120)
+-- }}}
+
 -- {{{ mpd
 
 if whereis_app('curl') and whereis_app('mpd') then
@@ -533,6 +547,7 @@ for s = 1, screen.count() do
         s == 1 and systray or nil, -- only show tray on first screen
         s == 1 and separator or nil, -- only show on first screen
         datewidget, dateicon,
+        gmailwidget, gmailicon,
         baticon.image and separator, batwidget, baticon or nil,
         separator, mocp_txt, mocp_icon, separator,volwidget,  volbar.widget, volicon,
         dnicon.image and separator, upicon, netwidget, dnicon or nil,
