@@ -57,7 +57,6 @@ alias va='gvim --remote '
 alias j='jobs '
 alias l='ls'
 alias V='vim '
-alias noTe='_today=$(date +%m-%d-%Y) && gvim $HOME/Dropbox/media/notes/$_today.markdown + -c "r !date +\<----------\%X\ @\%A"'
 alias pdf='evince'
 function c(){
     cd $1
