@@ -305,30 +305,25 @@ let g:quickrun_config.matlab = {
             \ 'exec': '%C -q',
             \ }
 
-abbreviate youcompleteme YouCompleteMe
-abbreviate ultisnip UltiSnip
-abbreviate neocomplete Neocomplete
-
 " =============================================================================
 " Use ranger as vim file manager
-function! Ranger()
-    " Get a temp file name without creating it
-    let tmpfile = substitute(system('mktemp -u'), '\n', '', '')
-    " Launch ranger, passing it the temp file name
-    silent exec '!RANGER_RETURN_FILE='.tmpfile.' ranger'
-    " If the temp file has been written by ranger
-    if filereadable(tmpfile)
-        " Get the selected file name from the temp file
-        let filetoedit = system('cat '.tmpfile)
-        exec 'edit '.filetoedit
-        call delete(tmpfile)
-    endif
-    redraw!
-endfunction
-
-nmap <leader>r :call Ranger()<cr>
-
-" コピペ厳禁
+if !has('gui_running')
+    function! Ranger()
+        " Get a temp file name without creating it
+        let tmpfile = substitute(system('mktemp -u'), '\n', '', '')
+        " Launch ranger, passing it the temp file name
+        silent exec '!RANGER_RETURN_FILE='.tmpfile.' ranger'
+        " If the temp file has been written by ranger
+        if filereadable(tmpfile)
+            " Get the selected file name from the temp file
+            let filetoedit = system('cat '.tmpfile)
+            exec 'edit '.filetoedit
+            call delete(tmpfile)
+        endif
+        redraw!
+    endfunction
+    nmap <leader>r :call Ranger()<cr>
+endif
 
 " quickrun 用のマッピング
 nmap <Space>q <Plug>(precious-quickrun-op)
