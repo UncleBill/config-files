@@ -309,32 +309,6 @@ abbreviate youcompleteme YouCompleteMe
 abbreviate ultisnip UltiSnip
 abbreviate neocomplete Neocomplete
 
-" set re=1
-if has("profile")
-let g:syntime_report=''
-fun! SynTime(eng)
-      syn clear
-      exe 'set re='.a:eng
-      edit!
-      syntime on
-      redraw!
-      redraw!
-      redraw!
-      redraw!
-      redir =>> g:syntime_report
-      echom "Engine" a:eng
-      echom ""
-      syntime report
-      syntime off
-      redir END
-endfun
-
-fun! DoSynTime()
-        let g:syntime_report=''
-        call SynTime(1)
-        call SynTime(2)
-        echom g:syntime_report
-endfun
 " =============================================================================
 " Use ranger as vim file manager
 function! Ranger()
@@ -354,8 +328,6 @@ endfunction
 
 nmap <leader>r :call Ranger()<cr>
 
-command! -nargs=0 SynTime : call DoSynTime()
-endif
 " コピペ厳禁
 
 " quickrun 用のマッピング
