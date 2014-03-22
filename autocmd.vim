@@ -48,3 +48,5 @@ function <SID>auto_mkdir()
 		call mkdir(s:dir, "p")
 	endif
 endfunction
+
+autocmd FileType calendar set nonumber norelativenumber
