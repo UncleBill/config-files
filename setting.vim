@@ -5,7 +5,7 @@ let $MYVIMRC_="~/Dropbox/works/Vim/"
 "let g:neosnippet#snippets_directory=$MYVIMRC_ . 'snippets'
 "let g:clang_library_path='/usr/include/'
 " let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet/autoload/neosnippet,~/Dropbox/works/Vim/snippets'
-let g:UltiSnipsSnippetDirectories=["~/.vim/bundle/vim-snippets/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=["/home/unclebill/.vim/bundle/vim-snippets/UltiSnips"]
 let g:snips_author = "UncleBill"
 let g:snips_email = "billbill290@gmail.com"
 let g:snips_github = "UncleBill"
@@ -78,6 +78,7 @@ set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/**
 set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
+" let g:startify_session_delete_buffers=1
 " -----------------------------------------
 set backspace=indent,eol,start
 "Toggle Menu and Toolbar
