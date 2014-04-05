@@ -87,27 +87,14 @@ function! TabJumpOut()
 endf
 
 function! g:SmartTab()
-    call UltiSnips#ExpandSnippetOrJump()
-    if g:ulti_expand_or_jump_res == 0
-            call UltiSnips#JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-                return TabJumpOut()
-            endif
-    elseif g:ulti_expand_or_jump_res == 2
-        call UltiSnips#JumpForwards()
-        if g:ulti_jump_forwards_res == 0
-            return TabJumpOut()
-        endif
+    if neosnippet#expandable_or_jumpable()
+        return "\<Plug>(neosnippet_expand_or_jump)" 
+    else
+        return TabJumpOut()
     endif
-    return ""
 endfunction
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-au BufEnter * exec "inoremap <silent> <Tab> <C-R>=g:SmartTab()<cr>"
-" inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 " Recommended key-mappings.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+imap <expr><Tab> g:SmartTab()
+smap <expr><Tab> g:SmartTab()
