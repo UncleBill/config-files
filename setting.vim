@@ -10,7 +10,7 @@ let g:snips_email = "billbill290@gmail.com"
 let g:snips_github = "UncleBill"
 " neocomplete settings
 let g:neocomplete#enable_at_startup = 1
-let g:neocomplete_enable_auto_select = 1
+let g:neocomplete#enable_auto_select = 1
 let g:neocomplete#enable_camel_case_completion = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_underbar_completion = 1
@@ -38,7 +38,7 @@ let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:html_indent_inctags = "body,html,head,p,tbody"
-"set completeopt-=preview
+set completeopt-=preview
 "let g:neocomplete_enable_auto_delimiter = 1
 " For snippet_complete marker.
 "let g:AutoPairsFlyMode = 1
