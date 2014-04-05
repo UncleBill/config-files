@@ -87,8 +87,8 @@ function! TabJumpOut()
 endf
 
 function! g:SmartTab()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
+    call UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res == 0
         if pumvisible()
             return "\<C-n>"
         else
@@ -96,6 +96,11 @@ function! g:SmartTab()
             if g:ulti_jump_forwards_res == 0
                 return TabJumpOut()
             endif
+        endif
+    elseif g:ulti_expand_or_jump_res == 2
+        call UltiSnips#JumpForwards()
+        if g:ulti_jump_forwards_res == 0
+            return TabJumpOut()
         endif
     endif
     return ""
