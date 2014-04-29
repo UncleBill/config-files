@@ -34,7 +34,7 @@ gitg = 'gitg'
 xscreensaver = 'xscreensaver-command -lock'
 
 wallpaper_app = "feh" -- if you want to check for app before trying
-wallpaper_dir = os.getenv("HOME") .. "/Pictures/Wallpaper" -- wallpaper dir
+wallpaper_dir = os.getenv("HOME") .. "/Dropbox/media/wallpapers" -- wallpaper dir
 
 -- taglist numerals
 --- arabic, chinese, {east|persian}_arabic, roman, thai, random
@@ -823,27 +823,27 @@ end
 x = 0
 
 -- setup the timer
-mytimer = timer { timeout = x }
-mytimer:add_signal("timeout", function()
+wptimer = timer { timeout = x }
+wptimer:add_signal("timeout", function()
 
   -- tell awsetbg to randomly choose a wallpaper from your wallpaper directory
   if file_exists(wallpaper_dir) and whereis_app('feh') then
 	  os.execute(wallpaper_cmd)
   end
   -- stop the timer (we don't need multiple instances running at the same time)
-  mytimer:stop()
+  wptimer:stop()
 
   -- define the interval in which the next wallpaper change should occur in seconds
   -- (in this case anytime between 10 and 20 minutes)
   x = math.random( 600, 1200)
 
   --restart the timer
-  mytimer.timeout = x
-  mytimer:start()
+  wptimer.timeout = x
+  wptimer:start()
 end)
 
 -- initial start when rc.lua is first run
---mytimer:start()
+wptimer:start()
 
 require_safe('autorun')
 sexec('dropbox start -i')
