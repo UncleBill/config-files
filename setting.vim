@@ -92,8 +92,8 @@ set backspace=indent,eol,start
 "Toggle Menu and Toolbar
 syntax on
 let g:syntastic_ignore_files=['^/usr/include/', '\c\.h$']
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+let g:syntastic_error_symbol='x'
+let g:syntastic_warning_symbol='!'
 let g:syntastic_enable_balloons = 1
 let g:syntastic_enable_signs = 0
 " let g:syntastic_check_on_wq=0
@@ -114,7 +114,7 @@ set scrolloff=1
 "set list
 "set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 "set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
+set guifont=Consolas:h9
 "let g:indent_guides_auto_colors = 0
 "
 " airline settings
