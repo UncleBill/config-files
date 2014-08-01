@@ -120,7 +120,7 @@ endfunction
 
 colo mrkn256
 if has("gui_running")
-	colo atom
+	colo automation
     set cursorline
 endif
 
