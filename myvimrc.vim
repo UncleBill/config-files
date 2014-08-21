@@ -9,6 +9,7 @@ if has('vim_starting')
  endif
 
 set rtp+=~/.vim/bundle/neobundle.vim/
+set rtp+=~/.fzf
 let g:neobundle#types#git#default_protocol='git'
 call neobundle#rc(expand('~/.vim/bundle'))
 
@@ -76,6 +77,7 @@ function! Sdcv(...)
     nnoremap <buffer> q <c-w>c
     nnoremap <buffer> <Esc> <c-w>c
     nnoremap <buffer> <Space><Space> <c-f>
+    nnoremap <buffer> <2-LeftMouse> <c-w>c
     1s/^/\=expl/
     1
     wincmd J
@@ -94,6 +96,7 @@ endfunction
 
 command! -nargs=* -complete=customlist,s:sdcv_look Sdcv call Sdcv(<f-args>)
 nmap <silent><M-d> :Sdcv<cr>
+nmap <silent><M-LeftMouse> :Sdcv<cr>
 
 command! Sthissession call Sthissession()
 function! Sthissession()
@@ -210,6 +213,10 @@ nnoremap <silent><space>s :Unite -quick-match buffer -immediately<cr>
 let g:unite_winheight = 30
 " let g:unite_enable_start_insert = 1
 let g:unite_split_rule = 'botright'
+call unite#custom#profile('default', 'context', {
+\   'start_insert': 1,
+\   'prompt_direction': 'top',
+\})
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings() "{{{
     " Overwrite settings.

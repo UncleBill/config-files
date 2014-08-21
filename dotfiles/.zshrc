@@ -13,8 +13,6 @@ ZSH_THEME="fwalch"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias goagentf='python /home/unclebill/projects/goagent/local/proxy.py'
-alias goagent='nohup python /home/unclebill/projects/goagent/local/proxy.py $1 > /dev/null 2>&1 &'
 #alias f55='nohup f5 &'
 #http://stackoverflow.com/questions/4797050/how-to-run-process-as-background-and-never-die
 function f55() { # run f5 background
@@ -99,3 +97,4 @@ source $ZSH/oh-my-zsh.sh
  [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 # Customize to your needs...
+source ~/.fzf.zsh

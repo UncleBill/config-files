@@ -668,6 +668,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function ()
         teardrop('urxvt', 'bottom', 'center', 600, 230, true)
     end),
+    awful.key({ modkey }, "i", function ()
+        teardrop('gvim', 'bottom', 'center', 600, 400, true)
+    end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () promptbox[mouse.screen]:run() end),
@@ -849,7 +852,8 @@ require_safe('autorun')
 sexec('dropbox start -i')
 -- sexec('conky')
 sexec('xscreensaver -no-splash')
-sexec("python /home/unclebill/projects/goagent/local/proxy.py $1 > /dev/null 2>&1")
+sexec("/home/unclebill/Downloads/shadowsocks-local-linux32 /home/unclebill/Downloads/config.json &")
+-- sexec("python /home/unclebill/projects/goagent/local/proxy.py $1 > /dev/null 2>&1")
 --sexec('indicator-cpufreq')
 --sexec('everpad')
 -- run_once('jupiter')
