@@ -868,7 +868,7 @@ awful.key(
 )
 
 -- send a foretune adage.
-sexec('__fortune=$(fortune) && notify-send "$__fortune" -t 10000 -u normal')
+sexec('__fortune=$(fortune) && notify-send "$__fortune" -u normal')
 
 -- run once
 function run_once(prg)
