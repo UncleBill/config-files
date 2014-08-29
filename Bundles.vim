@@ -46,7 +46,7 @@ NeoBundle 'tomtom/tcomment_vim'
 "NeoBundle 'jistr/vim-nerdtree-tabs'
 "NeoBundle 'bootleq/vim-tabline'
 "NeoBundle 'gcmt/taboo.vim'
-NeoBundle 'scrooloose/syntastic'
+" NeoBundle 'scrooloose/syntastic'
 " NeoBundle 'osyo-manga/vim-watchdogs',{
 "             \ 'depends': [ 'jceb/vim-hier','osyo-manga/shabadou.vim' ]
 "             \ }
@@ -55,7 +55,7 @@ NeoBundle 'sjl/gundo.vim'
 "NeoBundle 'epmatsw/ag.vim'
 " NeoBundle 'vim-scripts/css3'
 " NeoBundle 'skammer/vim-css-color'  "Makes <c-w> unuse in Markdown
-NeoBundle 'csslint.vim'
+" NeoBundle 'csslint.vim'
 NeoBundle 'CSS-2.1-Specification'
 NeoBundle 'vim-scripts/vim-stylus'
 NeoBundle 'mattn/emmet-vim'

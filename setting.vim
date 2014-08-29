@@ -52,7 +52,7 @@ set path=.,./lib,./include,/usr/local/include,/usr/include
 "set dictionary=~/
 au BufEnter *.php set dictionary+=~/.vim/extra/php-funclist.txt
 au BufLeave *.php set dictionary-=~/.vim/extra/php-funclist.txt
-set history=1000
+set history=10000
 set hidden
 set shiftwidth=4
 set tabstop=4

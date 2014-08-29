@@ -46,7 +46,7 @@ nmap <M-.> ^i.<Esc>$
 imap <M-.> <Esc><M-.>a
 nmap <leader>= zf%
 nmap <silent><m-h> :noh<cr>
-vmap <c-cr> <c-y>,
+vmap <c-cr> <Plug>(emmet-expand-abbr)
 imap <M-'> <Space>+ 1
 nmap <C-=> mzgg=G'z
 vnoremap <C-C> "+y
