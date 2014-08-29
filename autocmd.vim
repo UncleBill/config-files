@@ -1,5 +1,3 @@
-autocmd FileType html,css imap <c-cr> <Plug>(emmet-expand-abbr)
-autocmd FileType html,css nmap <c-cr> <Plug>(emmet-expand-abbr)
 autocmd FileType php let b:surround_{char2nr("-")} = "<?php \r ?>"
 autocmd FileType javascript let b:surround_99 = "(function(){\r}()); // closure"
 autocmd FileType javascript let b:surround_45 = "for(){ \r }"
