@@ -146,6 +146,7 @@ if !has("gui_running")
     hi SpellRare cterm=underline ctermfg=blue
 endif
 let NERDTreeIgnore=['\.pyc$', '\.bak$', '\.swp$']
+" let NERDTreeQuitOnOpen=1
 let g:tagbar_autofocus=1
 let g:tagbar_width=35
 let g:tagbar_expand = 1
