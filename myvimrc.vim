@@ -11,10 +11,11 @@ if has('vim_starting')
 set rtp+=~/.vim/bundle/neobundle.vim/
 set rtp+=~/.fzf
 let g:neobundle#types#git#default_protocol='git'
-call neobundle#rc(expand('~/.vim/bundle'))
 
 "source Bundles list
+call neobundle#begin()
 so ~/.vim/Bundles.vim
+call neobundle#end()
 
 filetype plugin indent on     " required!
 NeoBundleCheck
