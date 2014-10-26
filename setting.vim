@@ -55,6 +55,7 @@ au BufLeave *.php set dictionary-=~/.vim/extra/php-funclist.txt
 set history=10000
 set hidden
 set shiftwidth=4
+set showbreak=--->
 set tabstop=4
 set expandtab
 set smartindent
