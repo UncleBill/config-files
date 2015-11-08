@@ -1,4 +1,4 @@
 bundle/
 UltiSnips/
-./.backup/*
-./.vim_swp/*
+.backup/*
+.vim_swp/*

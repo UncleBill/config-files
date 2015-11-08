@@ -23,10 +23,12 @@ autocmd FileType vim set dictionary=~/Dropbox/works/Vim/dict/vim.dict
 "let dictfold = ~/Dropbox/works/Vim/dict/
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 "autocmd! BufNewFile,BufRead *.html set ft=html.css.javascript
+autocmd! BufNewFile,BufRead *.phtml set ft=html
 autocmd! BufNewFile,BufRead *.ejs set ft=html
 autocmd! BufNewFile,BufRead *.go set ft=go
 autocmd! BufNewFile,BufRead *.md set ft=markdown
 autocmd! BufNewFile,BufRead *.scss *.sass set ft=scss
+autocmd! BufRead *.tpl set ft=html
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesOdd guibg=red ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesEven guibg=green ctermbg=4
 "autocmd! BufEnter *.coffee map <F5> :CoffeeCompile<cr>

@@ -1,6 +1,6 @@
 "mapping{
 nnoremap <F3> :<C-u>GundoToggle<CR>
-nmap <silent> <M-e> :NERDTreeMirrorToggle<ENTER>
+nnoremap <silent> <M-e> :NERDTreeMirrorToggle<ENTER>
 imap <silent> <M-e> <Esc><M-e>
 nmap <silent> <M-t> :TagbarToggle<ENTER>
 imap <silent> <M-t> <Esc><M-t>
@@ -20,6 +20,7 @@ nmap <Space><cr> :w<ENTER>
 inoremap <c-u> <C-g>u<c-u>
 inoremap <c-w> <C-g>u<c-w>
 inoremap <c-s><c-s> <c-o>:w<cr>
+inoremap <c-v> <c-r>*
 
 nnoremap <F4> :set number!<CR>
 nnoremap <S-F4> :set relativenumber!<CR>
@@ -59,8 +60,8 @@ map <C-s> :w<CR>
 "map <c-a> ggVG
 "****************************************
 ""mapping for edit vimrc{{{
-nnoremap <silent><leader>ev :vsplit $HOME/.vim/<cr>
-nnoremap <silent><leader>sv :vsplit $HOME/.vim/<cr>
+nnoremap <silent><leader>ev :vsplit ~/.vim/<cr>
+nnoremap <silent><leader>sv :vsplit ~/.vim/<cr>
 "}}}
 ""}
 "windows navigating{{{
@@ -108,7 +109,7 @@ function! g:SmartTab()
     elseif emmet#isExpandable()
         return "\<C-y>,"
     else
-        return TabJumpOut()
+        return "\<TAB>"
     endif
 endfunction
 
@@ -116,3 +117,36 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " Recommended key-mappings.
 imap <expr><Tab> g:SmartTab()
 smap <expr><Tab> g:SmartTab()
+
+function! Match_pair() 
+    let pairs = [ ['(',')'], ['\[','\]'], ['{','}']] 
+    let p         = ''
+    let col       = 0
+    let minlin = 0
+    let mincol = 0
+    for pair in pairs
+        " echomsg 'match'.pair[0]
+        let [lnum, col] = searchpairpos(pair[0], '', pair[1], 'n')
+        " echo lnum.'x'.col
+        if lnum > 0
+            if minlin == 0
+                let minlin = lnum
+                let mincol = col
+                let p = pair[0]
+            elseif lnum < minlin || (lnum == minlin && col < mincol)
+                let minlin = lnum
+                let mincol = col
+                let p = pair[0]
+            endif
+        endif
+    endfor
+    if p == '\['
+        let p = '['
+    endif
+    if !empty(p)
+        " echo 'min'.p
+        execute "normal va".p
+    endif
+endfunction
+
+nnoremap <silent> <c-m> :call Match_pair()<cr>
