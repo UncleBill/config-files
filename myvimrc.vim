@@ -11,10 +11,11 @@ if has('vim_starting')
 set rtp+=~/.vim/bundle/neobundle.vim/
 set rtp+=~/.fzf
 let g:neobundle#types#git#default_protocol='git'
-call neobundle#rc(expand('~/.vim/bundle'))
+call neobundle#begin()
 
 "source Bundles list
 so ~/.vim/Bundles.vim
+call neobundle#end()
 
 filetype plugin indent on     " required!
 NeoBundleCheck
@@ -72,7 +73,8 @@ function! Sdcv(...)
     "echo expl
     windo if expand("%")=="sdcv-dict-tmp" | q! |  endif
     silent split sdcv-dict-tmp
-    setlocal buftype=nofile bufhidden=delete noswapfile
+    setlocal buftype=nofile bufhidden=delete noswapfile nobuflisted
+    setlocal nonumber nocursorline nocursorcolumn nolist statusline=\ Sdcv
     autocmd! BufLeave sdcv-dict-tmp execute s:sdcv_pre_winnr.'wincmd w'
     nnoremap <buffer> q <c-w>c
     nnoremap <buffer> <Esc> <c-w>c
@@ -120,6 +122,24 @@ function! Save2Dict()
         call vimproc#system('cat ' .file. ' | sed -e "s/\r$//g" | sort | uniq > '.file)
     endfor
 endfunction
+
+command! TODO call TODO()
+function! TODO()
+    execute 'vimgrep /todo/ **'
+endfunction
+
+" TODO:
+" command! Calc call Calc()
+" function! Calc() abort
+"     let cWORD = expand('<cWORD>')
+"     let cWORD = substitute(cWORD, '^.*\(\[\d\+-\*/\.\]\+\).*$', "\1", 'g')
+"     echo cWORD
+"     let code = substitute(cWORD, '\(\d\+\(\.\d\+\)\=\)', 'str2float("\1")', 'g')
+"     echo code
+"     let line = getline('.')
+"     let result = eval(code)
+"     call setline('.', substitute(line, cWORD, printf('%g', eval(code) ), 'g'))
+" endfunction
 
 colo mrkn256
 if has("gui_running")

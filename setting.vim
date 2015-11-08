@@ -66,6 +66,7 @@ set number
 set noerrorbells
 set visualbell
 set wildmenu
+" set noequalalways
 " set keywordprg=sdcv\ -n
 " -----------------------------------------
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
@@ -75,10 +76,12 @@ set wildignore+=vendor/cache/**
 set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=*.psd
 set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/**
 set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
 let g:startify_session_delete_buffers=1
+let g:startify_session_persistence=1
+let g:startify_change_to_vcs_root=1
 " -----------------------------------------
 set backspace=indent,eol,start
 "Toggle Menu and Toolbar
@@ -88,6 +91,9 @@ let g:syntastic_error_symbol='x'
 let g:syntastic_warning_symbol='!'
 let g:syntastic_enable_balloons = 1
 " let g:syntastic_check_on_wq=0
+" set fileencodings=utf-8,gbk
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set fileencoding=utf-8
 set synmaxcol=300
 set guioptions=acgit
 set laststatus=2
@@ -96,7 +102,9 @@ set lazyredraw
 set noshowmode
 set matchtime=0
 set ruler
-" set cursorline
+set cursorline
+set cursorcolumn
+set cc=80
 highlight clear SignColumn
 set hlsearch
 set incsearch
@@ -137,6 +145,7 @@ let g:tagbar_expand = 1
 let g:tagbar_sort = 0
 let g:tagbar_autopreview = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:nerdtree_tabs_open_on_new_tab = 0
 let g:gist_use_password_in_gitconfig = 1
 let g:gist_browser_command = 'google-chrome %URL% &'
 let g:gist_post_private = 1
@@ -171,6 +180,9 @@ let g:user_emmet_settings = {
 \    'extends' : 'html',
 \    'filters' : 'html,c',
 \  },
+\  'html':{
+\       'inline_elements':''
+\  },
 \  'css' : {
 \    'filters' : 'fc',
 \  },
@@ -191,3 +203,6 @@ let g:user_emmet_settings = {
 \  },
 \ },
 \}
+call tcomment#DefineType('less',              '/* %s */'         )
+call tcomment#DefineType('less_block',        g:tcommentBlockC   )
+call tcomment#DefineType('less_inline',       g:tcommentInlineC  )
