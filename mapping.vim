@@ -1,6 +1,6 @@
 "mapping{
 nnoremap <F3> :<C-u>GundoToggle<CR>
-nmap <silent> <M-e> :NERDTreeToggle<ENTER>
+nmap <silent> <M-e> :NERDTreeMirrorToggle<ENTER>
 imap <silent> <M-e> <Esc><M-e>
 nmap <silent> <M-t> :TagbarToggle<ENTER>
 imap <silent> <M-t> <Esc><M-t>
@@ -88,9 +88,25 @@ function! TabJumpOut()
     endif
 endf
 
+function! CouldJump2End()
+    let line = getline('.')
+    let pos = col('.')
+    let next_char = line[pos]
+
+    if stridx(";.]>)}\'\"`", next_char) > -1 && pos != col('$')
+        return 1
+    else
+        return 0
+    endif
+endfunction
+
 function! g:SmartTab()
     if neosnippet#expandable_or_jumpable()
         return "\<Plug>(neosnippet_expand_or_jump)" 
+    elseif CouldJump2End()
+        return "\<C-o>$"
+    elseif emmet#isExpandable()
+        return "\<C-y>,"
     else
         return TabJumpOut()
     endif

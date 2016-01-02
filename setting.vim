@@ -43,8 +43,9 @@ set completeopt-=preview
 " For snippet_complete marker.
 "let g:AutoPairsFlyMode = 1
 if has('conceal')
-  set conceallevel=2 concealcursor=i
+  set conceallevel=2
 endif
+let g:indentLine_noConcealCursor=1
 
 set backupdir=~/.vim/.backup/
 set directory=~/.vim/.vim_swp/
@@ -55,7 +56,7 @@ au BufLeave *.php set dictionary-=~/.vim/extra/php-funclist.txt
 set history=10000
 set hidden
 set shiftwidth=4
-set showbreak=--->
+" set showbreak=--->
 set tabstop=4
 set expandtab
 set smartindent
@@ -67,6 +68,8 @@ set number
 set noerrorbells
 set visualbell
 set wildmenu
+set noequalalways
+set re=1
 " set keywordprg=sdcv\ -n
 " -----------------------------------------
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
@@ -80,6 +83,10 @@ set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/**
 set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
 let g:startify_session_delete_buffers=1
+let g:startify_session_persistence=1
+let g:startify_change_to_vcs_root=1
+let g:startify_custom_header =
+            \ map(split(system('fortune'), '\n'), '"   ". v:val') + ['','']
 " -----------------------------------------
 set backspace=indent,eol,start
 "Toggle Menu and Toolbar
@@ -88,6 +95,7 @@ let g:syntastic_ignore_files=['^/usr/include/', '\c\.h$']
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_enable_balloons = 1
+let g:syntastic_enable_signs = 0
 " let g:syntastic_check_on_wq=0
 set synmaxcol=300
 set guioptions=acgit
@@ -111,14 +119,21 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
 "
 " airline settings
 "
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
+let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_branch_prefix = ''
-let g:airline_readonly_symbol = ''
-let g:airline_linecolumn_prefix = ''
-let g:airline_theme = 'lucius'
+let g:airline_right_sep = ''
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 if !has("gui_running")
     hi clear SpellBad
@@ -131,13 +146,14 @@ if !has("gui_running")
     hi SpellRare cterm=underline ctermfg=blue
 endif
 let NERDTreeIgnore=['\.pyc$', '\.bak$', '\.swp$']
-let NERDTreeQuitOnOpen=1
 let g:tagbar_autofocus=1
 let g:tagbar_width=35
 let g:tagbar_expand = 1
 let g:tagbar_sort = 0
 let g:tagbar_autopreview = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
+" let g:nerdtree_tabs_autoclose = 0
+let NERDTreeQuitOnOpen=0
 let g:gist_use_password_in_gitconfig = 1
 let g:gist_browser_command = 'google-chrome %URL% &'
 let g:gist_post_private = 1

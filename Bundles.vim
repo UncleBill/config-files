@@ -41,12 +41,13 @@ NeoBundle 't9md/vim-choosewin'
 NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'tracyone/calendar'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'justinmk/vim-dirvish'
 "NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tomtom/tcomment_vim'
-"NeoBundle 'jistr/vim-nerdtree-tabs'
+NeoBundle 'jistr/vim-nerdtree-tabs'
 "NeoBundle 'bootleq/vim-tabline'
 "NeoBundle 'gcmt/taboo.vim'
-" NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 " NeoBundle 'osyo-manga/vim-watchdogs',{
 "             \ 'depends': [ 'jceb/vim-hier','osyo-manga/shabadou.vim' ]
 "             \ }
@@ -103,6 +104,7 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'taglist.vim'
 " NeoBundle 'colorv.vim'
 " NeoBundle 'lilydjwg/colorizer'        " too slow
+" NeoBundle 'chirsbra/Colorizer'
 "NeoBundle 'kien/rainbow_parentheses.vim'
 "colorscheme"
 "{{{
@@ -172,6 +174,7 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'majutsushi/tagbar'
 "NeoBundle 'ujihisa/unite-locate'
 NeoBundle 'sgur/unite-everything'
+NeoBundle 'ujihisa/unite-colorscheme'
 "NeoBundle 'hakobe/unite-script'
 "NeoBundle 'tacroe/unite-alias'
 NeoBundle 'sgur/unite-git\_grep'

@@ -3,7 +3,7 @@ import json
 import os
 
 DEBUG = False
-PALY_LIST_URL = 'http://music.163.com/api/playlist/detail?id='
+PALY_LIST_URL = 'http://music.163.com/api/playlist/detail?id=%s'
 M3U_FILE = os.getenv('HOME') + '/.moc/playlist.m3u'
 
 def fetch_all_urls( id=3811581 ):
@@ -11,7 +11,7 @@ def fetch_all_urls( id=3811581 ):
         plist = file('list.txt')
     else:
         try:
-            plist = urllib2.urlopen( PALY_LIST_URL + str(id) )
+            plist = urllib2.urlopen( PALY_LIST_URL % id )
         except urllib2.URLError:
             os.system('notify-send "mocp list fetch error!"')
             return []
