@@ -1,4 +1,4 @@
--- {{{ License
+﻿-- {{{ License
 --
 -- Awesome configuration, using awesome 3.4.10 on Ubuntu 11.10
 --   * Tony N <tony@git-pull.com>

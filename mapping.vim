@@ -19,7 +19,7 @@ imap <leader><Esc><Esc> <Esc>:update<ENTER>
 nmap <Space><cr> :w<ENTER>
 inoremap <c-u> <C-g>u<c-u>
 inoremap <c-w> <C-g>u<c-w>
-inoremap <c-s><c-s> <c-o>:w<cr>
+inoremap <c-s> <c-o>:w<cr>
 inoremap <c-v> <c-r>*
 
 nnoremap <F4> :set number!<CR>
