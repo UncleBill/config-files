@@ -1,24 +1,10 @@
-"================================================================================
-"neobundle
-"================================================================================
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-if has('vim_starting')
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
- endif
-
-set rtp+=~/.vim/bundle/neobundle.vim/
-set rtp+=~/.fzf
-let g:neobundle#types#git#default_protocol='git'
-
 "source Bundles list
-call neobundle#begin()
+call plug#begin('~/.vim/plugged')
 so ~/.vim/Bundles.vim
-call neobundle#end()
-
-filetype plugin indent on     " required!
-NeoBundleCheck
+call plug#end()
 
 
 "================================================================================
