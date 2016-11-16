@@ -2,3 +2,5 @@ bundle/
 UltiSnips/
 session/
 plugged/
+.backup
+.vim_swp
