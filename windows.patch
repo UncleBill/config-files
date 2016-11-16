@@ -1,0 +1,66 @@
+diff --git a/Bundles.vim b/Bundles.vim
+index 0d1b151..c4c257d 100644
+--- a/Bundles.vim
++++ b/Bundles.vim
+@@ -12,7 +12,7 @@ Plug 'Valloric/MatchTagAlways'
+ " Plug 'gregsexton/MatchTag'
+ Plug 'Valloric/python-indent', {'for':'python'}
+ Plug 'python.vim', {'for': 'python'}
+-Plug 'KangOl/vim-pudb'
++" Plug 'KangOl/vim-pudb'
+ Plug 'python_match.vim'
+ "Plug 'php-doc'
+ "Plug 'spf13/PIV'
+@@ -59,7 +59,7 @@ Plug 'CSS-2.1-Specification'
+ Plug 'vim-scripts/vim-stylus'
+ Plug 'mattn/emmet-vim'
+ " Plug 'mattn/livestyle-vim'
+-Plug 'Shougo/vimproc'
++" Plug 'Shougo/vimproc'
+ Plug 'rbtnn/vimconsole.vim'
+ Plug 'thinca/vim-quickrun'
+ Plug 'thinca/vim-painter'
+@@ -91,7 +91,7 @@ Plug 'Yggdroot/indentLine'
+ "Plug 'vim-scripts/groovyindent'
+ " Plug 'VimOutliner'
+ Plug 'godlygeek/tabular'
+-Plug 'taglist.vim'
++" Plug 'taglist.vim'
+ " Plug 'colorv.vim'
+ " Plug 'lilydjwg/colorizer'        " too slow
+ " Plug 'chirsbra/Colorizer'
+diff --git a/setting.vim b/setting.vim
+index b19afe1..9abed31 100644
+--- a/setting.vim
++++ b/setting.vim
+@@ -92,8 +92,6 @@ set backspace=indent,eol,start
+ "Toggle Menu and Toolbar
+ syntax on
+ let g:syntastic_ignore_files=['^/usr/include/', '\c\.h$']
+-let g:syntastic_error_symbol='✗'
+-let g:syntastic_warning_symbol='⚠'
+ let g:syntastic_enable_balloons = 1
+ let g:syntastic_enable_signs = 0
+ " let g:syntastic_check_on_wq=0
+@@ -114,7 +112,7 @@ set scrolloff=1
+ "set list
+ "set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+ "set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
+-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
++set guifont=Consolas:h9:cANSI:qDRAFT
+ "let g:indent_guides_auto_colors = 0
+ "
+ " airline settings
+@@ -128,12 +126,6 @@ let g:airline_right_sep = ''
+ let g:airline_right_sep = ''
+ " let g:airline_symbols.linenr = '␊'
+ " let g:airline_symbols.linenr = '␤'
+-let g:airline_symbols.linenr = '¶'
+-let g:airline_symbols.branch = '⎇'
+-let g:airline_symbols.paste = 'ρ'
+-let g:airline_symbols.paste = 'Þ'
+-let g:airline_symbols.paste = '∥'
+-let g:airline_symbols.whitespace = 'Ξ'
+ 
+ if !has("gui_running")
+     hi clear SpellBad
