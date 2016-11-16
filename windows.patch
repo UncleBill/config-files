@@ -30,31 +30,38 @@ index 0d1b151..c4c257d 100644
  " Plug 'lilydjwg/colorizer'        " too slow
  " Plug 'chirsbra/Colorizer'
 diff --git a/setting.vim b/setting.vim
-index b19afe1..9abed31 100644
+index 55c9e7c..06e1880 100644
 --- a/setting.vim
 +++ b/setting.vim
-@@ -92,8 +92,6 @@ set backspace=indent,eol,start
+@@ -92,8 +92,8 @@ set backspace=indent,eol,start
  "Toggle Menu and Toolbar
  syntax on
  let g:syntastic_ignore_files=['^/usr/include/', '\c\.h$']
 -let g:syntastic_error_symbol='✗'
 -let g:syntastic_warning_symbol='⚠'
++let g:syntastic_error_symbol='x'
++let g:syntastic_warning_symbol='!'
  let g:syntastic_enable_balloons = 1
  let g:syntastic_enable_signs = 0
  " let g:syntastic_check_on_wq=0
-@@ -114,7 +112,7 @@ set scrolloff=1
+@@ -119,7 +119,7 @@ set scrolloff=1
  "set list
- "set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+ "set listchars=tab:›\ ,trail:�?extends:#,nbsp:.
  "set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
 -set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
-+set guifont=Consolas:h9:cANSI:qDRAFT
++set guifont=Consolas:h9
  "let g:indent_guides_auto_colors = 0
  "
  " airline settings
-@@ -128,12 +126,6 @@ let g:airline_right_sep = ''
+@@ -128,17 +128,7 @@ if !exists('g:airline_symbols')
+     let g:airline_symbols = {}
+ endif
+ let g:airline_left_sep = ''
+-let g:airline_left_sep = ''
+-let g:airline_right_sep = ''
  let g:airline_right_sep = ''
- " let g:airline_symbols.linenr = '␊'
- " let g:airline_symbols.linenr = '␤'
+-" let g:airline_symbols.linenr = '␊'
+-" let g:airline_symbols.linenr = '␤'
 -let g:airline_symbols.linenr = '¶'
 -let g:airline_symbols.branch = '⎇'
 -let g:airline_symbols.paste = 'ρ'
