@@ -1,5 +1,5 @@
 set nocompatible
-let $MYVIMRC_="~/Dropbox/works/Vim/"
+" let $MYVIMRC_="~/Dropbox/works/Vim/"
 "g:snippets_dir
 "let g:snippets_dir = $MYVIMRC_ . 'snippets'
 "let g:neosnippet#snippets_directory=$MYVIMRC_ . 'snippets'
@@ -55,9 +55,9 @@ au BufEnter *.php set dictionary+=~/.vim/extra/php-funclist.txt
 au BufLeave *.php set dictionary-=~/.vim/extra/php-funclist.txt
 set history=10000
 set hidden
-set shiftwidth=4
+set shiftwidth=2
 " set showbreak=--->
-set tabstop=4
+set tabstop=2
 set expandtab
 set smartindent
 set numberwidth=1
@@ -117,7 +117,7 @@ set incsearch
 set scrolljump=3
 set scrolloff=1
 "set list
-"set listchars=tab:›\ ,trail:�?extends:#,nbsp:.
+"set listchars=tab:›\ ,trail:???extends:#,nbsp:.
 "set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
 "let g:indent_guides_auto_colors = 0

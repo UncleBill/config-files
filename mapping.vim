@@ -1,6 +1,10 @@
 "mapping{
 nnoremap <F3> :<C-u>GundoToggle<CR>
-nmap <silent> <M-e> :NERDTreeMirrorToggle<ENTER>
+if has('gui_macvim')
+    nmap <silent> <D-e> :NERDTreeMirrorToggle<ENTER>
+else
+    nmap <silent> <M-e> :NERDTreeMirrorToggle<ENTER>
+endif
 imap <silent> <M-e> <Esc><M-e>
 nmap <silent> <M-t> :TagbarToggle<ENTER>
 imap <silent> <M-t> <Esc><M-t>

@@ -32,6 +32,8 @@ autocmd! BufNewFile,BufRead *.scss *.sass set ft=scss
 "autocmd! BufEnter *.coffee map <F5> :CoffeeCompile<cr>
 "autocmd! BufLeave *.coffee map <F5> :QuickRun<cr>
 
+autocmd! BufRead *.vue setfiletype html
+
 " auto mkdir
 augroup auto_mkdir
 	au!

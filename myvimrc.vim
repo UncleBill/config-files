@@ -340,28 +340,28 @@ let g:precious_enable_switch_CursorMoved = {
 \   "help" : 0
 \}
 
-function! s:help()
-    augroup my-help
-        autocmd!
-        autocmd InsertEnter <buffer> :PreciousSwitch
-        autocmd InsertLeave <buffer> :PreciousReset
-    augroup END
-endfunction
-autocmd FileType help call s:help()
+" function! s:help()
+"     augroup my-help
+"         autocmd!
+"         autocmd InsertEnter <buffer> :PreciousSwitch
+"         autocmd InsertLeave <buffer> :PreciousReset
+"     augroup END
+" endfunction
+" autocmd FileType help call s:help()
 " カーソル移動時の自動切り替えを無効化
 " このオプションは filetype ごとに設定可能
 " "*" は全ての filetype に影響する
-let g:precious_enable_switch_CursorMoved = {
-\   "*" : 0
-\}
-let g:precious_enable_switch_CursorMoved_i = {
-\   "*" : 0
-\}
+" let g:precious_enable_switch_CursorMoved = {
+" \   "*" : 0
+" \}
+" let g:precious_enable_switch_CursorMoved_i = {
+" \   "*" : 0
+" \}
 
 " insert に入った時にスイッチし、抜けた時に元に戻す
-augroup test
-    autocmd!
-    autocmd InsertEnter * :PreciousSwitch
-    autocmd InsertLeave * :PreciousReset
-augroup END
+" augroup test
+"     autocmd!
+"     autocmd InsertEnter * :PreciousSwitch
+"     autocmd InsertLeave * :PreciousReset
+" augroup END
 " vim:fdm=marker
