@@ -4,3 +4,4 @@ session/
 plugged/
 .backup
 .vim_swp
+.netrwhist
