@@ -1,0 +1,20 @@
+/*dict for xml android*/
+TableLayout
+TableRow
+TextView
+View
+android
+gravity
+layout_height
+layout_width
+padding
+stretchColumns
+dip
+AbsoluteLayout
+LinearLayout
+RelativeLayout
+capitalize
+layout_marginLeft
+layout_marginRight
+orientation
+layout_toRightOf

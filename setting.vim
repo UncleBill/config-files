@@ -17,7 +17,7 @@ let g:neocomplete#enable_underbar_completion = 1
 " let g:neocomplete#max_list = 30
 let g:neocomplete#sources#syntax#min_keyword_length = 2
 let g:neocomplete#min_syntax_length = 2
-let $MYDICTDIR = '~/Dropbox/works/Vim/dict/'
+let $MYDICTDIR = '~/.vim/dict/'
 let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : $MYDICTDIR . 'words.dict',
     \ 'vimshell' : $HOME . '/.vimshell_hist',
