@@ -257,10 +257,11 @@ endfunction "}}}
 "================================================================================
 "sourcing
 "================================================================================
-source ~/.vim/mapping.vim
-"settings
+" settings
 source ~/.vim/setting.vim
-"autocmd
+" mapping after setting
+source ~/.vim/mapping.vim
+" autocmd
 source ~/.vim/autocmd.vim
 
 
@@ -318,6 +319,46 @@ if !has('gui_running')
     endfunction
     nmap <leader>r :call Ranger()<cr>
 endif
+
+" 轮换 terminal
+" TODO 如果当前 tab 有目标 terminal，聚焦到目标 terminal window
+function! TerminalRoll () abort
+  let curbuftype = getbufvar('%', '&buftype')
+  let checkingbuf = 1
+  let numofbuf = bufnr('$')
+  let checked = 0
+  let curIsTerminal = 0
+  if curbuftype == 'terminal'
+    " from current buffer
+    let checkingbuf = bufnr('%')
+    let curIsTerminal = 1
+  endif
+  while checked < numofbuf
+    " 从头再来
+    if checkingbuf == numofbuf
+      let checkingbuf = 0
+    endif
+    let checkingbuf = checkingbuf + 1
+    if bufexists(checkingbuf) && getbufvar(checkingbuf, '&buftype') == 'terminal'
+      " switch to
+      if curIsTerminal == 1
+        execute "buffer " . checkingbuf
+      else
+        execute "sbuffer " . checkingbuf
+      endif
+      return
+    endif
+    let checked = checked + 1
+  endwhile
+  " create new terminal
+  execute "terminal"
+endfunction
+
+nnoremap <silent> <F2> :call TerminalRoll()<cr>
+tnoremap <silent> <F2> <c-w>:call TerminalRoll()<cr>
+nnoremap <silent> <C-F2> :terminal<cr>
+tnoremap <silent> <C-F2> <c-w>:terminal<cr>
+tnoremap <silent> <M-F2> <c-w>q
 
 " quickrun 用のマッピング
 nmap <Space>q <Plug>(precious-quickrun-op)

@@ -97,9 +97,11 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_enable_balloons = 1
 let g:syntastic_enable_signs = 0
 " let g:syntastic_check_on_wq=0
-" set fileencodings=utf-8,gbk
+set encoding=utf-8
+set fileencodings=utf-8
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set fileencoding=utf-8
+set termencoding=utf-8
 set synmaxcol=300
 set guioptions=acgit
 set laststatus=2
@@ -119,7 +121,7 @@ set scrolloff=1
 "set list
 "set listchars=tab:›\ ,trail:???extends:#,nbsp:.
 "set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 "let g:indent_guides_auto_colors = 0
 "
 " airline settings
@@ -127,10 +129,10 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_sep = ''
 " let g:airline_symbols.linenr = '␊'
 " let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
@@ -217,6 +219,6 @@ let g:user_emmet_settings = {
 \  },
 \ },
 \}
-call tcomment#DefineType('less',              '/* %s */'         )
-call tcomment#DefineType('less_block',        g:tcommentBlockC   )
-call tcomment#DefineType('less_inline',       g:tcommentInlineC  )
+call tcomment#type#Define('less',              '/* %s */'         )
+call tcomment#type#Define('less_block',        g:tcomment#block_fmt_c   )
+call tcomment#type#Define('less_inline',       g:tcomment#inline_fmt_c  )

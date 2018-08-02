@@ -27,6 +27,8 @@ autocmd! BufNewFile,BufRead *.ejs set ft=html
 autocmd! BufNewFile,BufRead *.go set ft=go
 autocmd! BufNewFile,BufRead *.md set ft=markdown
 autocmd! BufNewFile,BufRead *.scss *.sass set ft=scss
+autocmd! BufNewFile,BufRead *.vue set ft=html
+autocmd! BufNewFile,BufRead *.ux set ft=html
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesOdd guibg=red ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesEven guibg=green ctermbg=4
 "autocmd! BufEnter *.coffee map <F5> :CoffeeCompile<cr>
