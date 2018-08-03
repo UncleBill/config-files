@@ -29,6 +29,8 @@ autocmd! BufNewFile,BufRead *.md set ft=markdown
 autocmd! BufNewFile,BufRead *.scss *.sass set ft=scss
 autocmd! BufNewFile,BufRead *.vue set ft=html
 autocmd! BufNewFile,BufRead *.ux set ft=html
+" TODO g:zipPlugin_ext
+au BufReadCmd *.rpk call zip#Browse(expand("<amatch>"))
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesOdd guibg=red ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesEven guibg=green ctermbg=4
 "autocmd! BufEnter *.coffee map <F5> :CoffeeCompile<cr>
