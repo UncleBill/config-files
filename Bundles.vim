@@ -12,8 +12,8 @@ Plug 'Valloric/MatchTagAlways'
 " Plug 'gregsexton/MatchTag'
 Plug 'Valloric/python-indent', {'for':'python'}
 Plug 'vim-scripts/python.vim', {'for': 'python'}
-Plug 'KangOl/vim-pudb'
-Plug 'vim-scripts/python_match.vim'
+Plug 'KangOl/vim-pudb', {'for': 'python'}
+Plug 'vim-scripts/python_match.vim', {'for': 'python'}
 "Plug 'php-doc'
 "Plug 'spf13/PIV'
 "Plug 'YankRing.vim'
@@ -54,12 +54,12 @@ Plug 'sjl/gundo.vim'
 " Plug 'vim-scripts/css3'
 " Plug 'skammer/vim-css-color'  "Makes <c-w> unuse in Markdown
 " Plug 'csslint.vim'
-Plug 'vim-scripts/CSS-2.1-Specification'
-Plug 'vim-scripts/vim-stylus'
+Plug 'vim-scripts/CSS-2.1-Specification', {'for': ['html', 'css']}
+Plug 'vim-scripts/vim-stylus', {'for': 'stylus'}
 Plug 'mattn/emmet-vim'
 " Plug 'mattn/livestyle-vim'
 Plug 'Shougo/vimproc'
-Plug 'rbtnn/vimconsole.vim'
+Plug 'rbtnn/vimconsole.vim', {'for': 'vim'}
 Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-painter'
 Plug 'vim-scripts/DrawIt'
@@ -75,7 +75,7 @@ Plug 'tpope/vim-repeat'
 " Plug 'tpope/vim-dispatch'
 "Plug 'pep8'
 "pyflakes syntax checker for python
-Plug 'git://github.com/pyflakes/pyflakes.git'
+Plug 'git://github.com/pyflakes/pyflakes.git', {'for': 'python'}
 "Plug 'functionlist.vim'
 Plug 'vim-scripts/autohi'
 Plug 'uguu-org/vim-matrix-screensaver'
@@ -83,7 +83,7 @@ Plug 'uguu-org/vim-matrix-screensaver'
 Plug 'mattn/webapi-vim'
 Plug 'UncleBill/google.vim'
 Plug 'mattn/gist-vim'
-Plug 'vim-scripts/jQuery'
+Plug 'vim-scripts/jQuery', {'for': ['html', 'javascript']}
 "Plug 'ervandew/supertab'
 "Plug 'sudoku_game'
 Plug 'Yggdroot/indentLine'
@@ -107,22 +107,22 @@ Plug 'gregsexton/Muon'
 Plug 'vim-scripts/zenesque.vim'
 "}}}
 "syntax
-Plug 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'leafo/moonscript-vim'
 Plug 'visionmedia/jade'
-Plug 'vim-jp/cpp-vim'
+Plug 'vim-jp/cpp-vim', {'for': ['c++', 'c']}
 Plug 'gilligan/vim-lldb'
 Plug 'vim-scripts/gdbmgr'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'vim-scripts/less.vim'
+Plug 'cakebaker/scss-syntax.vim', {'for': ['scss', 'sass']}
+Plug 'vim-scripts/less.vim', {'for': 'less'}
 Plug 'vim-scripts/prefixer.vim'
-Plug 'othree/html5.vim'
+Plug 'othree/html5.vim', {'for': 'html'}
 " Plug 'davidhalter/jedi-vim'
 "Plug 'vim-scripts/vim-line-numbers'
 " Plug 'myusuf3/numbers.vim'
 "Plug 'vim-scripts/togglecursor'
 "Plug 'vim-scripts/Vimpanel'
-Plug 'terryma/vim-instant-markdown'
+Plug 'terryma/vim-instant-markdown', {'for': 'markdown'}
 " Plug 'nathanaelkane/vim-indent-guides'
 " completion plugin
 Plug 'vim-scripts/cmdline-completion'
@@ -150,7 +150,6 @@ Plug 'UncleBill/neco-look'
 " Plug 'UncleBill/neco-stardict'
 "Plug 'violetyk/neco-php'
 "Plug 'zhaocai/neco-googlesuggest'
-Plug 'Shougo/vimshell'
 Plug 'Shougo/unite.vim'
 "nnoremap <C-p> :Unite file_rec/async -auto-preview -auto-resize<cr>
 Plug 'vim-scripts/sudo.vim'
@@ -180,16 +179,16 @@ Plug 'ujihisa/unite-gem'
 "Plug 'SQLUtilities'
 " Plug 'walm/jshint.vim'
 " Plug 'hallettj/jslint.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'heavenshell/vim-jsdoc'
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'leafgarland/typescript-vim', {'for': 'ts'}
+Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
 Plug 'marijnh/tern_for_vim'    " Intelligent javascript tooling
-Plug 'maksimr/vim-jsbeautify'
+Plug 'maksimr/vim-jsbeautify', {'for': 'javascript'}
 function! JsBeautifyWrapper()
-    call JsBeautify()
     if &filetype == ''
         setfiletype javascript
     endif
+    call JsBeautify()
 endfunction
 command! JsBeautify call JsBeautifyWrapper()
 "Plug 'intuited/vim-noderepl'
