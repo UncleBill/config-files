@@ -356,9 +356,9 @@ endfunction
 
 nnoremap <silent> <F2> :call TerminalRoll()<cr>
 tnoremap <silent> <F2> <c-w>:call TerminalRoll()<cr>
-nnoremap <silent> <C-F2> :terminal<cr>
-tnoremap <silent> <C-F2> <c-w>:terminal<cr>
-tnoremap <silent> <M-F2> <c-w>q
+nnoremap <silent> <M-F2> :terminal<cr>
+tnoremap <silent> <M-F2> <c-w>:terminal<cr>
+tnoremap <silent> <D-F2> <c-w>q
 
 " quickrun 用のマッピング
 nmap <Space>q <Plug>(precious-quickrun-op)
