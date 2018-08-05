@@ -108,6 +108,7 @@ set laststatus=2
 set lazyredraw
 "don't need show mode dude Powerline
 set noshowmode
+set showcmd
 set matchtime=0
 set ruler
 set cursorline
