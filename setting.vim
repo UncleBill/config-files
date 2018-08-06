@@ -28,7 +28,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'xml' : $MYDICTDIR . 'xml.dict',
     \ 'html': $MYDICTDIR . 'html.dict',
     \}
-let g:vimwiki_list = [{'path': '~/Dropbox/media/vimwiki/'}]
+let g:vimwiki_list = [{'path': '~/vimwiki/'}]
 let g:vimwiki_folding='expr'
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
