@@ -180,8 +180,8 @@ Plug 'ujihisa/unite-gem'
 " Plug 'walm/jshint.vim'
 " Plug 'hallettj/jslint.vim'
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
-Plug 'leafgarland/typescript-vim', {'for': 'ts'}
-Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
+Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'typescript']}
 Plug 'marijnh/tern_for_vim'    " Intelligent javascript tooling
 Plug 'maksimr/vim-jsbeautify', {'for': 'javascript'}
 function! JsBeautifyWrapper()
