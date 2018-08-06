@@ -1,5 +1,6 @@
 "mapping{
 nnoremap <F3> :<C-u>GundoToggle<CR>
+nnoremap <F6> :!ls<cr>:e 
 if has('gui_macvim')
     nmap <silent> <D-e> :NERDTreeMirrorToggle<ENTER>
 else
