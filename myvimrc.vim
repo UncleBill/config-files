@@ -320,6 +320,15 @@ if !has('gui_running')
     nmap <leader>r :call Ranger()<cr>
 endif
 
+function! s:termintab () abort
+  for wnr in range(1, winnr('$'))
+    if getwinvar(wnr, '&buftype') == 'terminal'
+      return wnr
+    endif
+  endfor
+  return 0
+endfunction
+
 " 轮换 terminal
 " TODO 如果当前 tab 有目标 terminal，聚焦到目标 terminal window
 function! TerminalRoll () abort
@@ -344,7 +353,12 @@ function! TerminalRoll () abort
       if curIsTerminal == 1
         execute "buffer " . checkingbuf
       else
-        execute "sbuffer " . checkingbuf
+        let wnr = s:termintab()
+        if wnr
+          execute wnr . 'wincmd w'
+        else
+          execute "sbuffer " . checkingbuf
+        endif
       endif
       return
     endif
