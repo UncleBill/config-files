@@ -49,6 +49,8 @@ nmap <M-,> $a,<Esc>
 imap <M-,> <Esc><M-,>
 nmap <M-.> ^i.<Esc>$
 imap <M-.> <Esc><M-.>a
+inoremap <D-cr> <c-o>o
+inoremap <D-S-cr> <c-o>O
 nmap <leader>= zf%
 nmap <silent><m-h> :noh<cr>
 inoremap <silent><c-cr> <c-r>=emmet#expandAbbr(0,"")<cr>
