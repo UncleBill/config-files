@@ -49,8 +49,30 @@ nmap <M-,> $a,<Esc>
 imap <M-,> <Esc><M-,>
 nmap <M-.> ^i.<Esc>$
 imap <M-.> <Esc><M-.>a
-inoremap <D-cr> <c-o>o
-inoremap <D-S-cr> <c-o>O
+
+" 类似 sublimetext 的 <d-cr><d-s-cr>
+" 稍微不同的是 如果前或下一行是空行，不增加一行
+function! InsertLine (before) abort
+  let linenr = line('.')
+  if a:before
+    let preline = trim(getline(linenr - 1))
+    let keys = 'O'
+    if empty(preline) && linenr > 1
+      let keys = 'kS'
+    endif
+  else
+    let nextline = trim(getline(linenr + 1))
+    let keys = 'o'
+    if empty(nextline) && linenr < line('$')
+      let keys = 'jS'
+    endif
+  endif
+  echo keys
+  return "\<Esc>" . keys
+endfunction
+inoremap <expr><D-cr> InsertLine(0)
+inoremap <expr><D-S-cr> InsertLine(1)
+
 nmap <leader>= zf%
 nmap <silent><m-h> :noh<cr>
 inoremap <silent><c-cr> <c-r>=emmet#expandAbbr(0,"")<cr>
@@ -122,19 +144,21 @@ function! CouldJump2End()
     endif
 endfunction
 
-function! g:SmartTab()
-    if neosnippet#expandable_or_jumpable()
-        return "\<Plug>(neosnippet_expand_or_jump)" 
-    elseif CouldJump2End()
-        return "\<C-o>$"
-    elseif emmet#isExpandable()
-        return "\<C-y>,"
-    else
-        return TabJumpOut()
-    endif
+function! SmartTab()
+  if neosnippet#expandable_or_jumpable()
+    return "\<Plug>(neosnippet_expand_or_jump)" 
+  elseif CouldJump2End()
+    return "\<C-o>$"
+  elseif  &filetype =~ 'html\|css' && emmet#isExpandable()
+    return "\<C-y>,"
+  elseif pumvisible()
+    return "\<c-n>"
+  else
+    return TabJumpOut()
+  endif
 endfunction
 
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 " Recommended key-mappings.
-imap <expr><Tab> g:SmartTab()
-smap <expr><Tab> g:SmartTab()
+imap <expr><Tab> SmartTab()
+smap <expr><Tab> SmartTab()
