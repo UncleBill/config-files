@@ -109,13 +109,12 @@ Plug 'vim-scripts/zenesque.vim'
 "syntax
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'leafo/moonscript-vim'
-Plug 'visionmedia/jade'
+Plug 'digitaltoad/vim-pug', {'for': ['pug']}
 Plug 'vim-jp/cpp-vim', {'for': ['c++', 'c']}
-Plug 'gilligan/vim-lldb'
-Plug 'vim-scripts/gdbmgr'
+Plug 'gilligan/vim-lldb', {'for': ['c++', 'c']} " https://github.com/gilligan/vim-lldb/issues/4
+Plug 'vim-scripts/gdbmgr', {'for': ['c++', 'c']}
 Plug 'cakebaker/scss-syntax.vim', {'for': ['scss', 'sass']}
 Plug 'vim-scripts/less.vim', {'for': 'less'}
-Plug 'vim-scripts/prefixer.vim'
 Plug 'othree/html5.vim', {'for': 'html'}
 " Plug 'davidhalter/jedi-vim'
 "Plug 'vim-scripts/vim-line-numbers'

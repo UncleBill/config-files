@@ -149,7 +149,7 @@ function! SmartTab()
     return "\<Plug>(neosnippet_expand_or_jump)" 
   elseif CouldJump2End()
     return "\<C-o>$"
-  elseif  &filetype =~ 'html\|css' && emmet#isExpandable()
+  elseif  &filetype =~ 'html\|css\|less\|sass\|scss' && emmet#isExpandable()
     return "\<C-y>,"
   elseif pumvisible()
     return "\<c-n>"

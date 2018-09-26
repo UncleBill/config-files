@@ -5,3 +5,4 @@ plugged/
 .backup
 .vim_swp
 .netrwhist
+.DS_Store
