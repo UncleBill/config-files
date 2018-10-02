@@ -320,9 +320,10 @@ if !has('gui_running')
     nmap <leader>r :call Ranger()<cr>
 endif
 
+" check if current tab contains a terminal window
 function! s:termintab () abort
   for wnr in range(1, winnr('$'))
-    if getwinvar(wnr, '&buftype') == 'terminal'
+    if getwinvar(wnr, '&buftype') ==# 'terminal'
       return wnr
     endif
   endfor
@@ -337,18 +338,19 @@ function! TerminalRoll () abort
   let numofbuf = bufnr('$')
   let checked = 0
   let curIsTerminal = 0
-  if curbuftype == 'terminal'
+  if curbuftype ==# 'terminal'
     " from current buffer
     let checkingbuf = bufnr('%')
     let curIsTerminal = 1
   endif
+  let split = winwidth(0) * 2 < winheight(0) * 5 ? "" : "vertical "
   while checked < numofbuf
     " 从头再来
     if checkingbuf == numofbuf
       let checkingbuf = 0
     endif
     let checkingbuf = checkingbuf + 1
-    if bufexists(checkingbuf) && getbufvar(checkingbuf, '&buftype') == 'terminal'
+    if bufexists(checkingbuf) && getbufvar(checkingbuf, '&buftype') ==# 'terminal'
       " switch to
       if curIsTerminal == 1
         execute "buffer " . checkingbuf
@@ -357,7 +359,7 @@ function! TerminalRoll () abort
         if wnr
           execute wnr . 'wincmd w'
         else
-          execute "sbuffer " . checkingbuf
+          execute split . "sbuffer " . checkingbuf
         endif
       endif
       return
@@ -365,7 +367,7 @@ function! TerminalRoll () abort
     let checked = checked + 1
   endwhile
   " create new terminal
-  execute "terminal"
+  execute split . "terminal"
 endfunction
 
 nnoremap <silent> <F2> :call TerminalRoll()<cr>
