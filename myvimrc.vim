@@ -331,49 +331,50 @@ function! s:termintab () abort
 endfunction
 
 " 轮换 terminal
-" TODO 如果当前 tab 有目标 terminal，聚焦到目标 terminal window
-function! TerminalRoll () abort
-  let curbuftype = getbufvar('%', '&buftype')
-  let checkingbuf = 1
-  let numofbuf = bufnr('$')
-  let checked = 0
-  let curIsTerminal = 0
-  if curbuftype ==# 'terminal'
-    " from current buffer
-    let checkingbuf = bufnr('%')
-    let curIsTerminal = 1
-  endif
+function! TerminalRoll (create) abort
   let split = winwidth(0) * 2 < winheight(0) * 5 ? "" : "vertical "
-  while checked < numofbuf
-    " 从头再来
-    if checkingbuf == numofbuf
-      let checkingbuf = 0
+  if !a:create
+    let curbuftype = getbufvar('%', '&buftype')
+    let checkingbuf = 1
+    let numofbuf = bufnr('$')
+    let checked = 0
+    let curIsTerminal = 0
+    if curbuftype ==# 'terminal'
+      " from current buffer
+      let checkingbuf = bufnr('%')
+      let curIsTerminal = 1
     endif
-    let checkingbuf = checkingbuf + 1
-    if bufexists(checkingbuf) && getbufvar(checkingbuf, '&buftype') ==# 'terminal'
-      " switch to
-      if curIsTerminal == 1
-        execute "buffer " . checkingbuf
-      else
-        let wnr = s:termintab()
-        if wnr
-          execute wnr . 'wincmd w'
-        else
-          execute split . "sbuffer " . checkingbuf
-        endif
+    while checked < numofbuf
+      " 从头再来
+      if checkingbuf == numofbuf
+        let checkingbuf = 0
       endif
-      return
-    endif
-    let checked = checked + 1
-  endwhile
+      let checkingbuf = checkingbuf + 1
+      if bufexists(checkingbuf) && getbufvar(checkingbuf, '&buftype') ==# 'terminal'
+        " switch to
+        if curIsTerminal == 1
+          execute "buffer " . checkingbuf
+        else
+          let wnr = s:termintab()
+          if wnr
+            execute wnr . 'wincmd w'
+          else
+            execute split . "sbuffer " . checkingbuf
+          endif
+        endif
+        return
+      endif
+      let checked = checked + 1
+    endwhile
+  endif
   " create new terminal
   execute split . "terminal"
 endfunction
 
-nnoremap <silent> <F2> :call TerminalRoll()<cr>
-tnoremap <silent> <F2> <c-w>:call TerminalRoll()<cr>
-nnoremap <silent> <M-F2> :terminal<cr>
-tnoremap <silent> <M-F2> <c-w>:terminal<cr>
+nnoremap <silent> <F2> :call TerminalRoll(0)<cr>
+tnoremap <silent> <F2> <c-w>:call TerminalRoll(0)<cr>
+nnoremap <silent> <M-F2> :call TerminalRoll(1)<cr>
+tnoremap <silent> <M-F2> <c-w>:call TerminalRoll(1)<cr>
 tnoremap <silent> <D-F2> <c-w>q
 
 " quickrun 用のマッピング
