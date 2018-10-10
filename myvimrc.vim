@@ -376,6 +376,7 @@ tnoremap <silent> <F2> <c-w>:call TerminalRoll(0)<cr>
 nnoremap <silent> <M-F2> :call TerminalRoll(1)<cr>
 tnoremap <silent> <M-F2> <c-w>:call TerminalRoll(1)<cr>
 tnoremap <silent> <D-F2> <c-w>q
+hi Terminal ctermbg=black ctermfg=white guibg=black guifg=white
 
 " quickrun 用のマッピング
 nmap <Space>q <Plug>(precious-quickrun-op)
