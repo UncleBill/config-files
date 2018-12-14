@@ -108,10 +108,10 @@ Plug 'vim-scripts/zenesque.vim'
 "}}}
 "syntax
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
-Plug 'leafo/moonscript-vim'
+" Plug 'leafo/moonscript-vim'
 Plug 'digitaltoad/vim-pug', {'for': ['pug']}
 Plug 'vim-jp/cpp-vim', {'for': ['c++', 'c']}
-Plug 'gilligan/vim-lldb', {'for': ['c++', 'c']} " https://github.com/gilligan/vim-lldb/issues/4
+" Plug 'gilligan/vim-lldb', {'for': ['c++', 'c']} " https://github.com/gilligan/vim-lldb/issues/4
 Plug 'vim-scripts/gdbmgr', {'for': ['c++', 'c']}
 Plug 'cakebaker/scss-syntax.vim', {'for': ['scss', 'sass']}
 Plug 'vim-scripts/less.vim', {'for': 'less'}

@@ -2,9 +2,11 @@
 nnoremap <F3> :<C-u>GundoToggle<CR>
 nnoremap <F6> :!ls<cr>:e 
 if has('gui_macvim')
-    nmap <silent> <D-e> :NERDTreeMirrorToggle<ENTER>
+    nnoremap <silent> <D-e> :NERDTreeMirrorToggle<ENTER>
+    tnoremap <silent> <D-e> <C-w>:NERDTreeMirrorToggle<ENTER>
 else
-    nmap <silent> <M-e> :NERDTreeMirrorToggle<ENTER>
+    tnoremap <silent> <M-e> :NERDTreeMirrorToggle<ENTER>
+    tnoremap <silent> <M-e> <C-w>:NERDTreeMirrorToggle<ENTER>
 endif
 imap <silent> <M-e> <Esc><M-e>
 nmap <silent> <M-t> :TagbarToggle<ENTER>
