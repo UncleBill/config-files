@@ -12,7 +12,7 @@ Plug 'Valloric/MatchTagAlways'
 " Plug 'gregsexton/MatchTag'
 Plug 'Valloric/python-indent', {'for':'python'}
 Plug 'vim-scripts/python.vim', {'for': 'python'}
-Plug 'KangOl/vim-pudb', {'for': 'python'}
+" Plug 'KangOl/vim-pudb', {'for': 'python'}
 Plug 'vim-scripts/python_match.vim', {'for': 'python'}
 "Plug 'php-doc'
 "Plug 'spf13/PIV'
@@ -26,6 +26,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'xolox/vim-easytags'
 " original repos on github
 Plug 'tpope/vim-fugitive'
+" Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-endwise'
 Plug 'gregsexton/gitv'
 " Plug 'airblade/vim-gitgutter'

@@ -76,7 +76,7 @@ inoremap <expr><D-cr> InsertLine(0)
 inoremap <expr><D-S-cr> InsertLine(1)
 
 nmap <leader>= zf%
-nmap <silent><m-h> :noh<cr>
+nnoremap <silent> <m-h> :noh<cr>
 inoremap <silent><c-cr> <c-r>=emmet#expandAbbr(0,"")<cr>
 nnoremap <silent><c-cr> :call emmet#expandAbbr(3,"")<cr>
 vnoremap <silent><c-cr> :call emmet#expandAbbr(2,"")<cr>

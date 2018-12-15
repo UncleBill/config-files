@@ -331,6 +331,7 @@ function! s:termintab () abort
 endfunction
 
 " 轮换 terminal
+" TODO open last terminal
 function! TerminalRoll (create) abort
   let split = winwidth(0) * 2 < winheight(0) * 5 ? "" : "vertical "
   if !a:create
