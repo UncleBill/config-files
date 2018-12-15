@@ -162,7 +162,6 @@ let g:tagbar_sort = 0
 let g:tagbar_autopreview = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 " let g:nerdtree_tabs_autoclose = 0
-let NERDTreeQuitOnOpen=0
 let g:gist_use_password_in_gitconfig = 1
 let g:gist_browser_command = 'google-chrome %URL% &'
 let g:gist_post_private = 1
@@ -182,6 +181,8 @@ set autoread
 "let g:Powerline_symbols = 'fancy'
 "let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
                       "\ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+let g:ctrlp_custom_ignore = '\v[\/](node_modules)|(\.(swp|ico|git|svn))$'
+
 let g:user_emmet_settings = {
 \  'perl' : {
 \    'indentation' : '  ',

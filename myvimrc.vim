@@ -174,84 +174,84 @@ xnoremap <silent> <M-Down> :<C-u>call MoveVisualDown()<CR>
 "================================================================================
 "unite
 "================================================================================
-nnoremap <silent><C-p> :Unite file_rec/async -auto-resize<cr>
+" nnoremap <silent><C-p> :Unite file_rec/async -auto-resize<cr>
 " nnoremap <silent> <C-p> :<C-u>Unite -no-split -auto-preview -buffer-name=files file_mru  file_rec/async:!<CR>
-let g:unite_source_grep_command = "ag"
-let g:unite_source_grep_default_opts = "--nogroup --nocolor"
-let g:unite_source_grep_max_candidates=500
-let g:unite_source_file_mru_limit=300
-nnoremap <silent><space>/ :Unite grep:. -auto-resize -auto-preview -immediately<cr>
-nnoremap <silent><space>? :Unite grep:. -auto-resize -auto-preview -immediately<cr><c-r><c-w><cr>
-nnoremap <silent><space>y :Unite grep:. -auto-resize -auto-preview -immediately<cr><c-r>"<cr>
-nnoremap <silent><space>r :Unite grep -resume<cr>
-nnoremap <silent><space>o :Unite outline -auto-resize -auto-preview -immediately<cr>
-nnoremap <silent><space>O :Unite outline -auto-preview -tab -immediately<cr>
-nnoremap <silent><space>b :Unite buffer -auto-resize<cr>
-nnoremap <silent><space>B :Unite buffer -immediately<cr>
-nnoremap <silent><space>t :Unite tab -auto-resize<cr>
+" let g:unite_source_grep_command = "ag"
+" let g:unite_source_grep_default_opts = "--nogroup --nocolor"
+" let g:unite_source_grep_max_candidates=500
+" let g:unite_source_file_mru_limit=300
+" nnoremap <silent><space>/ :Unite grep:. -auto-resize -auto-preview -immediately<cr>
+" nnoremap <silent><space>? :Unite grep:. -auto-resize -auto-preview -immediately<cr><c-r><c-w><cr>
+" nnoremap <silent><space>y :Unite grep:. -auto-resize -auto-preview -immediately<cr><c-r>"<cr>
+" nnoremap <silent><space>r :Unite grep -resume<cr>
+" nnoremap <silent><space>o :Unite outline -auto-resize -auto-preview -immediately<cr>
+" nnoremap <silent><space>O :Unite outline -auto-preview -tab -immediately<cr>
+" nnoremap <silent><space>b :Unite buffer -auto-resize<cr>
+" nnoremap <silent><space>B :Unite buffer -immediately<cr>
+" nnoremap <silent><space>t :Unite tab -auto-resize<cr>
 nnoremap <silent><space>k :bprevious<cr>
 nnoremap <silent><space>j :bnext<cr>
 nnoremap <silent><Space><Tab> :buffer #<cr>
 " autocmd BufEnter preview :set previewheight=25
 " autocmd BufEnter * if &pvw | resize 30 | endif
 " autocmd BufLeave * if &pvw | resize 12 | endif
-nnoremap <silent><C-x> :Unite file_mru -auto-resize -immediately<cr>
-nnoremap <silent><space>s :Unite -quick-match buffer -immediately<cr>
-let g:unite_winheight = 30
+" nnoremap <silent><C-x> :Unite file_mru -auto-resize -immediately<cr>
+" nnoremap <silent><space>s :Unite -quick-match buffer -immediately<cr>
+" let g:unite_winheight = 30
 " let g:unite_enable_start_insert = 1
-let g:unite_split_rule = 'botright'
-call unite#custom#profile('default', 'context', {
-\   'start_insert': 1,
-\   'prompt_direction': 'top',
-\})
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings() "{{{
-    " Overwrite settings.
-
-    nmap <buffer> <ESC>      <Plug>(unite_exit)
-    imap <buffer> jj      <Plug>(unite_insert_leave)
-    "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
-
-    imap <buffer><expr> j unite#smart_map('j', '')
-    imap <buffer> <TAB>   <Plug>(unite_select_next_line)
-    imap <buffer> <c-j>   <Plug>(unite_select_next_line)
-    imap <buffer> <c-k>   <Plug>(unite_select_previous_line)
-    imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
-    imap <buffer> '     <Plug>(unite_quick_match_default_action)
-    nmap <buffer> '     <Plug>(unite_quick_match_default_action)
-    imap <buffer><expr> x
-                \ unite#smart_map('x', "\<Plug>(unite_quick_match_choose_action)")
-    nmap <buffer> x     <Plug>(unite_quick_match_choose_action)
-    nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
-    imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
-    imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
-    nmap <buffer> <C-y>     <Plug>(unite_narrowing_path)
-    nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
-    nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
-    imap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
-    nnoremap <silent><buffer><expr> l
-                \ unite#smart_map('l', unite#do_action('default'))
-    nnoremap <silent><buffer><expr> v
-                \ unite#smart_map('v', unite#do_action('vsplit'))
-    nnoremap <silent><buffer><expr> s
-                \ unite#smart_map('s', unite#do_action('split'))
-
-    let unite = unite#get_current_unite()
-    if unite.buffer_name =~# '^search'
-        nnoremap <silent><buffer><expr> r     unite#do_action('replace')
-    else
-        nnoremap <silent><buffer><expr> r     unite#do_action('rename')
-    endif
-
-    nnoremap <silent><buffer><expr> cd     unite#do_action('lcd')
-    nnoremap <buffer><expr> S      unite#mappings#set_current_filters(
-                \ empty(unite#mappings#get_current_filters()) ?
-                \ ['sorter_reverse'] : [])
-
-    " Runs "split" action by <C-s>.
-    imap <silent><buffer><expr> <C-s>     unite#do_action('split')
-    imap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
-endfunction "}}}
+" let g:unite_split_rule = 'botright'
+" call unite#custom#profile('default', 'context', {
+" \   'start_insert': 1,
+" \   'prompt_direction': 'top',
+" \})
+" autocmd FileType unite call s:unite_my_settings()
+" function! s:unite_my_settings() "{{{
+"     " Overwrite settings.
+"
+"     nmap <buffer> <ESC>      <Plug>(unite_exit)
+"     imap <buffer> jj      <Plug>(unite_insert_leave)
+"     "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+"
+"     imap <buffer><expr> j unite#smart_map('j', '')
+"     imap <buffer> <TAB>   <Plug>(unite_select_next_line)
+"     imap <buffer> <c-j>   <Plug>(unite_select_next_line)
+"     imap <buffer> <c-k>   <Plug>(unite_select_previous_line)
+"     imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+"     imap <buffer> '     <Plug>(unite_quick_match_default_action)
+"     nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+"     imap <buffer><expr> x
+"                 \ unite#smart_map('x', "\<Plug>(unite_quick_match_choose_action)")
+"     nmap <buffer> x     <Plug>(unite_quick_match_choose_action)
+"     nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+"     imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+"     imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+"     nmap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+"     nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
+"     nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+"     imap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+"     nnoremap <silent><buffer><expr> l
+"                 \ unite#smart_map('l', unite#do_action('default'))
+"     nnoremap <silent><buffer><expr> v
+"                 \ unite#smart_map('v', unite#do_action('vsplit'))
+"     nnoremap <silent><buffer><expr> s
+"                 \ unite#smart_map('s', unite#do_action('split'))
+"
+"     let unite = unite#get_current_unite()
+"     if unite.buffer_name =~# '^search'
+"         nnoremap <silent><buffer><expr> r     unite#do_action('replace')
+"     else
+"         nnoremap <silent><buffer><expr> r     unite#do_action('rename')
+"     endif
+"
+"     nnoremap <silent><buffer><expr> cd     unite#do_action('lcd')
+"     nnoremap <buffer><expr> S      unite#mappings#set_current_filters(
+"                 \ empty(unite#mappings#get_current_filters()) ?
+"                 \ ['sorter_reverse'] : [])
+"
+"     " Runs "split" action by <C-s>.
+"     imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+"     imap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
+" endfunction "}}}
 
 
 "================================================================================
