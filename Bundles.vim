@@ -37,11 +37,12 @@ Plug 'bling/vim-airline'
 Plug 'mhinz/vim-startify'
 Plug 't9md/vim-choosewin'
 Plug 'vimwiki/vimwiki'
-Plug 'tracyone/calendar'
+Plug 'mattn/calendar-vim'
 Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'scrooloose/nerdcommenter'
 Plug 'tomtom/tcomment_vim'
-Plug 'jistr/vim-nerdtree-tabs'
 "Plug 'bootleq/vim-tabline'
 "Plug 'gcmt/taboo.vim'
 " Plug 'scrooloose/syntastic'
@@ -58,7 +59,7 @@ Plug 'vim-scripts/CSS-2.1-Specification', {'for': ['html', 'css']}
 Plug 'vim-scripts/vim-stylus', {'for': 'stylus'}
 Plug 'mattn/emmet-vim'
 " Plug 'mattn/livestyle-vim'
-Plug 'Shougo/vimproc'
+Plug 'Shougo/vimproc', {'do': 'make'}
 Plug 'rbtnn/vimconsole.vim', {'for': 'vim'}
 Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-painter'
@@ -108,7 +109,7 @@ Plug 'vim-scripts/zenesque.vim'
 "}}}
 "syntax
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
-" Plug 'leafo/moonscript-vim'
+Plug 'leafo/moonscript-vim', {'for': 'moon'}
 Plug 'digitaltoad/vim-pug', {'for': ['pug']}
 Plug 'vim-jp/cpp-vim', {'for': ['c++', 'c']}
 " Plug 'gilligan/vim-lldb', {'for': ['c++', 'c']} " https://github.com/gilligan/vim-lldb/issues/4
