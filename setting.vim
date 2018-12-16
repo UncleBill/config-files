@@ -103,7 +103,7 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set fileencoding=utf-8
 set termencoding=utf-8
 set synmaxcol=300
-set guioptions=acgit
+set guioptions=acgit!
 set laststatus=2
 set lazyredraw
 "don't need show mode dude Powerline
