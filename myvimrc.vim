@@ -108,7 +108,7 @@ function! Save2Dict()
     endfor
 endfunction
 
-colo mrkn256
+colo desert
 if has("gui_running")
 	colo atom
     set cursorline

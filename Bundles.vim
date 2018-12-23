@@ -100,13 +100,13 @@ Plug 'vim-scripts/taglist.vim'
 "colorscheme"
 "{{{
 Plug 'flazz/vim-colorschemes'
-Plug 'vim-scripts/ScrollColors'
-Plug 'vim-scripts/molokai'
-Plug 'altercation/vim-colors-solarized'
-Plug 'noahfrederick/Hemisu'
+" Plug 'vim-scripts/ScrollColors'
+" Plug 'vim-scripts/molokai'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'noahfrederick/Hemisu'
 Plug 'vim-scripts/Atom'
-Plug 'gregsexton/Muon'
-Plug 'vim-scripts/zenesque.vim'
+" Plug 'gregsexton/Muon'
+" Plug 'vim-scripts/zenesque.vim'
 "}}}
 "syntax
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
