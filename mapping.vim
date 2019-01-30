@@ -13,12 +13,9 @@ nmap <silent> <M-t> :TagbarToggle<ENTER>
 imap <silent> <M-t> <Esc><M-t>
 nnoremap - <C-x>
 nnoremap + <C-a>
-nmap <F7> :tabnew<CR>
-imap <F7> <Esc><F7>
 nmap <S-F7> <F7><ENTER>
 imap <S-F7> <Esc><F7><ENTER>
-nmap <F8> :tabNext<ENTER>
-imap <F8> <Esc><F8>
+nmap <F8> <Plug>(ale_fix)
 map <leader><BS><BS> :wqa<ENTER>
 imap <leader><BS><BS> <Esc>:wqa<ENTER>
 "inoremap {<ENTER> {}<Esc>i<ENTER><Esc>k=2jo
