@@ -108,27 +108,11 @@ function! Save2Dict()
     endfor
 endfunction
 
-let s:colorschemes = ['atom', 'desert', 'solarized', 'badwolf', 'lightyellow',
-      \ 'dracula', 'peachpuff', 'pablo', 'slate', 'torte', 'blink', 'blueprint',
+let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf', 'lightyellow',
+      \ 'dracula', 'peachpuff', 'pablo', 'SlateDark', 'torte', 'blink', 'blueprint',
       \ 'Benokai', 'greens', 'grayorange', 'graywh']
 
-function! ColorByCwd() abort
-  let chars = getcwd()
-  let list = split(chars, '\zs')
-  let remainder = 1
-  for char in list
-    let remainder = remainder + char2nr(char)
-  endfor
-  let chosen = s:colorschemes[remainder % len(s:colorschemes)]
-  execute 'colorscheme ' . chosen
-endfunction
-
 if has("gui_running")
-  call ColorByCwd()
-  augroup ColorByCwd
-    autocmd!
-    autocmd DirChanged global call ColorByCwd()
-  augroup END
   set cursorline
 else
   colo desert
