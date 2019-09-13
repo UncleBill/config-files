@@ -38,8 +38,6 @@ au BufReadCmd *.rpk call zip#Browse(expand("<amatch>"))
 
 autocmd! BufRead *.vue setfiletype html
 autocmd! BufRead *.swan setfiletype html
-autocmd! BufRead *.qxml setfiletype html
-autocmd! BufNewFile,BufReadPost *.wxs setfiletype javascript
 
 " auto mkdir
 augroup auto_mkdir

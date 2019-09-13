@@ -227,3 +227,4 @@ let g:user_emmet_settings = {
 call tcomment#type#Define('less',              '/* %s */'         )
 call tcomment#type#Define('less_block',        g:tcomment#block_fmt_c   )
 call tcomment#type#Define('less_inline',       g:tcomment#inline_fmt_c  )
+let g:ale_fixers = ['prettier']

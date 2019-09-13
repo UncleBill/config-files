@@ -39,6 +39,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 Plug 't9md/vim-choosewin'
 Plug 'vimwiki/vimwiki'
+" Plug 'jceb/vim-orgmode'
 Plug 'mattn/calendar-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -121,7 +122,7 @@ Plug 'vim-jp/cpp-vim', {'for': ['c++', 'c']}
 Plug 'vim-scripts/gdbmgr', {'for': ['c++', 'c']}
 Plug 'cakebaker/scss-syntax.vim', {'for': ['scss', 'sass']}
 Plug 'vim-scripts/less.vim', {'for': 'less'}
-Plug 'othree/html5.vim', {'for': 'html'}
+Plug 'othree/html5.vim'
 " Plug 'davidhalter/jedi-vim'
 "Plug 'vim-scripts/vim-line-numbers'
 " Plug 'myusuf3/numbers.vim'
@@ -187,10 +188,14 @@ Plug 'majutsushi/tagbar'
 " Plug 'walm/jshint.vim'
 " Plug 'hallettj/jslint.vim'
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+Plug 'unclebill/vim-qapp'
 Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'typescript']}
 Plug 'marijnh/tern_for_vim'    " Intelligent javascript tooling
 Plug 'maksimr/vim-jsbeautify', {'for': 'javascript'}
+Plug 'chemzqm/wxapp.vim'
+
 function! JsBeautifyWrapper()
     if &filetype == ''
         setfiletype javascript

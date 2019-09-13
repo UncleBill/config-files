@@ -4,6 +4,8 @@ nnoremap <F6> :!ls<cr>:e
 if has('gui_macvim')
     nnoremap <silent> <D-e> :NERDTreeMirrorToggle<ENTER>
     tnoremap <silent> <D-e> <C-w>:NERDTreeMirrorToggle<ENTER>
+    nnoremap <silent> <D-f> :NERDTreeFind<ENTER>
+    tnoremap <silent> <D-f> <C-w>:NERDTreeFind<ENTER>
 else
     tnoremap <silent> <M-e> :NERDTreeMirrorToggle<ENTER>
     tnoremap <silent> <M-e> <C-w>:NERDTreeMirrorToggle<ENTER>

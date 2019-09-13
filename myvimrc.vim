@@ -11,14 +11,14 @@ call plug#end()
 "misc function
 "================================================================================
 "Random coloschemme function{{{
+let s:colorfiles=[]
 function! Ranlook()
-	let colorfiles=[]
-	if empty(colorfiles)
+	if empty(s:colorfiles)
 		for f in split(globpath(&rtp,"colors/*.vim"),"\n")
-			call add(colorfiles,get(matchlist(f,'\([^\\\/]*\)\.vim'),1))
+			call add(s:colorfiles,get(matchlist(f,'\([^\\\/]\+\)\.vim'), 1))
 		endfor
 	endif
-	exe "colo" get(colorfiles,localtime()%len(colorfiles))
+	exe "colo" get(s:colorfiles,localtime()%len(s:colorfiles))
 endfunction
 "}}}
 "Random coloschemme function
@@ -110,7 +110,7 @@ endfunction
 
 let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf', 'lightyellow',
       \ 'dracula', 'peachpuff', 'pablo', 'SlateDark', 'torte', 'blink', 'blueprint',
-      \ 'Benokai', 'greens', 'grayorange', 'graywh']
+      \ 'Benokai', 'greens', 'grayorange', 'graywh', 'sierra', 'marklar']
 
 if has("gui_running")
   set cursorline
@@ -403,6 +403,12 @@ augroup END
 let g:precious_enable_switch_CursorMoved = {
 \   "help" : 0
 \}
+
+function! Tapi_ShellExecute(bufnum, args)
+  echomsg a:bufnum
+  echomsg a:args
+  execute a:args[0]
+endfunction
 
 " function! s:help()
 "     augroup my-help
