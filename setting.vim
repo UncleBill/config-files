@@ -49,6 +49,8 @@ let g:indentLine_noConcealCursor=1
 
 set backupdir=~/.vim/.backup/
 set directory=~/.vim/.vim_swp/
+" set undofile
+" set undodir=~/.vim/.undo/
 set path=.,./lib,./include,/usr/local/include,/usr/include
 "set dictionary=~/
 au BufEnter *.php set dictionary+=~/.vim/extra/php-funclist.txt
@@ -113,7 +115,7 @@ set matchtime=0
 set ruler
 set cursorline
 set cursorcolumn
-set cc=80
+set cc=80,100
 highlight clear SignColumn
 set hlsearch
 set incsearch
@@ -121,8 +123,7 @@ set scrolljump=3
 set scrolloff=1
 "set list
 "set listchars=tab:›\ ,trail:???extends:#,nbsp:.
-"set guifont=Ubuntu\ Mono\ for\ Powerline\ 11
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+set guifont=Menlo-Regular:h12
 "let g:indent_guides_auto_colors = 0
 "
 " airline settings
@@ -183,6 +184,7 @@ set autoread
                       "\ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
 let g:ctrlp_custom_ignore = '\v[\/](node_modules)|(\.(swp|ico|git|svn))$'
 let g:ctrlp_cmd = 'exe "CtrlP".get(["", "Buffer", "MRU"], v:count)'
+let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 
 let g:user_emmet_settings = {
 \  'perl' : {

@@ -56,7 +56,7 @@ Plug 'sjl/gundo.vim'
 " Plug 'mbbill/undotree'
 " Plug 'epmatsw/ag.vim'
 " Plug 'vim-scripts/css3'
-" Plug 'skammer/vim-css-color'  "Makes <c-w> unuse in Markdown
+" Plug 'ap/vim-css-color'  "Makes <c-w> unuse in Markdown
 " Plug 'csslint.vim'
 Plug 'vim-scripts/CSS-2.1-Specification', {'for': ['html', 'css']}
 Plug 'vim-scripts/vim-stylus', {'for': 'stylus'}
@@ -152,6 +152,7 @@ Plug 'kana/vim-textobj-user'
 "Plug 'Shougo/unite-session'
 Plug 'honza/vim-snippets'
 Plug 'hrsh7th/vim-neco-calc'
+Plug 'UncleBill/neoc-git-commit'
 Plug 'UncleBill/neco-look'
 " Plug 'UncleBill/neco-stardict'
 "Plug 'violetyk/neco-php'

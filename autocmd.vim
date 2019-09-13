@@ -23,12 +23,12 @@ autocmd FileType vim set dictionary=~/Dropbox/works/Vim/dict/vim.dict
 "let dictfold = ~/Dropbox/works/Vim/dict/
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 "autocmd! BufNewFile,BufRead *.html set ft=html.css.javascript
-autocmd! BufNewFile,BufRead *.ejs set ft=html
-autocmd! BufNewFile,BufRead *.go set ft=go
-autocmd! BufNewFile,BufRead *.md set ft=markdown
-autocmd! BufNewFile,BufRead *.scss *.sass set ft=scss
-autocmd! BufNewFile,BufRead *.vue set ft=html
-autocmd! BufNewFile,BufRead *.ux set ft=html
+autocmd! BufNewFile,BufReadPost *.ejs set ft=html
+autocmd! BufNewFile,BufReadPost *.go set ft=go
+autocmd! BufNewFile,BufReadPost *.md set ft=markdown
+autocmd! BufNewFile,BufReadPost *.scss *.sass set ft=scss
+autocmd! BufNewFile,BufReadPost *.vue set ft=html
+autocmd! BufNewFile,BufReadPost *.ux set ft=html
 " TODO g:zipPlugin_ext
 au BufReadCmd *.rpk call zip#Browse(expand("<amatch>"))
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesOdd guibg=red ctermbg=3
@@ -37,6 +37,9 @@ au BufReadCmd *.rpk call zip#Browse(expand("<amatch>"))
 "autocmd! BufLeave *.coffee map <F5> :QuickRun<cr>
 
 autocmd! BufRead *.vue setfiletype html
+autocmd! BufRead *.swan setfiletype html
+autocmd! BufRead *.qxml setfiletype html
+autocmd! BufNewFile,BufReadPost *.wxs setfiletype javascript
 
 " auto mkdir
 augroup auto_mkdir
