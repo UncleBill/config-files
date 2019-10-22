@@ -34,8 +34,15 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'kshenoy/vim-signature'
 "Plug 'tpope/vim-rails.git'
 " Plug 'Lokaltog/vim-powerline'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'landscape',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
+      \ }
+      \ }
 Plug 'mhinz/vim-startify'
 Plug 't9md/vim-choosewin'
 Plug 'vimwiki/vimwiki'
