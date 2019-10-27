@@ -9,34 +9,34 @@ let g:snips_author = "UncleBill"
 let g:snips_email = "billbill290@gmail.com"
 let g:snips_github = "UncleBill"
 " neocomplete settings
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_auto_select = 1
-let g:neocomplete#enable_camel_case_completion = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_underbar_completion = 1
+" let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_auto_select = 1
+" let g:neocomplete#enable_camel_case_completion = 1
+" let g:neocomplete#enable_smart_case = 1
+" let g:neocomplete#enable_underbar_completion = 1
 " let g:neocomplete#max_list = 30
-let g:neocomplete#sources#syntax#min_keyword_length = 2
-let g:neocomplete#min_syntax_length = 2
+" let g:neocomplete#sources#syntax#min_keyword_length = 2
+" let g:neocomplete#min_syntax_length = 2
 let $MYDICTDIR = '~/.vim/dict/'
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : $MYDICTDIR . 'words.dict',
-    \ 'vimshell' : $HOME . '/.vimshell_hist',
-    \ 'javascript' : $MYDICTDIR . 'javascript.dict',
-    \ 'coffee' : $MYDICTDIR . 'javascript.dict',
-    \ 'css' : $MYDICTDIR . 'css.dcit',
-    \ 'php' : $MYDICTDIR . 'php.dict',
-    \ 'xml' : $MYDICTDIR . 'xml.dict',
-    \ 'html': $MYDICTDIR . 'html.dict',
-    \}
+" let g:neocomplete#sources#dictionary#dictionaries = {
+"     \ 'default' : $MYDICTDIR . 'words.dict',
+"     \ 'vimshell' : $HOME . '/.vimshell_hist',
+"     \ 'javascript' : $MYDICTDIR . 'javascript.dict',
+"     \ 'coffee' : $MYDICTDIR . 'javascript.dict',
+"     \ 'css' : $MYDICTDIR . 'css.dcit',
+"     \ 'php' : $MYDICTDIR . 'php.dict',
+"     \ 'xml' : $MYDICTDIR . 'xml.dict',
+"     \ 'html': $MYDICTDIR . 'html.dict',
+"     \}
 let g:vimwiki_list = [{'path': '~/vimwiki/'}]
 let g:vimwiki_folding='expr'
 " Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" if !exists('g:neocomplete#sources#omni#input_patterns')
+"   let g:neocomplete#sources#omni#input_patterns = {}
+" endif
+" let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+" let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+" let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:html_indent_inctags = "body,html,head,p,tbody"
 set completeopt-=preview
 "let g:neocomplete_enable_auto_delimiter = 1

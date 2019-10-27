@@ -148,18 +148,26 @@ endfunction
 function! SmartTab()
   if neosnippet#expandable_or_jumpable()
     return "\<Plug>(neosnippet_expand_or_jump)" 
-  elseif CouldJump2End()
-    return "\<C-o>$"
   elseif  &filetype =~ 'html\|css\|less\|sass\|scss' && emmet#isExpandable()
     return "\<C-y>,"
   elseif pumvisible()
     return "\<c-n>"
+  elseif CouldJump2End()
+    return "\<C-o>$"
+  elseif <SID>check_back_space()
+    return "\<TAB>"
   else
-    return TabJumpOut()
+    return coc#refresh()
+    " return TabJumpOut()
   endif
 endfunction
 
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" inoremap <expr><C-l>     neocomplete#complete_common_string()
 " Recommended key-mappings.
 imap <expr><Tab> SmartTab()
 smap <expr><Tab> SmartTab()
