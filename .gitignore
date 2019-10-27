@@ -6,3 +6,4 @@ plugged/
 .vim_swp
 .netrwhist
 .DS_Store
+*.vim-profile
