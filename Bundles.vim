@@ -128,6 +128,7 @@ Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'leafo/moonscript-vim', {'for': 'moon'}
 Plug 'digitaltoad/vim-pug', {'for': ['pug']}
 Plug 'vim-jp/cpp-vim', {'for': ['c++', 'c']}
+Plug 'cespare/vim-toml'
 " Plug 'gilligan/vim-lldb', {'for': ['c++', 'c']} " https://github.com/gilligan/vim-lldb/issues/4
 Plug 'vim-scripts/gdbmgr', {'for': ['c++', 'c']}
 Plug 'cakebaker/scss-syntax.vim', {'for': ['scss', 'sass']}
@@ -203,7 +204,7 @@ Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'unclebill/vim-qapp'
 Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'typescript']}
-Plug 'marijnh/tern_for_vim'    " Intelligent javascript tooling
+" Plug 'marijnh/tern_for_vim'    " Intelligent javascript tooling
 Plug 'maksimr/vim-jsbeautify', {'for': 'javascript'}
 Plug 'chemzqm/wxapp.vim'
 
@@ -216,5 +217,6 @@ endfunction
 command! JsBeautify call JsBeautifyWrapper()
 "Plug 'intuited/vim-noderepl'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'vim/killersheep'
 "Plug 'guyzmo/vim-etherpad'
 " vim:fdm=marker
