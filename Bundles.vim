@@ -41,6 +41,9 @@ let g:lightline = {
       \ 'colorscheme': 'landscape',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
+      \ },
+      \ 'inactive': {
+      \   'left': [ ['relativepath'] ],
       \ }
       \ }
 Plug 'mhinz/vim-startify'
