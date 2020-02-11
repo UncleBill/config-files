@@ -296,8 +296,7 @@ let g:quickrun_config.markdown = {
             \ 'outputter': 'null'
             \}
 let g:quickrun_config.html = {
-            \ 'command': 'google-chrome',
-            \ 'outputter': 'null'
+            \ 'command': 'open',
             \ }
 let g:quickrun_config.matlab = {
             \ 'command': 'octave',
