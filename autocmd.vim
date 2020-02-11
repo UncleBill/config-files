@@ -29,10 +29,12 @@ autocmd! BufNewFile,BufReadPost *.md set ft=markdown
 autocmd! BufNewFile,BufReadPost *.scss *.sass set ft=scss
 autocmd! BufNewFile,BufReadPost *.vue set ft=html
 autocmd! BufNewFile,BufReadPost *.ux set ft=html
+autocmd! BufNewFile,BufReadPost *.qjs,*.wxs set ft=javascript
 " TODO g:zipPlugin_ext
 au BufReadCmd *.rpk call zip#Browse(expand("<amatch>"))
 au BufReadCmd *.rpks call zip#Browse(expand("<amatch>"))
 au BufReadCmd *.srpk call zip#Browse(expand("<amatch>"))
+au BufReadCmd *.vsix call zip#Browse(expand("<amatch>"))
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesOdd guibg=red ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesEven guibg=green ctermbg=4
 "autocmd! BufEnter *.coffee map <F5> :CoffeeCompile<cr>
