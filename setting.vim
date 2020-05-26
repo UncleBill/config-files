@@ -112,6 +112,7 @@ set lazyredraw
 set noshowmode
 set showcmd
 set matchtime=0
+set updatetime=200
 set ruler
 set cursorline
 set cursorcolumn

@@ -109,7 +109,8 @@ function! Save2Dict()
 endfunction
 
 let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf', 'lightyellow',
-      \ 'dracula', 'peachpuff', 'pablo', 'SlateDark', 'torte', 'blink', 'blueprint',
+      \ 'dracula', 'peachpuff', 'gruvbox', 'SlateDark', 'torte', 'blink', 'blueprint',
+      \ 'Green',
       \ 'Benokai', 'greens', 'grayorange', 'graywh', 'sierra', 'marklar']
 
 if has("gui_running")

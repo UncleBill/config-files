@@ -20,6 +20,23 @@ Plug 'vim-scripts/python_match.vim', {'for': 'python'}
 " non github repos
 "Plug 'git://git.wincent.com/command-t.git'
 Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" let g:Lf_ShortcutF = '<C-P>'
+" let g:Lf_PreviewInPopup = 1
+" let g:Lf_WindowPosition = 'popup'
+" let g:Lf_PreviewResult = {
+"       \ 'File': 1,
+"       \ 'Buffer': 0,
+"       \ 'Mru': 0,
+"       \ 'Tag': 0,
+"       \ 'BufTag': 1,
+"       \ 'Function': 1,
+"       \ 'Line': 0,
+"       \ 'Colorscheme': 0,
+"       \ 'Rg': 0,
+"       \ 'Gtags': 0
+"       \}
+
 "Plug 'JazzCore/ctrlp-cmatcher'
 "Plug 'xolox/vim-session'
 "Plug 'xolox/vim-misc'
@@ -139,6 +156,8 @@ Plug 'othree/html5.vim'
 " Plug 'myusuf3/numbers.vim'
 "Plug 'vim-scripts/togglecursor'
 "Plug 'vim-scripts/Vimpanel'
+Plug 'tpope/vim-markdown'
+let g:markdown_fenced_languages = ['css', 'js=javascript']
 Plug 'terryma/vim-instant-markdown', {'for': 'markdown'}
 " Plug 'nathanaelkane/vim-indent-guides'
 " completion plugin
