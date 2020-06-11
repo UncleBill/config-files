@@ -39,6 +39,7 @@ let g:vimwiki_folding='expr'
 " let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:html_indent_inctags = "body,html,head,p,tbody"
 set completeopt-=preview
+set shortmess-=S
 "let g:neocomplete_enable_auto_delimiter = 1
 " For snippet_complete marker.
 "let g:AutoPairsFlyMode = 1
@@ -124,7 +125,7 @@ set scrolljump=3
 set scrolloff=1
 "set list
 "set listchars=tab:›\ ,trail:???extends:#,nbsp:.
-set guifont=Menlo-Regular:h12
+set guifont=Menlo-Regular:h14
 "let g:indent_guides_auto_colors = 0
 "
 " airline settings

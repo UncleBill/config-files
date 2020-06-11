@@ -171,3 +171,22 @@ endfunction
 " Recommended key-mappings.
 imap <expr><Tab> SmartTab()
 smap <expr><Tab> SmartTab()
+
+" temporarily fix https://github.com/macvim-dev/macvim/issues/925
+function! Interceptor()
+  let line0=getline (".")
+  let line=matchstr (line0, "http[^]\"\) ]*")
+
+  if line==""
+      let line=matchstr (line0, "ftp[^\"\) ]*")
+  endif
+
+  if line==""
+      let line=matchstr (line0, "file[^\"\) ]*")
+  endif
+
+  let line= escape (line, "#?&;|%")
+  exec ':silent !open ' . line
+endfunction
+
+nnoremap <silent> gx :call Interceptor()<CR>

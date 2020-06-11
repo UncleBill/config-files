@@ -76,7 +76,7 @@ Plug 'tomtom/tcomment_vim'
 "Plug 'bootleq/vim-tabline'
 "Plug 'gcmt/taboo.vim'
 " Plug 'scrooloose/syntastic'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 " Plug 'osyo-manga/vim-watchdogs',{
 "             \ 'depends': [ 'jceb/vim-hier','osyo-manga/shabadou.vim' ]
 "             \ }
@@ -220,9 +220,10 @@ Plug 'majutsushi/tagbar'
 " Plug 'hallettj/jslint.vim'
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'posva/vim-vue'
-Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+Plug 'leafgarland/typescript-vim', {'for': ['typescript', 'typescript.jsx', 'typescript.tsx']}
+Plug 'tasn/vim-tsx'
 Plug 'unclebill/vim-qapp'
-Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'typescript']}
+Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'typescript', 'typescript.jsx', 'typescript.tsx']}
 " Plug 'marijnh/tern_for_vim'    " Intelligent javascript tooling
 Plug 'maksimr/vim-jsbeautify', {'for': 'javascript'}
 Plug 'chemzqm/wxapp.vim'

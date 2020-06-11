@@ -108,8 +108,8 @@ function! Save2Dict()
     endfor
 endfunction
 
-let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf', 'lightyellow',
-      \ 'dracula', 'peachpuff', 'gruvbox', 'SlateDark', 'torte', 'blink', 'blueprint',
+let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf',
+      \ 'gruvbox', 'SlateDark', 'torte', 'blink', 'blueprint',
       \ 'Green',
       \ 'Benokai', 'greens', 'grayorange', 'graywh', 'sierra', 'marklar']
 
@@ -301,6 +301,10 @@ let g:quickrun_config.html = {
             \ }
 let g:quickrun_config.matlab = {
             \ 'command': 'octave',
+            \ 'exec': '%C -q',
+            \ }
+let g:quickrun_config.cs = {
+            \ 'command': 'donet',
             \ 'exec': '%C -q',
             \ }
 

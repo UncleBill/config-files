@@ -1,4 +1,4 @@
-let b:ale_linters = ['tslint', 'eslint']
+let b:ale_linters = ['eslint']
 let b:ale_fixers = ['prettier', 'eslint']
 let g:tagbar_type_typescript = {                                                  
   \ 'ctagsbin' : 'tstags',                                                        
