@@ -221,6 +221,7 @@ Plug 'majutsushi/tagbar'
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim', {'for': ['typescript', 'typescript.jsx', 'typescript.tsx']}
+Plug 'jparise/vim-graphql'
 Plug 'tasn/vim-tsx'
 Plug 'unclebill/vim-qapp'
 Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'typescript', 'typescript.jsx', 'typescript.tsx']}
