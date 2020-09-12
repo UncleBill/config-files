@@ -183,9 +183,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kana/vim-textobj-user'
 "Plug 'Shougo/unite-session'
 Plug 'honza/vim-snippets'
-Plug 'hrsh7th/vim-neco-calc'
-Plug 'UncleBill/neoc-git-commit'
-Plug 'UncleBill/neco-look'
+" Plug 'hrsh7th/vim-neco-calc'
+" Plug 'UncleBill/neoc-git-commit'
+" Plug 'UncleBill/neco-look'
 " Plug 'UncleBill/neco-stardict'
 "Plug 'violetyk/neco-php'
 "Plug 'zhaocai/neco-googlesuggest'
@@ -223,7 +223,6 @@ Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim', {'for': ['typescript', 'typescript.jsx', 'typescript.tsx']}
 Plug 'jparise/vim-graphql'
 Plug 'tasn/vim-tsx'
-Plug 'unclebill/vim-qapp'
 Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'typescript', 'typescript.jsx', 'typescript.tsx']}
 " Plug 'marijnh/tern_for_vim'    " Intelligent javascript tooling
 Plug 'maksimr/vim-jsbeautify', {'for': 'javascript'}
