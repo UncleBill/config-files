@@ -76,7 +76,7 @@ Plug 'tomtom/tcomment_vim'
 "Plug 'bootleq/vim-tabline'
 "Plug 'gcmt/taboo.vim'
 " Plug 'scrooloose/syntastic'
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 " Plug 'osyo-manga/vim-watchdogs',{
 "             \ 'depends': [ 'jceb/vim-hier','osyo-manga/shabadou.vim' ]
 "             \ }
@@ -119,7 +119,7 @@ Plug 'mattn/gist-vim'
 Plug 'vim-scripts/jQuery', {'for': ['html', 'javascript']}
 "Plug 'ervandew/supertab'
 "Plug 'sudoku_game'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 "Plug 'vim-scripts/groovyindent'
 " Plug 'VimOutliner'
 Plug 'godlygeek/tabular'

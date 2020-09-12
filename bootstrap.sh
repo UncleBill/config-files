@@ -7,6 +7,7 @@ brew install ranger
 brew install fzf
 brew install quickjs
 brew install go
+brew intall htop
 
 git clone https://github.com/TomaszRewak/C-sharp-stack-only-json-parser.git
 git clone https://github.com/acornjs/acorn.git

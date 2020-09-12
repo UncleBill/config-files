@@ -115,17 +115,21 @@ set showcmd
 set matchtime=0
 set updatetime=200
 set ruler
-set cursorline
-set cursorcolumn
-set cc=80,100
+" set cursorline
+" set cursorcolumn
+" set cc=80,100
 highlight clear SignColumn
+if !has("nvim")
+  set signcolumn=auto
+endif
 set hlsearch
 set incsearch
 set scrolljump=3
 set scrolloff=1
 "set list
 "set listchars=tab:›\ ,trail:???extends:#,nbsp:.
-set guifont=Menlo-Regular:h14
+set guifont=Menlo-Regular:h15
+" set guifont=HackNerdFontCompleteM-Regular:h15
 "let g:indent_guides_auto_colors = 0
 "
 " airline settings
@@ -229,4 +233,9 @@ let g:user_emmet_settings = {
 call tcomment#type#Define('less',              '/* %s */'         )
 call tcomment#type#Define('less_block',        g:tcomment#block_fmt_c   )
 call tcomment#type#Define('less_inline',       g:tcomment#inline_fmt_c  )
-let g:ale_fixers = ['prettier']
+let g:ale_linters_explicit=1
+let g:ale_fix_on_save=1
+if has("gui_macvim")
+  set transparency=10
+endif
+

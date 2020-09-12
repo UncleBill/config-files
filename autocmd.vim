@@ -5,20 +5,20 @@ autocmd FileType javascript let b:surround_45 = "for(){ \r }"
 "autocmd FileType * :NeoComplCacheCachingBuffer<cr>
 
 "dictionary setting{
-autocmd FileType xml set dictionary=~/Dropbox/works/Vim/dict/xml.dict
-autocmd FileType cpp,c set dictionary=~/Dropbox/works/Vim/dict/cpp.dict
-autocmd FileType cpp   set path+=/usr/include/c++/4.6.3/
-autocmd FileType html,
-				\asp,
-				\json,
-				\coffee
-				\ set dictionary=~/Dropbox/works/Vim/dict/html.dict
-                                    \~/Dropbox/works/Vim/dict/javascript.dict,
-                                    \~/Dropbox/works/Vim/dict/css.dict
-autocmd FileType javascript,json,coffee set dictionary=~/Dropbox/works/Vim/dict/javascript.dict
-" autocmd FileType coffee set ft=coffee.javascript
-autocmd FileType css,styl,less set dictionary=~/Dropbox/works/Vim/dict/css.dict
-autocmd FileType vim set dictionary=~/Dropbox/works/Vim/dict/vim.dict
+" autocmd FileType xml set dictionary=~/Dropbox/works/Vim/dict/xml.dict
+" autocmd FileType cpp,c set dictionary=~/Dropbox/works/Vim/dict/cpp.dict
+" autocmd FileType cpp   set path+=/usr/include/c++/4.6.3/
+" autocmd FileType html,
+" 				\asp,
+" 				\json,
+" 				\coffee
+" 				\ set dictionary=~/Dropbox/works/Vim/dict/html.dict
+"                                     \~/Dropbox/works/Vim/dict/javascript.dict,
+"                                     \~/Dropbox/works/Vim/dict/css.dict
+" autocmd FileType javascript,json,coffee set dictionary=~/Dropbox/works/Vim/dict/javascript.dict
+" " autocmd FileType coffee set ft=coffee.javascript
+" autocmd FileType css,styl,less set dictionary=~/Dropbox/works/Vim/dict/css.dict
+" autocmd FileType vim set dictionary=~/Dropbox/works/Vim/dict/vim.dict
 "**todo**
 "let dictfold = ~/Dropbox/works/Vim/dict/
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
