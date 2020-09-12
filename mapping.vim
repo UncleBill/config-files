@@ -2,14 +2,15 @@
 nnoremap <F3> :<C-u>GundoToggle<CR>
 nnoremap <F6> :!ls<cr>:e 
 if has('gui_macvim')
-    nnoremap <silent> <D-e> :NERDTreeMirrorToggle<ENTER>
-    tnoremap <silent> <D-e> <C-w>:NERDTreeMirrorToggle<ENTER>
+    nnoremap <silent> <D-e> :NERDTreeMirrorToggle<CR>
+    tnoremap <silent> <D-e> <C-w>:NERDTreeMirrorToggle<CR>
     nnoremap <silent> <D-f> :NERDTreeFind<ENTER>
     tnoremap <silent> <D-f> <C-w>:NERDTreeFind<ENTER>
 else
     tnoremap <silent> <M-e> :NERDTreeMirrorToggle<ENTER>
     tnoremap <silent> <M-e> <C-w>:NERDTreeMirrorToggle<ENTER>
 endif
+
 imap <silent> <M-e> <Esc><M-e>
 nmap <silent> <M-t> :TagbarToggle<ENTER>
 imap <silent> <M-t> <Esc><M-t>
@@ -171,6 +172,34 @@ endfunction
 " Recommended key-mappings.
 imap <expr><Tab> SmartTab()
 smap <expr><Tab> SmartTab()
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <F9> <Plug>(coc-rename)
+nmap <silent> <F10> <Plug>(coc-translator-p)
+vmap <silent> <F10> <Plug>(coc-translator-pv)
+
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 " temporarily fix https://github.com/macvim-dev/macvim/issues/925
 function! Interceptor()
