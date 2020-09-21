@@ -1,8 +1,8 @@
 set nocompatible
-" let $MYVIMRC_="~/Dropbox/works/Vim/"
+let $VIMROOT=expand('<sfile>:p:h')
 "g:snippets_dir
-"let g:snippets_dir = $MYVIMRC_ . 'snippets'
-"let g:neosnippet#snippets_directory=$MYVIMRC_ . 'snippets'
+"let g:snippets_dir = $VIMROOT . 'snippets'
+let g:neosnippet#snippets_directory=$VIMROOT .. '/snippets'
 "let g:clang_library_path='/usr/include/'
 " let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet/autoload/neosnippet,~/Dropbox/works/Vim/snippets'
 let g:snips_author = "UncleBill"
