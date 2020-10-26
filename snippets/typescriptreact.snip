@@ -1,0 +1,32 @@
+include typescript.snip
+
+snippet     reactfc
+abbr        react functional component
+alias       fc
+options     head
+  import React, { FC, memo } from 'react'
+
+  const ${1:#:NAME} : FC = () => {
+    return ${2:<div>${3\}</div>}
+  }
+
+  export default memo($1)
+
+snippet     rnfc
+abbr        react native functional component
+options     head
+  import React, { FC, memo } from 'react'
+  import { View } from 'react-native'
+
+  const ${1:#:NAME} : FC = () => {
+    return ${2:<View>${3\}</View>}
+  }
+
+  export default memo($1)
+
+snippet     usecb
+abbr        useCallback
+options     head
+  const handle${1:Press} = useCallback(() => {
+    ${2}
+  }, [${3}])

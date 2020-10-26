@@ -4,7 +4,7 @@ let $VIMROOT=expand('<sfile>:p:h')
 "let g:snippets_dir = $VIMROOT . 'snippets'
 let g:neosnippet#snippets_directory=$VIMROOT .. '/snippets'
 "let g:clang_library_path='/usr/include/'
-" let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet/autoload/neosnippet,~/Dropbox/works/Vim/snippets'
+" let g:neosnippet#snippets_directory='~/.vim/plugged/neosnippet-snippets/neosnippets,~/.vim/snippets'
 let g:snips_author = "UncleBill"
 let g:snips_email = "billbill290@gmail.com"
 let g:snips_github = "UncleBill"
@@ -17,7 +17,7 @@ let g:snips_github = "UncleBill"
 " let g:neocomplete#max_list = 30
 " let g:neocomplete#sources#syntax#min_keyword_length = 2
 " let g:neocomplete#min_syntax_length = 2
-let $MYDICTDIR = '~/.vim/dict/'
+let $MYDICTDIR = $VIMROOT .. '/dict/'
 " let g:neocomplete#sources#dictionary#dictionaries = {
 "     \ 'default' : $MYDICTDIR . 'words.dict',
 "     \ 'vimshell' : $HOME . '/.vimshell_hist',
