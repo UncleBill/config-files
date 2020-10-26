@@ -20,6 +20,8 @@ Plug 'vim-scripts/python_match.vim', {'for': 'python'}
 " non github repos
 "Plug 'git://git.wincent.com/command-t.git'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mattn/ctrlp-matchfuzzy'
+let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " let g:Lf_ShortcutF = '<C-P>'
 " let g:Lf_PreviewInPopup = 1
