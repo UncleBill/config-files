@@ -111,7 +111,8 @@ endfunction
 let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf',
       \ 'gruvbox', 'SlateDark', 'torte', 'blink', 'blueprint',
       \ 'Green',
-      \ 'Benokai', 'greens', 'grayorange', 'graywh', 'sierra', 'marklar']
+      \ 'Benokai', 'greens', 'grayorange', 'graywh', 'sierra', 'marklar',
+      \ 'embark', 'tokyonight']
 
 if has("gui_running")
   set cursorline

@@ -133,6 +133,8 @@ Plug 'vim-scripts/taglist.vim'
 "colorscheme"
 "{{{
 Plug 'flazz/vim-colorschemes'
+Plug 'embark-theme/vim', { 'as': 'embark' }
+Plug 'ghifarit53/tokyonight-vim'
 Plug 'UncleBill/prism.vim'
 " Plug 'vim-scripts/ScrollColors'
 " Plug 'vim-scripts/molokai'
