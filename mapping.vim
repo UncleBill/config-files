@@ -115,6 +115,16 @@ nnoremap <D-7> 7gt
 nnoremap <D-8> 8gt
 nnoremap <D-9> 9gt
 nnoremap <D-0> 10gt
+tnoremap <D-1> <C-w>1gt
+tnoremap <D-2> <C-w>2gt
+tnoremap <D-3> <C-w>3gt
+tnoremap <D-4> <C-w>4gt
+tnoremap <D-5> <C-w>5gt
+tnoremap <D-6> <C-w>6gt
+tnoremap <D-7> <C-w>7gt
+tnoremap <D-8> <C-w>8gt
+tnoremap <D-9> <C-w>9gt
+tnoremap <D-0> <C-w>10gt
 "}}}
 "abbr
 abbr #G +>----------------------->+
