@@ -235,6 +235,7 @@ call tcomment#type#Define('less_block',        g:tcomment#block_fmt_c   )
 call tcomment#type#Define('less_inline',       g:tcomment#inline_fmt_c  )
 let g:ale_linters_explicit=1
 let g:ale_fix_on_save=1
+let g:ale_completion_autoimport=1
 if has("gui_macvim")
   set transparency=10
 endif

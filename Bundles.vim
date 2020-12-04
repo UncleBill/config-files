@@ -57,7 +57,7 @@ Plug 'kshenoy/vim-signature'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
-      \ 'colorscheme': 'landscape',
+      \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
       \ },
@@ -78,7 +78,7 @@ Plug 'tomtom/tcomment_vim'
 "Plug 'bootleq/vim-tabline'
 "Plug 'gcmt/taboo.vim'
 " Plug 'scrooloose/syntastic'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 " Plug 'osyo-manga/vim-watchdogs',{
 "             \ 'depends': [ 'jceb/vim-hier','osyo-manga/shabadou.vim' ]
 "             \ }

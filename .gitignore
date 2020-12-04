@@ -8,3 +8,4 @@ plugged/
 .netrwhist
 .DS_Store
 *.vim-profile
+*.profile
