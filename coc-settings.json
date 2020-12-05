@@ -1,4 +1,6 @@
 {
   "javascript.validate.enable": false,
-  "eslint.autoFixOnSave": false
+  "typescript.suggest.autoImports": true,
+  "javascript.suggest.autoImports": true,
+  "html.autoClosingTags": true
 }
