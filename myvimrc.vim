@@ -108,11 +108,11 @@ function! Save2Dict()
     endfor
 endfunction
 
-command! -nargs=* Tig call s:Tig(<f-args>)
 function! s:Tig(...) abort
   execute 'terminal ++close tig ' .. join(a:000, ' ')
 endfunction
-nnoremap T :<c-u>Tig<CR>
+command! -nargs=* Tig call s:Tig(<f-args>)
+noremap T <Cmd>Tig<CR>
 
 let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf',
       \ 'gruvbox', 'SlateDark', 'blueprint',

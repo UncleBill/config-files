@@ -99,10 +99,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
-noremap <silent><C-Tab> <esc>:tabn<cr>
-noremap <silent><C-S-Tab> <esc>:tabp<cr>
-tnoremap <silent><C-Tab> <esc>:tabn<cr>
-tnoremap <silent><C-S-Tab> <esc>:tabp<cr>
+noremap <silent><C-Tab> <Cmd>tabn<cr>
+noremap <silent><C-S-Tab> <Cmd>tabp<cr>
+tnoremap <silent><C-Tab> <Cmd>tabn<cr>
+tnoremap <silent><C-S-Tab> <Cmd>tabp<cr>
 inoremap <silent><C-Tab> <c-o>:tabn<cr>
 inoremap <silent><C-S-Tab> <c-o>:tabp<cr>
 nnoremap <D-1> 1gt
