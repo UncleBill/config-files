@@ -2,5 +2,10 @@
   "javascript.validate.enable": false,
   "typescript.suggest.autoImports": true,
   "javascript.suggest.autoImports": true,
-  "html.autoClosingTags": true
+  "html.autoClosingTags": true,
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "prettier.disableSuccessMessage": true,
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnTypeFiletypes": ["*"],
+  "styled-components.tags": ["styled", "css", "sty", "createGlobalStyle"]
 }
