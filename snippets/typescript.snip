@@ -1,1 +1,14 @@
-include eslint.snip
+include javascript.snip
+
+snippet     addstyled
+abbr        import styled
+options     head
+  import styled from 'styled-components'
+
+
+snippet     styled
+abbr        create a styled components
+options     head
+  const ${1:Comp} = styled.${2:div}\`
+    ${0}
+  \`

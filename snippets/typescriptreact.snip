@@ -1,16 +1,25 @@
 include typescript.snip
 
-snippet     reactfc
-abbr        react functional component
-alias       fc
+snippet     defaultfc
+abbr        default react functional component
 options     head
-  import React, { FC, memo } from 'react'
+  import React, { FC } from 'react'
 
   const ${1:#:NAME} : FC = () => {
     return ${2:<div>${3\}</div>}
   }
 
-  export default memo($1)
+  export default $1
+
+snippet     reactfc
+abbr        react functional component
+alias       fc
+options     head
+  import React, { FC } from 'react'
+
+  export const ${1:#:NAME} : FC = () => {
+    return ${2:<div>${3\}</div>}
+  }
 
 snippet     rnfc
 abbr        react native functional component
