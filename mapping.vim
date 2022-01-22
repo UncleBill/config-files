@@ -1,14 +1,25 @@
 "mapping{
 nnoremap <F3> :<C-u>GundoToggle<CR>
-nnoremap <F6> :!ls<cr>:e 
+noremap <silent><F6> <Cmd>CocCommand tsserver.organizeImports<CR>
+" if has('gui_macvim')
+"     nnoremap <silent> <D-e> :NERDTreeMirrorToggle<CR>
+"     tnoremap <silent> <D-e> <C-w>:NERDTreeMirrorToggle<CR>
+"     nnoremap <silent> <D-f> :NERDTreeFind<ENTER>
+"     tnoremap <silent> <D-f> <C-w>:NERDTreeFind<ENTER>
+" else
+"     tnoremap <silent> <M-e> :NERDTreeMirrorToggle<ENTER>
+"     tnoremap <silent> <M-e> <C-w>:NERDTreeMirrorToggle<ENTER>
+" endif
 if has('gui_macvim')
-    nnoremap <silent> <D-e> :NERDTreeMirrorToggle<CR>
-    tnoremap <silent> <D-e> <C-w>:NERDTreeMirrorToggle<CR>
-    nnoremap <silent> <D-f> :NERDTreeFind<ENTER>
-    tnoremap <silent> <D-f> <C-w>:NERDTreeFind<ENTER>
+    nnoremap <silent> <D-e> <Cmd>CocCommand explorer --toggle<CR>
+    tnoremap <silent> <D-e> <Cmd>CocCommand explorer --no-reveal-when-open<CR>
+    nnoremap <silent> <D-f> <Cmd>CocCommand explorer --reveal<CR>
+    tnoremap <silent> <D-f> <Cmd>CocCommand explorer --no-reveal-when-open<CR>
 else
-    tnoremap <silent> <M-e> :NERDTreeMirrorToggle<ENTER>
-    tnoremap <silent> <M-e> <C-w>:NERDTreeMirrorToggle<ENTER>
+    nnoremap <silent> <M-e> <Cmd>CocCommand explorer --toggle<CR>
+    tnoremap <silent> <M-e> <Cmd>CocCommand explorer --no-reveal-when-open<CR>
+    nnoremap <silent> <M-f> <Cmd>CocCommand explorer --reveal<CR>
+    tnoremap <silent> <M-e> <Cmd>CocCommand explorer --no-reveal-when-open<CR>
 endif
 
 imap <silent> <M-e> <Esc><M-e>
@@ -18,31 +29,26 @@ nnoremap - <C-x>
 nnoremap + <C-a>
 nmap <S-F7> <F7><ENTER>
 imap <S-F7> <Esc><F7><ENTER>
-nmap <F8> <Plug>(ale_fix)
-map <leader><BS><BS> :wqa<ENTER>
-imap <leader><BS><BS> <Esc>:wqa<ENTER>
 "inoremap {<ENTER> {}<Esc>i<ENTER><Esc>k=2jo
-imap <leader><Esc><Esc> <Esc>:update<ENTER>
-nmap <Space><cr> :w<ENTER>
 inoremap <c-u> <C-g>u<c-u>
 inoremap <c-w> <C-g>u<c-w>
-inoremap <c-s><c-s> <c-o>:w<cr>
+inoremap <c-s><c-s> <Cmd>w<cr>
 
-nnoremap <F4> :set number!<CR>
-nnoremap <S-F4> :set relativenumber!<CR>
+nnoremap <F4> <Cmd>set number!<CR>
+nnoremap <S-F4> <Cmd>set relativenumber!<CR>
 imap <F4> <esc><F4>
 imap <S-F4> <Esc><F4>
 
-nnoremap <silent><F5> :QuickRun<cr>
+nnoremap <silent><F5> <Cmd>QuickRun<cr>
 imap <silent><F5> <esc><F5>
 
 " bind print-screen to TOhtml
-nnoremap <silent><t_%9> :TOhtml<cr>
+nnoremap <silent><t_%9> <Cmd>TOhtml<cr>
 
-inoremap <Leader><C-P> <ESC>:call PhpDocSingle()<CR>i
-nnoremap <Leader><C-P> :call PhpDocSingle()<CR>
-vnoremap <Leader><C-P> :call PhpDocRange()<CR>
-vnoremap <silent> <Enter> :EasyAlign<cr>
+inoremap <Leader><C-P> <Cmd>call PhpDocSingle()<CR>i
+nnoremap <Leader><C-P> <Cmd>call PhpDocSingle()<CR>
+vnoremap <Leader><C-P> <Cmd>call PhpDocRange()<CR>
+vnoremap <silent> <Enter> <Cmd>EasyAlign<cr>
 
 nnoremap _ <c-w>_
 nmap <M-;> $a;<Esc>
@@ -69,7 +75,6 @@ function! InsertLine (before) abort
       let keys = 'jS'
     endif
   endif
-  echo keys
   return "\<Esc>" . keys
 endfunction
 inoremap <expr><D-cr> InsertLine(0)
@@ -78,20 +83,22 @@ inoremap <expr><D-S-cr> InsertLine(1)
 nmap <leader>= zf%
 nnoremap <silent> <m-h> :noh<cr>
 inoremap <silent><c-cr> <c-r>=emmet#expandAbbr(0,"")<cr>
-nnoremap <silent><c-cr> :call emmet#expandAbbr(3,"")<cr>
+nnoremap <silent><c-cr> <Cmd>call emmet#expandAbbr(3,"")<cr>
 vnoremap <silent><c-cr> :call emmet#expandAbbr(2,"")<cr>
 imap <M-'> <Space>+ 1
 nmap <C-=> mzgg=G'z
-vnoremap <C-C> "+y
-vnoremap <C-Insert> "+y
-map <C-V> "+gP
-map <S-Insert> "+gP
-map <C-s> :w<CR>
+if has('windows')
+  vnoremap <C-C> "+y
+  vnoremap <C-Insert> "+y
+  map <C-V> "+gP
+  map <S-Insert> "+gP
+  map <C-s> <Cmd>w<CR>
+endif
 "map <c-a> ggVG
 "****************************************
 ""mapping for edit vimrc{{{
-nnoremap <silent><leader>ev :vsplit ~/.vim/<cr>
-nnoremap <silent><leader>sv :vsplit ~/.vim/<cr>
+nnoremap <silent><leader>ev <Cmd>vsplit ~/.vim/<cr>
+nnoremap <silent><leader>sv <Cmd>vsplit ~/.vim/<cr>
 "}}}
 ""}
 "windows navigating{{{
@@ -103,8 +110,8 @@ noremap <silent><C-Tab> <Cmd>tabn<cr>
 noremap <silent><C-S-Tab> <Cmd>tabp<cr>
 tnoremap <silent><C-Tab> <Cmd>tabn<cr>
 tnoremap <silent><C-S-Tab> <Cmd>tabp<cr>
-inoremap <silent><C-Tab> <c-o>:tabn<cr>
-inoremap <silent><C-S-Tab> <c-o>:tabp<cr>
+inoremap <silent><C-Tab> <Cmd>tabn<cr>
+inoremap <silent><C-S-Tab> <Cmd>tabp<cr>
 nnoremap <D-1> 1gt
 nnoremap <D-2> 2gt
 nnoremap <D-3> 3gt
@@ -190,15 +197,19 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <F9> <Plug>(coc-rename)
 nmap <silent> <F10> <Plug>(coc-translator-p)
 vmap <silent> <F10> <Plug>(coc-translator-pv)
+xmap <silent> <F8>  <Cmd>CocAction<cr>
+nmap <silent> <F8>  <Cmd>CocAction<cr>
+nnoremap <silent> <D-CR> <Cmd>call CocActionAsync('pickColor')<cr>
+nnoremap <silent> <D-S-CR> <Cmd>call CocActionAsync('colorPresentation')<cr>
 
 
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K <Cmd>call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
 
@@ -213,19 +224,19 @@ omap ac <Plug>(coc-classobj-a)
 
 " temporarily fix https://github.com/macvim-dev/macvim/issues/925
 function! Interceptor()
-  let line0=getline (".")
-  let line=matchstr (line0, "http[^]\"\) ]*")
+  let line0 = getline(".")
+  let line = matchstr(line0, "http[^]\"\) ]*")
 
-  if line==""
-      let line=matchstr (line0, "ftp[^\"\) ]*")
+  if line == ""
+      let line = matchstr(line0, "ftp[^\"\) ]*")
   endif
 
-  if line==""
-      let line=matchstr (line0, "file[^\"\) ]*")
+  if line == ""
+      let line = matchstr(line0, "file[^\"\) ]*")
   endif
 
-  let line= escape (line, "#?&;|%")
+  let line = escape(line, "#?&;|%")
   exec ':silent !open ' . line
 endfunction
 
-nnoremap <silent> gx :call Interceptor()<CR>
+nnoremap <silent> gx <Cmd>call Interceptor()<CR>

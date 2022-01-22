@@ -33,6 +33,21 @@ options     head
 
   export default memo($1)
 
+snippet     extfc
+abbr        extended functional component
+alias       fc
+options     head
+  import { FC, HTMLProps } from 'react'
+  import classnames from 'classnames'
+
+  interface Props extends HTMLProps<HTMLDivElement> {
+    
+  }
+
+  export const ${1:#:NAME} : FC<Props> = ({className, ...rest}) => {
+    return ${2:<div className={classnames(className)\} {...rest\}>${3\}</div>}
+  }
+
 snippet     usecb
 abbr        useCallback
 options     head

@@ -113,11 +113,12 @@ function! s:TermRun(...) abort
 endfunction
 command! -nargs=* Run call s:TermRun(<f-args>)
 command! -nargs=* Tig call s:TermRun('tig', <f-args>)
-noremap T <Cmd>Tig<CR>
 
-let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf',
+let g:prism_colorschemes = ['atom', 'badwolf',
+      \ 'emacs',
+      \ 'nord', 'northland', 'rigel',
       \ 'gruvbox', 'SlateDark', 'blueprint',
-      \ 'Green',
+      \ 'Green', 'cyberpunk',
       \ 'Benokai', 'sierra', 'marklar',
       \ 'embark', 'tokyonight', 'maroloccio']
 
@@ -416,11 +417,9 @@ let g:precious_enable_switch_CursorMoved = {
 \   "help" : 0
 \}
 
-function! Tapi_ShellExecute(bufnum, args)
-  echomsg a:bufnum
-  echomsg a:args
-  execute a:args[0]
-endfunction
+if filereadable(expand("<sfile>:p/locals.vim"))
+  source ~/.vim/locals.vim
+endif
 
 " function! s:help()
 "     augroup my-help

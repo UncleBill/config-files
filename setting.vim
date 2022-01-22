@@ -128,7 +128,7 @@ set scrolljump=3
 set scrolloff=1
 "set list
 "set listchars=tab:›\ ,trail:???extends:#,nbsp:.
-set guifont=Menlo-Regular:h15
+set guifont=Menlo-Regular:h18
 " set guifont=HackNerdFontCompleteM-Regular:h15
 "let g:indent_guides_auto_colors = 0
 "
@@ -191,6 +191,7 @@ set autoread
 let g:ctrlp_custom_ignore = '\v[\/](node_modules)|(\.(swp|ico|git|svn))$'
 let g:ctrlp_cmd = 'exe "CtrlP".get(["", "Buffer", "MRU"], v:count)'
 let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+let g:ctrlp_max_files = 5000
 
 let g:user_emmet_settings = {
 \  'perl' : {
@@ -236,7 +237,6 @@ call tcomment#type#Define('less_inline',       g:tcomment#inline_fmt_c  )
 let g:ale_linters_explicit=1
 let g:ale_fix_on_save=1
 let g:ale_completion_autoimport=1
-if has("gui_macvim")
-  set transparency=10
-endif
-
+" if has("gui_macvim")
+"   set transparency=10
+" endif
