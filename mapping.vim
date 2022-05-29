@@ -197,8 +197,8 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <F9> <Plug>(coc-rename)
 nmap <silent> <F10> <Plug>(coc-translator-p)
 vmap <silent> <F10> <Plug>(coc-translator-pv)
-xmap <silent> <F8>  <Cmd>CocAction<cr>
-nmap <silent> <F8>  <Cmd>CocAction<cr>
+xmap <silent> <F8>  <Plug>(coc-codeaction)
+nmap <silent> <F8>  <Plug>(coc-codeaction)
 nnoremap <silent> <D-CR> <Cmd>call CocActionAsync('pickColor')<cr>
 nnoremap <silent> <D-S-CR> <Cmd>call CocActionAsync('colorPresentation')<cr>
 
