@@ -3,7 +3,9 @@
 " Plug 'vim-jp/vital.vim'
 " Plug 'vim-scripts/ingo-library'
 " Plug 'ynkdir/vim-vimlparser'
-Plug 'derekwyatt/vim-fswitch'
+" Plug 'derekwyatt/vim-fswitch'
+" Plug 'rlue/vim-barbaric'
+" let g:barbaric_ime = 'macos'
 " Plug 'vim-scripts/FuzzyFinder'
 "Plug 'rails.vim', { 'for': 'ruby' }
 Plug 'danro/rename.vim'
@@ -17,10 +19,12 @@ Plug 'vim-scripts/python_match.vim', {'for': 'python'}
 "Plug 'spf13/PIV'
 "Plug 'YankRing.vim'
 " non github repos
-"Plug 'git://git.wincent.com/command-t.git'
+" Plug 'git://git.wincent.com/command-t.git'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mattn/ctrlp-matchfuzzy'
 let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " let g:Lf_ShortcutF = '<C-P>'
 " let g:Lf_PreviewInPopup = 1

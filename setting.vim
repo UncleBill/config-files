@@ -71,6 +71,7 @@ set number
 set noerrorbells
 set visualbell
 set wildmenu
+set wildoptions=pum
 set noequalalways
 set re=1
 " set keywordprg=sdcv\ -n
@@ -106,8 +107,9 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set fileencoding=utf-8
 set termencoding=utf-8
 set synmaxcol=300
-set guioptions=acgit
+set guioptions=acgit!
 set laststatus=2
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 set lazyredraw
 "don't need show mode dude Powerline
 set noshowmode

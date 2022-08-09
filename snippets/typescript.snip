@@ -18,3 +18,12 @@ abbr        import styles
 alias       impstyles
 options     head
   import styles from './index.module.less'
+
+snippet     envapp
+abbr        env app
+options     head
+  if (process.env.architecture === 'app') {
+    ${1}
+  } else {
+
+  }

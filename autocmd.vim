@@ -35,6 +35,7 @@ au BufReadCmd *.rpk call zip#Browse(expand("<amatch>"))
 au BufReadCmd *.rpks call zip#Browse(expand("<amatch>"))
 au BufReadCmd *.srpk call zip#Browse(expand("<amatch>"))
 au BufReadCmd *.vsix call zip#Browse(expand("<amatch>"))
+autocmd BufEnter *.png,*.jpg,*gif,*.mp4,*.mp3,*.pdf exec "!open " .. expand("%") | :bw
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesOdd guibg=red ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndenGuidesEven guibg=green ctermbg=4
 "autocmd! BufEnter *.coffee map <F5> :CoffeeCompile<cr>

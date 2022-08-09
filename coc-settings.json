@@ -1,11 +1,19 @@
 {
-  "javascript.validate.enable": false,
+  "javascript.validate.enable": true,
   "typescript.suggest.autoImports": true,
+  "typescript.format.enabled": true,
   "javascript.suggest.autoImports": true,
-  "html.autoClosingTags": true,
   "coc.preferences.formatOnSaveFiletypes": ["*"],
   "prettier.disableSuccessMessage": true,
+  "prettier.eslintIntegration": false,
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnTypeFiletypes": ["*"],
-  "styled-components.tags": ["styled", "css", "sty", "createGlobalStyle"]
+  "styled-components.tags": ["styled", "css", "sty", "createGlobalStyle"],
+  "translator.engines": ["bing", "youdao", "haici"],
+  "explorer.openAction.strategy": "previousBuffer",
+  "explorer.contentWidthType": "win-width",
+  "explorer.file.child.template": "[indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1]",
+  "explorer.toggle": false,
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "colors.filetypes": ["*"]
 }

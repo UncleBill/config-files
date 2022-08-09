@@ -58,6 +58,11 @@ imap <M-,> <Esc><M-,>
 nmap <M-.> ^i.<Esc>$
 imap <M-.> <Esc><M-.>a
 
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+inoremap <C-f> <C-o>l
+inoremap <C-b> <C-o>h
+
 " 类似 sublimetext 的 <d-cr><d-s-cr>
 " 稍微不同的是 如果前或下一行是空行，不增加一行
 function! InsertLine (before) abort
@@ -163,16 +168,23 @@ function! CouldJump2End()
     endif
 endfunction
 
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 function! SmartTab()
   if neosnippet#expandable_or_jumpable()
     return "\<Plug>(neosnippet_expand_or_jump)" 
   elseif  &filetype =~ 'html\|css\|less\|sass\|scss' && emmet#isExpandable()
     return "\<C-y>,"
   elseif pumvisible()
+  " elseif coc#pum#visible()
+    " return coc#pum#next(1)
     return "\<c-n>"
   elseif CouldJump2End()
     return "\<C-o>$"
-  elseif <SID>check_back_space()
+  elseif CheckBackspace()
     return "\<TAB>"
   else
     return coc#refresh()
@@ -180,10 +192,26 @@ function! SmartTab()
   endif
 endfunction
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ CheckBackspace() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " inoremap <expr><C-l>     neocomplete#complete_common_string()
 " Recommended key-mappings.
