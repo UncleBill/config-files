@@ -70,11 +70,11 @@ let g:lightline = {
       \ }
 Plug 'mhinz/vim-startify'
 Plug 't9md/vim-choosewin'
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 " Plug 'jceb/vim-orgmode'
-Plug 'mattn/calendar-vim'
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'mattn/calendar-vim'
+" Plug 'scrooloose/nerdtree'
+" Plug 'jistr/vim-nerdtree-tabs'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'scrooloose/nerdcommenter'
 Plug 'tomtom/tcomment_vim'
@@ -92,15 +92,15 @@ Plug 'sjl/gundo.vim'
 " Plug 'vim-scripts/css3'
 " Plug 'ap/vim-css-color'  "Makes <c-w> unuse in Markdown
 " Plug 'csslint.vim'
-Plug 'vim-scripts/CSS-2.1-Specification', {'for': ['html', 'css']}
+" Plug 'vim-scripts/CSS-2.1-Specification', {'for': ['html', 'css']}
 Plug 'vim-scripts/vim-stylus', {'for': 'stylus'}
 Plug 'mattn/emmet-vim'
 " Plug 'mattn/livestyle-vim'
 Plug 'Shougo/vimproc', {'do': 'make'}
 Plug 'rbtnn/vimconsole.vim', {'for': 'vim'}
 Plug 'thinca/vim-quickrun'
-Plug 'thinca/vim-painter'
-Plug 'vim-scripts/DrawIt'
+" Plug 'thinca/vim-painter'
+" Plug 'vim-scripts/DrawIt'
 "Plug 'benmills/vimux'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
@@ -117,7 +117,7 @@ Plug 'tpope/vim-repeat'
 Plug 'git://github.com/pyflakes/pyflakes.git', {'for': 'python'}
 "Plug 'functionlist.vim'
 Plug 'vim-scripts/autohi'
-Plug 'uguu-org/vim-matrix-screensaver'
+" Plug 'uguu-org/vim-matrix-screensaver'
 " Plug 'koron/nyancat-vim'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
@@ -183,7 +183,7 @@ Plug 'junegunn/vim-easy-align'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 " Plug 'Shougo/neocomplcache'
 " Plug 'Shougo/neocomplete.vim'
 " Plug 'UncleBill/neco-git-commit'
@@ -234,7 +234,7 @@ Plug 'leafgarland/typescript-vim', {'for': ['typescript', 'typescript.jsx', 'typ
 Plug 'jxnblk/vim-mdx-js'
 Plug 'jparise/vim-graphql'
 Plug 'tasn/vim-tsx'
-Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'typescript', 'typescript.jsx', 'typescript.tsx']}
+Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'typescript', 'typescript.jsx', 'typescript.tsx', 'typescriptreact', 'javascriptreact']}
 " Plug 'marijnh/tern_for_vim'    " Intelligent javascript tooling
 Plug 'chemzqm/wxapp.vim'
 

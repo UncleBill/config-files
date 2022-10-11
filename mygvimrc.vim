@@ -1,9 +1,9 @@
-nnoremap <silent> <D-Left> :tabp<cr>
-nnoremap <silent> <D-Right> :tabn<cr>
-tnoremap <silent> <D-Left> <C-w>:tabp<cr>
-tnoremap <silent> <D-Right> <C-w>:tabn<cr>
-inoremap <silent> <D-Left> <C-o>:tabp<cr>
-inoremap <silent> <D-Right> <C-o>:tabn<cr>
-nnoremap <silent> ˙ :noh<cr>
+nnoremap <silent> <D-Left> <Cmd>tabp<cr>
+nnoremap <silent> <D-Right> <Cmd>tabn<cr>
+tnoremap <silent> <D-Left> <Cmd>tabp<cr>
+tnoremap <silent> <D-Right> <Cmd>tabn<cr>
+inoremap <silent> <D-Left> <Cmd>tabp<cr>
+inoremap <silent> <D-Right> <Cmd>tabn<cr>
+nnoremap <silent> ˙ <Cmd>noh<cr>
 macm Edit.Find.Find… key=<nop>
 macm Edit.Find.Use\ Selection\ for\ Find key=<nop>

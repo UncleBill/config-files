@@ -69,6 +69,7 @@ set ignorecase
 set relativenumber
 set number
 set noerrorbells
+" set nosplitscroll
 set visualbell
 set wildmenu
 set wildoptions=pum
@@ -107,7 +108,7 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set fileencoding=utf-8
 set termencoding=utf-8
 set synmaxcol=300
-set guioptions=acgit!
+set guioptions=acgit
 set laststatus=2
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 set lazyredraw

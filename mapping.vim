@@ -60,8 +60,8 @@ imap <M-.> <Esc><M-.>a
 
 inoremap <C-a> <C-o>^
 inoremap <C-e> <C-o>$
-inoremap <C-f> <C-o>l
-inoremap <C-b> <C-o>h
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
 
 " 类似 sublimetext 的 <d-cr><d-s-cr>
 " 稍微不同的是 如果前或下一行是空行，不增加一行
@@ -178,10 +178,10 @@ function! SmartTab()
     return "\<Plug>(neosnippet_expand_or_jump)" 
   elseif  &filetype =~ 'html\|css\|less\|sass\|scss' && emmet#isExpandable()
     return "\<C-y>,"
-  elseif pumvisible()
-  " elseif coc#pum#visible()
-    " return coc#pum#next(1)
-    return "\<c-n>"
+  " elseif pumvisible()
+  "   return "\<c-n>"
+  elseif coc#pum#visible()
+    return coc#pum#next(1)
   elseif CouldJump2End()
     return "\<C-o>$"
   elseif CheckBackspace()
@@ -211,7 +211,7 @@ endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+imap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " inoremap <expr><C-l>     neocomplete#complete_common_string()
 " Recommended key-mappings.
@@ -227,6 +227,7 @@ nmap <silent> <F10> <Plug>(coc-translator-p)
 vmap <silent> <F10> <Plug>(coc-translator-pv)
 xmap <silent> <F8>  <Plug>(coc-codeaction)
 nmap <silent> <F8>  <Plug>(coc-codeaction)
+xmap <silent> <Tab> <Plug>(coc-codeaction-selected)
 nnoremap <silent> <D-CR> <Cmd>call CocActionAsync('pickColor')<cr>
 nnoremap <silent> <D-S-CR> <Cmd>call CocActionAsync('colorPresentation')<cr>
 
